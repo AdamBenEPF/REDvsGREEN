@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ArmyManagerRed : ArmyManager
+public partial class ArmyManagerRed : ArmyManager
 {
 	[Header("Drones : focus fire")]
 	[Tooltip("Dégâts attendus d'une salve de drone : 2 missiles x 5 pts, moins les ratés")]
