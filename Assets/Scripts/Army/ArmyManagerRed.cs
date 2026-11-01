@@ -21,22 +21,33 @@ public class ArmyManagerRed : ArmyManager
 	[Tooltip("Bonus de priorité d'un drone vert à l'arrêt (PV équivalents)")]
 	[SerializeField] float m_ParkedBonus = 25f;
 
-	// Registre des engagements : quel drone rouge tire sur quelle unité verte
+	[Header("Tir à distance")]
+	[Tooltip("Pénalité d'une cible hors de portée ou masquée par un obstacle (PV équivalents)")]
+	[SerializeField] float m_OutOfRangePenalty = 30f;
+	[Tooltip("Bonus pour garder la cible de la salve précédente (évite de courir partout)")]
+	[SerializeField] float m_KeepTargetBonus = 20f;
+
+	// Quel drone rouge est engagé sur quelle unité verte (libéré après le tir)
 	readonly Dictionary<GameObject, ArmyElement> m_Assignments = new Dictionary<GameObject, ArmyElement>();
+	// Dernière cible de chaque drone rouge (conservée après le tir)
+	readonly Dictionary<GameObject, ArmyElement> m_LastTargets = new Dictionary<GameObject, ArmyElement>();
 
 	// ---------- Focus fire ----------
 
 	public Transform GetFocusTarget(GameObject requester)
 	{
-		CleanAssignments();
+		RemoveDeadEntries(m_Assignments);
+		RemoveDeadEntries(m_LastTargets);
 		m_Assignments.Remove(requester); // le demandeur ne compte pas dans les engagements en cours
+		m_LastTargets.TryGetValue(requester, out ArmyElement previous);
 
 		Vector3 from = requester.transform.position;
-		ArmyElement target = ChooseTarget(GetAllEnemiesOfType<Drone>(false), from);
-		if (target == null) target = ChooseTarget(GetAllEnemiesOfType<Turret>(false), from);
+		ArmyElement target = ChooseTarget(GetAllEnemiesOfType<Drone>(false), from, previous);
+		if (target == null) target = ChooseTarget(GetAllEnemiesOfType<Turret>(false), from, previous);
 		if (target == null) return null;
 
 		m_Assignments[requester] = target;
+		m_LastTargets[requester] = target;
 		return target.transform;
 	}
 
@@ -45,7 +56,7 @@ public class ArmyManagerRed : ArmyManager
 		m_Assignments.Remove(requester);
 	}
 
-	ArmyElement ChooseTarget<T>(List<T> enemies, Vector3 from) where T : ArmyElement
+	ArmyElement ChooseTarget<T>(List<T> enemies, Vector3 from, ArmyElement previous) where T : ArmyElement
 	{
 		ArmyElement best = null;
 		bool bestIsSaturated = true;
@@ -62,6 +73,8 @@ public class ArmyManagerRed : ArmyManager
 			float score = Mathf.Abs(remaining) + m_DistanceWeight * Vector3.Distance(from, enemy.transform.position);
 			if (IsThreateningOurTurrets(enemy)) score -= m_ThreatBonus;
 			if (IsParked(enemy)) score -= m_ParkedBonus;
+			if (!IsInFiringPosition(from, enemy)) score += m_OutOfRangePenalty;
+			if (enemy == previous) score -= m_KeepTargetBonus;
 
 			// Une cible qui a encore besoin de dégâts passe toujours avant une cible déjà couverte
 			bool isBetter = (bestIsSaturated && !saturated) || (saturated == bestIsSaturated && score < bestScore);
@@ -91,16 +104,22 @@ public class ArmyManagerRed : ArmyManager
 		return agent != null && agent.velocity.magnitude < m_ParkedSpeed;
 	}
 
+	bool IsInFiringPosition(Vector3 from, ArmyElement enemy)
+	{
+		return Vector3.Distance(from, enemy.transform.position) <= FiringSolution.DefaultFiringRange
+			&& FiringSolution.HasClearShot(from, enemy.transform);
+	}
+
 	float CommittedDamageOn(ArmyElement enemy)
 	{
 		int nDrones = m_Assignments.Values.Count(target => target == enemy);
 		return nDrones * m_ExpectedDamagePerDrone;
 	}
 
-	void CleanAssignments()
+	static void RemoveDeadEntries(Dictionary<GameObject, ArmyElement> dictionary)
 	{
-		var deadKeys = m_Assignments.Where(kv => kv.Key == null || kv.Value == null).Select(kv => kv.Key).ToList();
-		foreach (var key in deadKeys) m_Assignments.Remove(key);
+		var deadKeys = dictionary.Where(kv => kv.Key == null || kv.Value == null).Select(kv => kv.Key).ToList();
+		foreach (var key in deadKeys) dictionary.Remove(key);
 	}
 
 	// ---------- Statistiques (code d'origine du squelette) ----------
@@ -108,6 +127,7 @@ public class ArmyManagerRed : ArmyManager
 	public override void ArmyElementHasBeenKilled(GameObject go)
 	{
 		m_Assignments.Remove(go);
+		m_LastTargets.Remove(go);
 		base.ArmyElementHasBeenKilled(go);
 		if (m_ArmyElements.Count == 0)
 		{
