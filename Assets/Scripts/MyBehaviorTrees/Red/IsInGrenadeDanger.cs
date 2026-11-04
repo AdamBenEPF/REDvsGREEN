@@ -18,6 +18,6 @@ public class IsInGrenadeDanger : Conditional
 	{
 		ArmyManagerRed manager = m_ArmyElement.ArmyManager as ArmyManagerRed;
 		if (manager == null) return TaskStatus.Failure;
-		return manager.IsInGrenadeDanger(transform.position, margin.Value) ? TaskStatus.Success : TaskStatus.Failure;
+		return manager.CanEvade(gameObject) && manager.IsInGrenadeDanger(transform.position, margin.Value) ? TaskStatus.Success : TaskStatus.Failure;
 	}
 }

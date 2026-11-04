@@ -59,7 +59,7 @@ public partial class ArmyManagerRed
 
 				Vector3 slot = hit.position;
 				if (pass == 0 && IsTooCloseToOtherDrones(requester, slot, spacing)) continue;
-				if (IsInGrenadeDanger(slot, m_DangerMargin)) continue;
+				if (CanEvade(requester) && IsInGrenadeDanger(slot, m_DangerMargin)) continue;
 				if (!FiringSolution.CanHit(slot + Vector3.up, target)) continue;
 
 				m_FiringSlots[requester] = slot;
