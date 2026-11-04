@@ -4,7 +4,7 @@ using BehaviorDesigner.Runtime.Tasks;
 using Tooltip = BehaviorDesigner.Runtime.Tasks.TooltipAttribute;
 
 [TaskCategory("MyTasks/Red")]
-[TaskDescription("Oriente le drone vers la position future de la cible (tir anticipé)")]
+[TaskDescription("Oriente le drone pour que ses missiles atteignent la position future de la cible (tir anticipé, compensation du relief)")]
 public class AimAtPredictedPosition : Action
 {
 	public SharedTransform target;
@@ -15,11 +15,18 @@ public class AimAtPredictedPosition : Action
 	[Tooltip("Abandon de la visée au-delà de cette durée (s)")]
 	public SharedFloat timeout = 1.5f;
 
+	const float AimRefreshPeriod = 0.1f; // recalcul du cap (s)
+	const float AlignedAngle = 0.5f;     // écart de cap toléré (°)
+
 	float m_Elapsed;
+	float m_RefreshTimer;
+	float m_AimYaw;
+	float m_WantedYaw;
 
 	public override void OnStart()
 	{
 		m_Elapsed = 0f;
+		m_RefreshTimer = 0f;
 	}
 
 	public override TaskStatus OnUpdate()
@@ -27,15 +34,31 @@ public class AimAtPredictedPosition : Action
 		if (target.Value == null) return TaskStatus.Failure;
 		m_Elapsed += Time.deltaTime;
 
-		Vector3 aimPoint = FiringSolution.PredictAimPoint(transform.position, target.Value);
-		Vector3 direction = Vector3.ProjectOnPlane(aimPoint - transform.position, Vector3.up);
-		if (direction.sqrMagnitude < 0.0001f) return TaskStatus.Success;
+		m_RefreshTimer -= Time.deltaTime;
+		if (m_RefreshTimer <= 0f)
+		{
+			RefreshAim();
+			m_RefreshTimer = AimRefreshPeriod;
+		}
 
-		Quaternion wanted = Quaternion.LookRotation(direction.normalized);
-		transform.rotation = Quaternion.Slerp(transform.rotation, wanted, Time.deltaTime * slerpCoef.Value);
+		if (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.y, m_AimYaw)) < AlignedAngle) return TaskStatus.Success;
 
-		if (Quaternion.Angle(transform.rotation, wanted) < arrivalAngle.Value) return TaskStatus.Success;
+		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, m_WantedYaw, 0f), Time.deltaTime * slerpCoef.Value);
+		if (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.y, m_WantedYaw)) < arrivalAngle.Value) return TaskStatus.Success;
+
 		return m_Elapsed > timeout.Value ? TaskStatus.Failure : TaskStatus.Running;
+	}
+
+	void RefreshAim()
+	{
+		Vector3 aimPoint = FiringSolution.PredictAimPoint(transform.position, target.Value);
+		m_AimYaw = FiringSolution.ComputeAimYaw(transform.position, aimPoint, FiringSolution.GetTargetRadius(target.Value), out _);
+
+		// La rotation s'arrête dès qu'on est à moins de 5° (Annexe A) du cap demandé, soit jusqu'à 5° d'erreur.
+		// On demande donc un cap décalé de 4,5° au-delà de la cible, dans le sens de rotation :
+		// le drone s'arrête à 0,5° près du bon cap.
+		float delta = Mathf.DeltaAngle(transform.eulerAngles.y, m_AimYaw);
+		m_WantedYaw = m_AimYaw + Mathf.Sign(delta) * (arrivalAngle.Value - AlignedAngle);
 	}
 
 	public override void OnReset()

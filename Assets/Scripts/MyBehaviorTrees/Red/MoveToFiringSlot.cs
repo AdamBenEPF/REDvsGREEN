@@ -4,7 +4,7 @@ using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 
 [TaskCategory("MyTasks/Red")]
-[TaskDescription("Rejoint la position de tir attribuée par l'état-major ; si elle est inatteignable ou masquée, fonce vers la cible jusqu'à pouvoir tirer")]
+[TaskDescription("Rejoint la position de tir attribuée par l'état-major ; si elle est inatteignable ou si le tir n'y passe pas, fonce vers la cible jusqu'à pouvoir tirer")]
 public class MoveToFiringSlot : Action
 {
 	public SharedTransform target;
@@ -17,6 +17,7 @@ public class MoveToFiringSlot : Action
 	const float StuckSpeed = 0.5f;      // en dessous, le drone est considéré à l'arrêt (m/s)
 	const float StuckDelay = 0.5f;      // durée à l'arrêt avant de se considérer bloqué (s)
 	const float RepathPeriod = 0.25f;   // fréquence de mise à jour de la poursuite (s)
+	const float ShotCheckPeriod = 0.2f; // la simulation de tir est coûteuse : on ne la refait pas à chaque image (s)
 
 	NavMeshAgent m_Agent;
 	IArmyElement m_ArmyElement;
@@ -26,6 +27,8 @@ public class MoveToFiringSlot : Action
 	float m_Elapsed;
 	float m_StuckTime;
 	float m_RepathTimer;
+	float m_ShotCheckTimer;
+	bool m_CanShootCached;
 	bool m_Chasing;
 
 	public override void OnAwake()
@@ -41,6 +44,7 @@ public class MoveToFiringSlot : Action
 		m_Elapsed = 0f;
 		m_StuckTime = 0f;
 		m_RepathTimer = 0f;
+		m_ShotCheckTimer = 0f;
 		m_Chasing = false;
 		m_Manager = m_ArmyElement.ArmyManager as ArmyManagerRed;
 		if (m_Manager != null && target.Value != null) ComputeSlot();
@@ -83,15 +87,20 @@ public class MoveToFiringSlot : Action
 		if (HasReachedOrIsStuck())
 		{
 			if (canShoot) return TaskStatus.Success;
-			m_Chasing = true; // position inatteignable ou masquée : on fonce vers la cible
+			m_Chasing = true; // position inatteignable ou tir impossible d'ici : on fonce vers la cible
 		}
 		return TaskStatus.Running;
 	}
 
 	bool CanShoot()
 	{
+		m_ShotCheckTimer -= Time.deltaTime;
+		if (m_ShotCheckTimer > 0f) return m_CanShootCached;
+		m_ShotCheckTimer = ShotCheckPeriod;
+
 		float distance = Vector3.Distance(transform.position, target.Value.position);
-		return distance <= firingRange.Value && FiringSolution.HasClearShot(transform.position, target.Value);
+		m_CanShootCached = distance <= firingRange.Value && FiringSolution.CanHit(transform.position, target.Value);
+		return m_CanShootCached;
 	}
 
 	bool HasReachedOrIsStuck()
