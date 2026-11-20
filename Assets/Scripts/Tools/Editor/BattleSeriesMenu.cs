@@ -25,9 +25,9 @@ namespace RedVsGreen.EditorTools
 		static readonly string[] Variants =
 		{
 			"controle:m_EvadeMode=HuntersOnly",
-			"repositionnement:m_EvadeMode=HuntersOnly,m_RepositionWhenExposed=true",
-			"contre-batterie:m_EvadeMode=HuntersOnly,m_TurretPriority=GreenTurrets",
-			"assaut-10:m_EvadeMode=HuntersOnly,m_HunterCount=3",
+			"tourelles-sur-6:m_EvadeMode=HuntersOnly,m_TurretPriorityTargets=TurretGreen (6)",
+			"ordre-nord-sud:m_EvadeMode=HuntersOnly,m_AssaultOrder=TurretGreen (1);TurretGreen (5);TurretGreen (4);TurretGreen (3);TurretGreen (8);TurretGreen (6);TurretGreen (7);TurretGreen (0);TurretGreen (2)",
+			"chasseurs-9:m_EvadeMode=HuntersOnly,m_HunterCount=9",
 		};
 
 		[MenuItem("RedVsGreen/Série comparative (10 batailles par variante, vitesse x3)", priority = 10)]
