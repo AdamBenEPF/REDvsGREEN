@@ -21,6 +21,18 @@ namespace RedVsGreen.EditorTools
 		[MenuItem("RedVsGreen/Série de 20 batailles (vitesse normale)", priority = 3)]
 		static void Run20x1() => StartSeries(20, 1f);
 
+		// Variantes comparées par la série comparative : "nom:champ=valeur,champ=valeur" (champs de ArmyManagerRed)
+		static readonly string[] Variants =
+		{
+			"controle:m_EvadeMode=HuntersOnly",
+			"repositionnement:m_EvadeMode=HuntersOnly,m_RepositionWhenExposed=true",
+			"contre-batterie:m_EvadeMode=HuntersOnly,m_TurretPriority=GreenTurrets",
+			"assaut-10:m_EvadeMode=HuntersOnly,m_HunterCount=3",
+		};
+
+		[MenuItem("RedVsGreen/Série comparative (10 batailles par variante, vitesse x3)", priority = 10)]
+		static void RunVariants() => StartSeries(10, 3f, string.Join("|", Variants));
+
 		[MenuItem("RedVsGreen/Arrêter la série", priority = 20)]
 		static void Stop()
 		{
@@ -28,7 +40,7 @@ namespace RedVsGreen.EditorTools
 			if (EditorApplication.isPlaying) EditorApplication.isPlaying = false;
 		}
 
-		static void StartSeries(int battles, float timeScale)
+		static void StartSeries(int battles, float timeScale, string variants = "")
 		{
 			if (EditorApplication.isPlaying) { Debug.LogWarning("Arrête d'abord le mode Play."); return; }
 			if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
@@ -37,7 +49,8 @@ namespace RedVsGreen.EditorTools
 			SessionState.SetBool(BattleSeriesKeys.Active, true);
 			SessionState.SetInt(BattleSeriesKeys.Battles, battles);
 			SessionState.SetFloat(BattleSeriesKeys.TimeScale, timeScale);
-			SessionState.SetString(BattleSeriesKeys.Label, GitLabel());
+			SessionState.SetString(BattleSeriesKeys.Label, GitLabel() + (variants.Length > 0 ? "_variantes" : ""));
+			SessionState.SetString(BattleSeriesKeys.Variants, variants);
 			EditorApplication.isPlaying = true;
 		}
 
