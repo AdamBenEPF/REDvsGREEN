@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEngine.AI;
 
 // État-major rouge
-//  - 10 drones d'assaut : tous sur la même tourelle verte (la plus proche du groupe), puis la suivante, une à une.
-//    Plus de tourelle verte : focus fire sur les drones verts restants.
-//  - 3 drones gardes, en retrait devant nos tourelles : ils abattent les drones verts qui s'en approchent.
-//    Un garde garde sa cible jusqu'à ce qu'elle meure.
+//  - 6 drones d'assaut en 2 escouades de 3, chacune sur une tourelle verte jusqu'à sa destruction :
+//      escouade A dans l'ordre TurretGreen (1) à (8) puis (0), escouade B dans l'ordre inverse.
+//  - 7 drones chasseurs : ils attaquent les drones verts. Chaque chasseur garde sa cible jusqu'à ce qu'elle meure.
+//  - Quand un groupe n'a plus de cible (plus de tourelle ou plus de drone vert), il rejoint l'autre tâche.
 //  - Nos tourelles : le plus gros groupe de drones verts à portée (rayon de 4 m), sinon la tourelle verte la plus proche.
 public partial class ArmyManagerRed : ArmyManager
 {
-	enum DroneRole { Assault, Guard }
+	enum DroneRole { SquadA, SquadB, Hunter }
 
 	class TurretAim
 	{
@@ -20,28 +20,16 @@ public partial class ArmyManagerRed : ArmyManager
 	}
 
 	[Header("Rôles des drones")]
-	[Tooltip("Nombre de drones gardes (les plus proches de nos tourelles au début)")]
-	[SerializeField] int m_GuardCount = 3;
+	[Tooltip("Nombre de drones chasseurs, sur les drones verts (les autres forment les 2 escouades d'assaut)")]
+	[SerializeField] int m_HunterCount = 7;
+	[Tooltip("Ordre d'attaque des tourelles vertes par l'escouade A (noms dans la Hierarchy). L'escouade B le suit à l'envers")]
+	[SerializeField] string[] m_AssaultOrder = { "TurretGreen (1)", "TurretGreen (2)", "TurretGreen (3)", "TurretGreen (4)", "TurretGreen (5)", "TurretGreen (6)", "TurretGreen (7)", "TurretGreen (8)", "TurretGreen (0)" };
 
-	[Header("Gardes")]
-	[Tooltip("Un drone vert à moins de cette distance d'une de nos tourelles est une cible pour les gardes (m)")]
-	[SerializeField] float m_ThreatRadius = 15f;
-	[Tooltip("Distance du poste de garde devant nos tourelles, côté ennemi (m)")]
-	[SerializeField] float m_GuardPostDistance = 8f;
-	[Tooltip("Écart latéral entre deux gardes (m)")]
-	[SerializeField] float m_GuardSpacing = 8f;
-	[Tooltip("Distance minimale entre un poste de garde et nos tourelles, que l'artillerie verte bombarde (m)")]
-	[SerializeField] float m_GuardTurretClearance = 8f;
-
-	[Header("Focus fire sur les drones verts (phase finale)")]
+	[Header("Chasseurs")]
 	[Tooltip("Dégâts attendus d'une salve de drone : 2 missiles x 5 pts, moins les ratés")]
 	[SerializeField] float m_ExpectedDamagePerDrone = 7f;
 	[Tooltip("Poids de la distance dans le choix de la cible (PV équivalents par mètre)")]
 	[SerializeField] float m_DistanceWeight = 1f;
-	[Tooltip("Pénalité d'une cible hors de portée ou masquée par un obstacle (PV équivalents)")]
-	[SerializeField] float m_OutOfRangePenalty = 30f;
-	[Tooltip("Bonus pour garder la cible de la salve précédente (PV équivalents)")]
-	[SerializeField] float m_KeepTargetBonus = 20f;
 	[Tooltip("En dessous de cette vitesse (m/s), une unité verte est considérée immobile")]
 	[SerializeField] float m_ParkedSpeed = 1f;
 	[Tooltip("Bonus de priorité d'un drone vert immobile, plus facile à toucher (PV équivalents)")]
@@ -54,17 +42,12 @@ public partial class ArmyManagerRed : ArmyManager
 	[SerializeField] float m_ClusterRadius = 4f;
 
 	readonly Dictionary<GameObject, DroneRole> m_Roles = new Dictionary<GameObject, DroneRole>();
-	readonly Dictionary<GameObject, int> m_GuardIndex = new Dictionary<GameObject, int>();
-	// Gardes : cible verrouillée jusqu'à sa mort
-	readonly Dictionary<GameObject, ArmyElement> m_GuardLocks = new Dictionary<GameObject, ArmyElement>();
-	// Quel drone rouge est engagé sur quelle unité verte (libéré après le tir)
-	readonly Dictionary<GameObject, ArmyElement> m_Assignments = new Dictionary<GameObject, ArmyElement>();
-	// Dernière cible de chaque drone rouge (conservée après le tir)
-	readonly Dictionary<GameObject, ArmyElement> m_LastTargets = new Dictionary<GameObject, ArmyElement>();
+	// Chasseurs : cible verrouillée jusqu'à sa mort
+	readonly Dictionary<GameObject, ArmyElement> m_DroneLocks = new Dictionary<GameObject, ArmyElement>();
 	// Tourelles : point visé par chacune de nos tourelles
 	readonly Dictionary<GameObject, TurretAim> m_TurretAims = new Dictionary<GameObject, TurretAim>();
-	// Assaut : tourelle verte attaquée en ce moment par tout le groupe
-	Turret m_AssaultTarget;
+	// Assaut : tourelle verte attaquée en ce moment par chaque escouade, verrouillée jusqu'à sa mort
+	readonly Dictionary<DroneRole, Turret> m_SquadTargets = new Dictionary<DroneRole, Turret>();
 
 	void Update()
 	{
@@ -79,7 +62,9 @@ public partial class ArmyManagerRed : ArmyManager
 	{
 		if (m_Roles.Count > 0) return;
 
-		List<Turret> ourTurrets = OurTurrets();
+		// Les chasseurs sont les drones les plus proches de nos tourelles au départ ;
+		// les autres partent à l'assaut, répartis en alternance entre les escouades A et B
+		List<Turret> ourTurrets = m_ArmyElements.OfType<Turret>().Where(t => t != null).ToList();
 		Vector3 center = ourTurrets.Count > 0 ? Centroid(ourTurrets.Select(t => t.transform.position)) : Vector3.zero;
 		List<Drone> drones = m_ArmyElements.OfType<Drone>()
 			.Where(d => d != null)
@@ -88,22 +73,25 @@ public partial class ArmyManagerRed : ArmyManager
 
 		for (int i = 0; i < drones.Count; i++)
 		{
-			bool isGuard = i < m_GuardCount;
-			m_Roles[drones[i].gameObject] = isGuard ? DroneRole.Guard : DroneRole.Assault;
-			if (isGuard) m_GuardIndex[drones[i].gameObject] = i;
+			if (i < m_HunterCount) m_Roles[drones[i].gameObject] = DroneRole.Hunter;
+			else m_Roles[drones[i].gameObject] = (i - m_HunterCount) % 2 == 0 ? DroneRole.SquadA : DroneRole.SquadB;
 		}
 	}
 
-	// Un garde n'a plus de raison d'être quand toutes nos tourelles sont détruites : il passe à l'assaut
-	bool IsActingAsGuard(GameObject drone)
+	DroneRole RoleOf(GameObject drone)
 	{
-		return m_Roles.TryGetValue(drone, out DroneRole role) && role == DroneRole.Guard && OurTurrets().Count > 0;
+		return m_Roles.TryGetValue(drone, out DroneRole role) ? role : DroneRole.SquadA;
 	}
 
-	// Seuls les gardes esquivent les grenades : les drones d'assaut restent collés à leur tourelle, dans son angle mort
+	bool IsHunter(GameObject drone)
+	{
+		return RoleOf(drone) == DroneRole.Hunter;
+	}
+
+	// Seuls les chasseurs esquivent les grenades : les drones d'assaut restent collés à leur tourelle, dans son angle mort
 	public bool CanEvade(GameObject drone)
 	{
-		return IsActingAsGuard(drone);
+		return IsHunter(drone);
 	}
 
 	// =====================================================================
@@ -113,54 +101,68 @@ public partial class ArmyManagerRed : ArmyManager
 	public Transform GetFocusTarget(GameObject requester)
 	{
 		AssignRolesIfNeeded();
-		RemoveDeadEntries(m_Assignments);
-		RemoveDeadEntries(m_LastTargets);
-		m_Assignments.Remove(requester); // le demandeur ne compte pas dans les engagements en cours
-		m_LastTargets.TryGetValue(requester, out ArmyElement previous);
 
 		ArmyElement target;
-		if (IsActingAsGuard(requester))
+		DroneRole role = RoleOf(requester);
+		if (role == DroneRole.Hunter)
 		{
-			target = GetGuardTarget(requester);
+			target = GetHunterTarget(requester);
+			if (target == null) target = GetSquadTurret(DroneRole.SquadA); // plus de drone vert : renfort de l'escouade A
 		}
 		else
 		{
-			target = GetAssaultTurret();
-			if (target == null) target = ChooseFocusTarget(GetAllEnemiesOfType<Drone>(false), requester.transform.position, previous);
+			target = GetSquadTurret(role);
+			if (target == null) target = GetHunterTarget(requester); // plus de tourelle verte : chasse aux drones
 		}
-
-		if (target == null) return null; // garde sans cible : il rejoint son poste
-		m_Assignments[requester] = target;
-		m_LastTargets[requester] = target;
-		return target.transform;
+		return target != null ? target.transform : null;
 	}
 
+	// Les cibles sont verrouillées jusqu'à leur mort : rien à libérer après le tir
 	public void ReleaseFocusTarget(GameObject requester)
 	{
-		m_Assignments.Remove(requester);
 	}
 
-	// Tout le groupe d'assaut sur la même tourelle ; quand elle tombe, la plus proche du groupe
-	Turret GetAssaultTurret()
+	// Pas de poste de garde dans cette stratégie : un drone sans cible reste où il est
+	public Vector3 GetGuardPost(GameObject requester)
 	{
-		if (m_AssaultTarget != null && m_AssaultTarget.Health > 0) return m_AssaultTarget;
+		return requester.transform.position;
+	}
+
+	// Chaque escouade reste sur sa tourelle jusqu'à sa destruction, puis prend la suivante dans son ordre :
+	// l'escouade A suit m_AssaultOrder, l'escouade B le suit à l'envers.
+	// Une tourelle absente de la liste n'est attaquée qu'à la fin (la plus proche de l'escouade d'abord)
+	Turret GetSquadTurret(DroneRole squad)
+	{
+		if (m_SquadTargets.TryGetValue(squad, out Turret current) && current != null && current.Health > 0) return current;
 
 		List<Turret> enemyTurrets = GetAllEnemiesOfType<Turret>(false).Where(t => t.Health > 0).ToList();
 		if (enemyTurrets.Count == 0)
 		{
-			m_AssaultTarget = null;
+			m_SquadTargets.Remove(squad);
 			return null;
 		}
 
-		Vector3 groupCenter = AssaultGroupCenter();
-		m_AssaultTarget = enemyTurrets.OrderBy(t => Vector3.Distance(t.transform.position, groupCenter)).First();
-		return m_AssaultTarget;
+		IEnumerable<string> order = squad == DroneRole.SquadB ? m_AssaultOrder.Reverse() : m_AssaultOrder;
+		foreach (string turretName in order)
+		{
+			Turret next = enemyTurrets.FirstOrDefault(t => t.name == turretName);
+			if (next != null)
+			{
+				m_SquadTargets[squad] = next;
+				return next;
+			}
+		}
+
+		Vector3 squadCenter = SquadCenter(squad);
+		Turret nearest = enemyTurrets.OrderBy(t => Vector3.Distance(t.transform.position, squadCenter)).First();
+		m_SquadTargets[squad] = nearest;
+		return nearest;
 	}
 
-	Vector3 AssaultGroupCenter()
+	Vector3 SquadCenter(DroneRole squad)
 	{
 		List<Vector3> positions = m_Roles
-			.Where(kv => kv.Key != null && kv.Value == DroneRole.Assault)
+			.Where(kv => kv.Key != null && kv.Value == squad)
 			.Select(kv => kv.Key.transform.position)
 			.ToList();
 		if (positions.Count == 0)
@@ -168,74 +170,30 @@ public partial class ArmyManagerRed : ArmyManager
 		return Centroid(positions);
 	}
 
-	// Un garde garde sa cible jusqu'à sa mort ; sinon, le drone vert menaçant nos tourelles le plus proche de lui
-	ArmyElement GetGuardTarget(GameObject guard)
+	// Un chasseur garde sa cible jusqu'à sa mort. Sinon, nouvelle cible :
+	// d'abord un drone vert que les autres chasseurs n'ont pas encore de quoi tuer (focus fire),
+	// en privilégiant le plus proche, le plus entamé et les drones immobiles (plus faciles à toucher)
+	ArmyElement GetHunterTarget(GameObject hunter)
 	{
-		if (m_GuardLocks.TryGetValue(guard, out ArmyElement locked) && locked != null && locked.Health > 0) return locked;
-		m_GuardLocks.Remove(guard);
+		if (m_DroneLocks.TryGetValue(hunter, out ArmyElement locked) && locked != null && locked.Health > 0) return locked;
+		m_DroneLocks.Remove(hunter);
 
-		Drone best = null;
-		float bestDistance = float.MaxValue;
-		foreach (Drone drone in GetAllEnemiesOfType<Drone>(false))
-		{
-			if (drone.Health <= 0 || !IsThreateningOurTurrets(drone)) continue;
-			float distance = Vector3.Distance(guard.transform.position, drone.transform.position);
-			if (distance < bestDistance)
-			{
-				bestDistance = distance;
-				best = drone;
-			}
-		}
-
-		if (best != null) m_GuardLocks[guard] = best;
-		return best;
-	}
-
-	public Vector3 GetGuardPost(GameObject requester)
-	{
-		AssignRolesIfNeeded();
-		if (!IsActingAsGuard(requester) || !m_GuardIndex.TryGetValue(requester, out int index))
-			return requester.transform.position;
-
-		List<Turret> ourTurrets = OurTurrets();
-		Vector3 ourCenter = Centroid(ourTurrets.Select(t => t.transform.position));
-		List<ArmyElement> enemies = GetAllEnemiesOfType<ArmyElement>(false);
-		Vector3 enemyCenter = enemies.Count > 0 ? Centroid(enemies.Select(e => e.transform.position)) : ourCenter + Vector3.left;
-
-		Vector3 forward = Vector3.ProjectOnPlane(enemyCenter - ourCenter, Vector3.up).normalized;
-		if (forward.sqrMagnitude < 0.01f) forward = Vector3.left;
-		Vector3 right = Vector3.Cross(Vector3.up, forward);
-		float lateral = (index - (m_GuardCount - 1) * 0.5f) * m_GuardSpacing;
-		Vector3 post = ourCenter + forward * m_GuardPostDistance + right * lateral;
-
-		// Pas trop près de nos tourelles : l'artillerie verte les bombarde
-		for (int i = 0; i < 10 && ourTurrets.Any(t => HorizontalDistance(t.transform.position, post) < m_GuardTurretClearance); i++)
-			post += forward * 2f;
-
-		Vector3 onTerrain = post, normal = Vector3.zero;
-		if (TerrainManager.Instance.GetVerticallyAlignedPositionOnTerrain(post, ref onTerrain, ref normal)) post = onTerrain;
-		if (NavMesh.SamplePosition(post, out NavMeshHit hit, 5f, NavMesh.AllAreas)) post = hit.position;
-		return post;
-	}
-
-	ArmyElement ChooseFocusTarget<T>(List<T> enemies, Vector3 from, ArmyElement previous) where T : ArmyElement
-	{
+		Vector3 from = hunter.transform.position;
 		ArmyElement best = null;
 		bool bestIsSaturated = true;
 		float bestScore = float.MaxValue;
 
-		foreach (T enemy in enemies)
+		foreach (Drone enemy in GetAllEnemiesOfType<Drone>(false))
 		{
 			if (enemy.Health <= 0) continue; // déjà en train de mourir
 
-			float remaining = enemy.Health - CommittedMissileDamageOn(enemy);
+			int lockedHunters = m_DroneLocks.Values.Count(target => target == enemy);
+			float remaining = enemy.Health - lockedHunters * m_ExpectedDamagePerDrone;
 			bool saturated = remaining <= 0;
 
 			// Plus le score est bas, plus la cible est prioritaire
 			float score = Mathf.Abs(remaining) + m_DistanceWeight * Vector3.Distance(from, enemy.transform.position);
 			if (IsStationary(enemy)) score -= m_ParkedBonus;
-			if (!IsInFiringPosition(from, enemy)) score += m_OutOfRangePenalty;
-			if (enemy == previous) score -= m_KeepTargetBonus;
 
 			// Une cible qui a encore besoin de dégâts passe toujours avant une cible déjà couverte
 			bool isBetter = (bestIsSaturated && !saturated) || (saturated == bestIsSaturated && score < bestScore);
@@ -246,19 +204,9 @@ public partial class ArmyManagerRed : ArmyManager
 				bestScore = score;
 			}
 		}
+
+		if (best != null) m_DroneLocks[hunter] = best;
 		return best;
-	}
-
-	float CommittedMissileDamageOn(ArmyElement enemy)
-	{
-		int nDrones = m_Assignments.Values.Count(target => target == enemy);
-		return nDrones * m_ExpectedDamagePerDrone;
-	}
-
-	bool IsInFiringPosition(Vector3 from, ArmyElement enemy)
-	{
-		return Vector3.Distance(from, enemy.transform.position) <= FiringSolution.DefaultFiringRange
-			&& FiringSolution.HasClearShot(from, enemy.transform);
 	}
 
 	// =====================================================================
@@ -332,18 +280,6 @@ public partial class ArmyManagerRed : ArmyManager
 	// OUTILS COMMUNS
 	// =====================================================================
 
-	List<Turret> OurTurrets()
-	{
-		return m_ArmyElements.OfType<Turret>().Where(t => t != null).ToList();
-	}
-
-	bool IsThreateningOurTurrets(ArmyElement enemy)
-	{
-		foreach (Turret turret in OurTurrets())
-			if (Vector3.Distance(turret.transform.position, enemy.transform.position) < m_ThreatRadius) return true;
-		return false;
-	}
-
 	// Une tourelle n'a pas de NavMeshAgent : elle est toujours immobile
 	bool IsStationary(ArmyElement element)
 	{
@@ -369,21 +305,13 @@ public partial class ArmyManagerRed : ArmyManager
 		return count > 0 ? sum / count : Vector3.zero;
 	}
 
-	static void RemoveDeadEntries(Dictionary<GameObject, ArmyElement> dictionary)
-	{
-		var deadKeys = dictionary.Where(kv => kv.Key == null || kv.Value == null).Select(kv => kv.Key).ToList();
-		foreach (var key in deadKeys) dictionary.Remove(key);
-	}
-
 	// =====================================================================
 	// STATISTIQUES (code d'origine du squelette)
 	// =====================================================================
 
 	public override void ArmyElementHasBeenKilled(GameObject go)
 	{
-		m_Assignments.Remove(go);
-		m_LastTargets.Remove(go);
-		m_GuardLocks.Remove(go);
+		m_DroneLocks.Remove(go);
 		base.ArmyElementHasBeenKilled(go);
 		if (m_ArmyElements.Count == 0)
 		{

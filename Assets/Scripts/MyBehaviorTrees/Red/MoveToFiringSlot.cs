@@ -4,32 +4,26 @@ using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 
 [TaskCategory("MyTasks/Red")]
-[TaskDescription("Rejoint la position de tir attribuée par l'état-major ; si elle est inatteignable ou si le tir n'y passe pas, fonce vers la cible jusqu'à pouvoir tirer")]
+[TaskDescription("Fonce vers la cible et s'arrête dès qu'il est assez près pour tirer (3 m d'une tourelle, 14 m d'un drone)")]
 public class MoveToFiringSlot : Action
 {
 	public SharedTransform target;
-	public SharedFloat firingRange = FiringSolution.DefaultFiringRange; // (m)
+	public SharedFloat firingRange = FiringSolution.DefaultFiringRange; // distance de tir maximale (m)
 	public SharedFloat speed = 10f;         // Annexe A (m/s)
 	public SharedFloat angularSpeed = 180f; // Annexe A (°/s)
 	public SharedFloat timeout = 6f;        // abandon au-delà (s)
 
-	const float RetargetDistance = 5f;  // la cible a bougé de plus de 5 m : nouvelle position (m)
-	const float StuckSpeed = 0.5f;      // en dessous, le drone est considéré à l'arrêt (m/s)
-	const float StuckDelay = 0.5f;      // durée à l'arrêt avant de se considérer bloqué (s)
-	const float RepathPeriod = 0.25f;   // fréquence de mise à jour de la poursuite (s)
-	const float ShotCheckPeriod = 0.2f; // la simulation de tir est coûteuse : on ne la refait pas à chaque image (s)
+	const float RepathPeriod = 0.25f;  // la cible peut bouger : on met à jour la destination (s)
+	const float StuckSpeed = 0.5f;     // en dessous, le drone est considéré à l'arrêt (m/s)
+	const float StuckDelay = 0.5f;     // durée à l'arrêt avant de se considérer bloqué (s)
+	const float StuckTolerance = 3f;   // bloqué à moins de 3 m de la distance voulue : on tire quand même (m)
 
 	NavMeshAgent m_Agent;
 	IArmyElement m_ArmyElement;
 	ArmyManagerRed m_Manager;
-	Vector3 m_Slot;
-	Vector3 m_TargetPosAtSlot;
 	float m_Elapsed;
 	float m_StuckTime;
 	float m_RepathTimer;
-	float m_ShotCheckTimer;
-	bool m_CanShootCached;
-	bool m_Chasing;
 
 	public override void OnAwake()
 	{
@@ -44,18 +38,7 @@ public class MoveToFiringSlot : Action
 		m_Elapsed = 0f;
 		m_StuckTime = 0f;
 		m_RepathTimer = 0f;
-		m_ShotCheckTimer = 0f;
-		m_Chasing = false;
 		m_Manager = m_ArmyElement.ArmyManager as ArmyManagerRed;
-		if (m_Manager != null && target.Value != null) ComputeSlot();
-	}
-
-	void ComputeSlot()
-	{
-		m_Slot = m_Manager.GetFiringPosition(gameObject, target.Value);
-		m_TargetPosAtSlot = target.Value.position;
-		m_Agent.isStopped = false;
-		m_Agent.SetDestination(m_Slot);
 	}
 
 	public override TaskStatus OnUpdate()
@@ -65,52 +48,27 @@ public class MoveToFiringSlot : Action
 		m_Elapsed += Time.deltaTime;
 		if (m_Elapsed > timeout.Value) return TaskStatus.Failure;
 
-		bool canShoot = CanShoot();
+		float wanted = Mathf.Min(m_Manager.GetEngageDistance(target.Value), firingRange.Value);
+		float distance = Vector3.ProjectOnPlane(target.Value.position - transform.position, Vector3.up).magnitude;
+		bool isTurret = target.Value.GetComponent<Turret>() != null;
+		bool clearShot = isTurret || FiringSolution.HasClearShot(transform.position, target.Value);
 
-		if (m_Chasing)
-		{
-			// Poursuite directe : on tire dès que c'est possible
-			if (canShoot) return TaskStatus.Success;
-			m_RepathTimer -= Time.deltaTime;
-			if (m_RepathTimer <= 0f)
-			{
-				m_Agent.isStopped = false;
-				m_Agent.SetDestination(target.Value.position);
-				m_RepathTimer = RepathPeriod;
-			}
-			return TaskStatus.Running;
-		}
+		// Assez près : on s'arrête et on tire
+		if (distance <= wanted && clearShot) return TaskStatus.Success;
 
-		if (Vector3.Distance(target.Value.position, m_TargetPosAtSlot) > RetargetDistance) ComputeSlot();
-		if (m_Agent.pathPending) return TaskStatus.Running;
-
-		if (HasReachedOrIsStuck())
-		{
-			if (canShoot) return TaskStatus.Success;
-			m_Chasing = true; // position inatteignable ou tir impossible d'ici : on fonce vers la cible
-		}
-		return TaskStatus.Running;
-	}
-
-	bool CanShoot()
-	{
-		m_ShotCheckTimer -= Time.deltaTime;
-		if (m_ShotCheckTimer > 0f) return m_CanShootCached;
-		m_ShotCheckTimer = ShotCheckPeriod;
-
-		float distance = Vector3.Distance(transform.position, target.Value.position);
-		m_CanShootCached = distance <= firingRange.Value && FiringSolution.CanHit(transform.position, target.Value);
-		return m_CanShootCached;
-	}
-
-	bool HasReachedOrIsStuck()
-	{
-		if (m_Agent.remainingDistance <= m_Agent.stoppingDistance + 0.5f) return true;
-
-		// Destination inatteignable (terrasse, obstacle) : l'agent s'arrête au plus près sans jamais "arriver"
+		// Bloqué (autre drone, relief) presque à la bonne distance : on tire quand même
 		if (m_Agent.velocity.magnitude < StuckSpeed) m_StuckTime += Time.deltaTime;
 		else m_StuckTime = 0f;
-		return m_StuckTime > StuckDelay;
+		if (m_StuckTime > StuckDelay && distance <= wanted + StuckTolerance && clearShot) return TaskStatus.Success;
+
+		m_RepathTimer -= Time.deltaTime;
+		if (m_RepathTimer <= 0f)
+		{
+			m_Agent.isStopped = false;
+			m_Agent.SetDestination(target.Value.position);
+			m_RepathTimer = RepathPeriod;
+		}
+		return TaskStatus.Running;
 	}
 
 	public override void OnEnd()
