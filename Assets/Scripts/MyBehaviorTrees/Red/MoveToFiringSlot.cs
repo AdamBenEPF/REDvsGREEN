@@ -4,7 +4,8 @@ using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 
 [TaskCategory("MyTasks/Red")]
-[TaskDescription("Fonce vers la cible et s'arrête dès qu'il est assez près pour tirer (3 m d'une tourelle, 14 m d'un drone)")]
+[TaskDescription("Fonce vers la cible et s'arrête dès qu'il est assez près pour tirer (3 m d'une tourelle, 14 m d'un drone). "
+	+ "Sous le feu de l'artillerie verte, va à une nouvelle position de tir, loin de la précédente")]
 public class MoveToFiringSlot : Action
 {
 	public SharedTransform target;
@@ -17,6 +18,7 @@ public class MoveToFiringSlot : Action
 	const float StuckSpeed = 0.5f;     // en dessous, le drone est considéré à l'arrêt (m/s)
 	const float StuckDelay = 0.5f;     // durée à l'arrêt avant de se considérer bloqué (s)
 	const float StuckTolerance = 3f;   // bloqué à moins de 3 m de la distance voulue : on tire quand même (m)
+	const float SpotTolerance = 1f;    // arrivé à moins de 1 m de la position de tir (m)
 
 	NavMeshAgent m_Agent;
 	IArmyElement m_ArmyElement;
@@ -24,6 +26,8 @@ public class MoveToFiringSlot : Action
 	float m_Elapsed;
 	float m_StuckTime;
 	float m_RepathTimer;
+	bool m_HasSpot;
+	Vector3 m_Spot;
 
 	public override void OnAwake()
 	{
@@ -39,6 +43,7 @@ public class MoveToFiringSlot : Action
 		m_StuckTime = 0f;
 		m_RepathTimer = 0f;
 		m_Manager = m_ArmyElement.ArmyManager as ArmyManagerRed;
+		m_HasSpot = false;
 	}
 
 	public override TaskStatus OnUpdate()
@@ -53,22 +58,40 @@ public class MoveToFiringSlot : Action
 		bool isTurret = target.Value.GetComponent<Turret>() != null;
 		bool clearShot = isTurret || FiringSolution.HasClearShot(transform.position, target.Value);
 
-		// Assez près : on s'arrête et on tire
-		if (distance <= wanted && clearShot) return TaskStatus.Success;
-
-		// Bloqué (autre drone, relief) presque à la bonne distance : on tire quand même
 		if (m_Agent.velocity.magnitude < StuckSpeed) m_StuckTime += Time.deltaTime;
 		else m_StuckTime = 0f;
-		if (m_StuckTime > StuckDelay && distance <= wanted + StuckTolerance && clearShot) return TaskStatus.Success;
 
 		m_RepathTimer -= Time.deltaTime;
 		if (m_RepathTimer <= 0f)
 		{
+			// Sous le feu de l'artillerie : nouvelle position de tir (null si le drone n'est pas exposé)
+			m_HasSpot = m_Manager.TryGetRepositionSpot(gameObject, target.Value, out m_Spot);
 			m_Agent.isStopped = false;
-			m_Agent.SetDestination(target.Value.position);
+			m_Agent.SetDestination(m_HasSpot ? m_Spot : target.Value.position);
 			m_RepathTimer = RepathPeriod;
 		}
+
+		if (m_HasSpot)
+		{
+			float toSpot = Vector3.ProjectOnPlane(m_Spot - transform.position, Vector3.up).magnitude;
+			bool arrived = toSpot <= SpotTolerance || (m_StuckTime > StuckDelay && toSpot <= StuckTolerance);
+			if (arrived && distance <= wanted + StuckTolerance && clearShot) return Arrive();
+			return TaskStatus.Running;
+		}
+
+		// Assez près : on s'arrête et on tire
+		if (distance <= wanted && clearShot) return Arrive();
+
+		// Bloqué (autre drone, relief) presque à la bonne distance : on tire quand même
+		if (m_StuckTime > StuckDelay && distance <= wanted + StuckTolerance && clearShot) return Arrive();
+
 		return TaskStatus.Running;
+	}
+
+	TaskStatus Arrive()
+	{
+		m_Manager.RecordFiringPosition(gameObject, transform.position);
+		return TaskStatus.Success;
 	}
 
 	public override void OnEnd()

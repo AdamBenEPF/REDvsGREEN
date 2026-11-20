@@ -8,11 +8,15 @@ using UnityEngine.AI;
 //      escouade A dans l'ordre TurretGreen (1) à (8) puis (0), escouade B dans l'ordre inverse.
 //  - 7 drones chasseurs : ils attaquent les drones verts. Chaque chasseur garde sa cible jusqu'à ce qu'elle meure.
 //  - Quand un groupe n'a plus de cible (plus de tourelle ou plus de drone vert), il rejoint l'autre tâche.
-//  - Tous les drones esquivent les grenades vertes (voir ArmyManagerRed.Grenades.cs).
-//  - Nos tourelles : le plus gros groupe de drones verts à portée (rayon de 4 m), sinon la tourelle verte la plus proche.
+//  - Esquive des grenades vertes (m_EvadeMode, voir ArmyManagerRed.Grenades.cs) et repositionnement à chaque salve
+//    quand l'artillerie verte peut viser le drone (m_RepositionWhenExposed, voir ArmyManagerRed.Reposition.cs).
+//  - Nos tourelles : le plus gros groupe de drones verts à portée (rayon de 4 m), sinon la tourelle verte la plus proche ;
+//    ou, avec m_TurretPriority = GreenTurrets, contre-batterie concentrée sur une tourelle verte.
 public partial class ArmyManagerRed : ArmyManager
 {
 	enum DroneRole { SquadA, SquadB, Hunter }
+	public enum EvadeMode { None, HuntersOnly, All }
+	public enum TurretPriority { DroneClusters, GreenTurrets }
 
 	class TurretAim
 	{
@@ -25,6 +29,9 @@ public partial class ArmyManagerRed : ArmyManager
 	[SerializeField] int m_HunterCount = 7;
 	[Tooltip("Ordre d'attaque des tourelles vertes par l'escouade A (noms dans la Hierarchy). L'escouade B le suit à l'envers")]
 	[SerializeField] string[] m_AssaultOrder = { "TurretGreen (1)", "TurretGreen (2)", "TurretGreen (3)", "TurretGreen (4)", "TurretGreen (5)", "TurretGreen (6)", "TurretGreen (7)", "TurretGreen (8)", "TurretGreen (0)" };
+
+	[Tooltip("Drones qui esquivent les grenades vertes")]
+	[SerializeField] EvadeMode m_EvadeMode = EvadeMode.HuntersOnly;
 
 	[Header("Chasseurs")]
 	[Tooltip("Dégâts attendus d'une salve de drone : 2 missiles x 5 pts, moins les ratés")]
@@ -39,8 +46,14 @@ public partial class ArmyManagerRed : ArmyManager
 	[Header("Tourelles")]
 	[Tooltip("Rayon de dégâts d'une grenade (Annexe A)")]
 	[SerializeField] float m_GrenadeRadius = 5f;
+	[Tooltip("Dégâts d'une grenade (Annexe A)")]
+	[SerializeField] float m_GrenadeDamage = 10f;
 	[Tooltip("Rayon d'un groupe de drones verts visé par une grenade (m)")]
 	[SerializeField] float m_ClusterRadius = 4f;
+	[Tooltip("Cible prioritaire de nos tourelles")]
+	[SerializeField] TurretPriority m_TurretPriority = TurretPriority.DroneClusters;
+	[Tooltip("Durée pendant laquelle un tir de grenade déjà commandé est compté sur sa cible (s) : rotation + vol")]
+	[SerializeField] float m_PendingShotDuration = 6f;
 
 	readonly Dictionary<GameObject, DroneRole> m_Roles = new Dictionary<GameObject, DroneRole>();
 	// Chasseurs : cible verrouillée jusqu'à sa mort
@@ -49,6 +62,8 @@ public partial class ArmyManagerRed : ArmyManager
 	readonly Dictionary<GameObject, TurretAim> m_TurretAims = new Dictionary<GameObject, TurretAim>();
 	// Assaut : tourelle verte attaquée en ce moment par chaque escouade, verrouillée jusqu'à sa mort
 	readonly Dictionary<DroneRole, Turret> m_SquadTargets = new Dictionary<DroneRole, Turret>();
+	// Tirs de nos tourelles commandés sur les tourelles vertes (cible, heure de la commande), pour éviter le gaspillage
+	readonly List<KeyValuePair<Turret, float>> m_PendingTurretShots = new List<KeyValuePair<Turret, float>>();
 
 	void Update()
 	{
@@ -110,6 +125,16 @@ public partial class ArmyManagerRed : ArmyManager
 			if (target == null) target = GetHunterTarget(requester); // plus de tourelle verte : chasse aux drones
 		}
 		return target != null ? target.transform : null;
+	}
+
+	public bool CanEvade(GameObject drone)
+	{
+		switch (m_EvadeMode)
+		{
+			case EvadeMode.All: return true;
+			case EvadeMode.HuntersOnly: return IsHunter(drone);
+			default: return false;
+		}
 	}
 
 	// Cible actuelle d'un drone, sans en attribuer de nouvelle (utilisée pour choisir où esquiver)
@@ -208,6 +233,11 @@ public partial class ArmyManagerRed : ArmyManager
 	public Transform GetTurretTarget(GameObject requester, float minRadius, float maxRadius)
 	{
 		Vector3 from = requester.transform.position;
+		if (m_TurretPriority == TurretPriority.GreenTurrets)
+		{
+			Turret focus = GetArtilleryFocus(from, minRadius, maxRadius);
+			if (focus != null) return focus.transform;
+		}
 		List<Drone> greenDrones = GetAllEnemiesOfType<Drone>(false).Where(d => d.Health > 0).ToList();
 
 		List<ArmyElement> bestCluster = null;
@@ -236,6 +266,31 @@ public partial class ArmyManagerRed : ArmyManager
 			.OrderBy(t => Vector3.Distance(from, t.transform.position))
 			.FirstOrDefault();
 		return nearest != null ? nearest.transform : null;
+	}
+
+	// Contre-batterie : toutes nos tourelles sur la même tourelle verte, la plus entamée, sans gaspiller de tirs
+	// sur une tourelle que les grenades déjà commandées suffisent à détruire
+	Turret GetArtilleryFocus(Vector3 from, float minRadius, float maxRadius)
+	{
+		m_PendingTurretShots.RemoveAll(shot => shot.Key == null || Time.time - shot.Value > m_PendingShotDuration);
+
+		Turret best = null;
+		float bestRemaining = float.MaxValue;
+		foreach (Turret enemy in GetAllEnemiesOfType<Turret>(false))
+		{
+			if (enemy.Health <= 0 || !IsWithinRadius(from, enemy.transform.position, minRadius, maxRadius)) continue;
+			int pending = m_PendingTurretShots.Count(shot => shot.Key == enemy);
+			float remaining = enemy.Health - pending * m_GrenadeDamage;
+			if (remaining <= 0) continue;
+			remaining += 0.01f * Vector3.Distance(from, enemy.transform.position); // à égalité, la plus proche
+			if (remaining < bestRemaining)
+			{
+				bestRemaining = remaining;
+				best = enemy;
+			}
+		}
+		if (best != null) m_PendingTurretShots.Add(new KeyValuePair<Turret, float>(best, Time.time));
+		return best;
 	}
 
 	// Le point visé est le centre du groupe ; il suit le groupe jusqu'au tir (voir UpdateTurretAims)
@@ -304,6 +359,7 @@ public partial class ArmyManagerRed : ArmyManager
 	public override void ArmyElementHasBeenKilled(GameObject go)
 	{
 		m_DroneLocks.Remove(go);
+		m_LastFiringPositions.Remove(go);
 		base.ArmyElementHasBeenKilled(go);
 		if (m_ArmyElements.Count == 0)
 		{

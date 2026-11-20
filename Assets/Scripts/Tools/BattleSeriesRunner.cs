@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using UnityEngine;
 using UnityEngine.AI;
@@ -57,6 +58,8 @@ namespace RedVsGreen.Tools
 
 		// Réglages de la série (remplis par Configure)
 		int m_TargetBattles = 20;
+		List<KeyValuePair<string, string>> m_Variants = new List<KeyValuePair<string, string>>(); // (nom, réglages)
+		readonly Dictionary<string, List<float[]>> m_VariantResults = new Dictionary<string, List<float[]>>();
 		float m_TimeScale = 3f;
 		float m_TimeoutSeconds = 400f;
 		string m_Label = "serie";
@@ -92,23 +95,34 @@ namespace RedVsGreen.Tools
 			if (!UnityEditor.SessionState.GetBool(BattleSeriesKeys.Active, false)) return;
 			Create(UnityEditor.SessionState.GetInt(BattleSeriesKeys.Battles, 20),
 				UnityEditor.SessionState.GetFloat(BattleSeriesKeys.TimeScale, 3f),
-				UnityEditor.SessionState.GetString(BattleSeriesKeys.Label, "serie"));
+				UnityEditor.SessionState.GetString(BattleSeriesKeys.Label, "serie"),
+				UnityEditor.SessionState.GetString(BattleSeriesKeys.Variants, ""));
 		}
 #endif
 
-		public static BattleSeriesRunner Create(int battles, float timeScale, string label)
+		// battles : nombre de batailles par variante.
+		// variants : "nom:champ=valeur,champ=valeur|nom2:..." ; chaque variante change des champs de ArmyManagerRed.
+		// Les variantes sont jouées à tour de rôle. Vide : une seule variante, les réglages de la scène.
+		public static BattleSeriesRunner Create(int battles, float timeScale, string label, string variants = "")
 		{
 			if (s_Instance != null) return s_Instance;
 			var go = new GameObject("[BattleSeriesRunner]");
 			DontDestroyOnLoad(go);
 			s_Instance = go.AddComponent<BattleSeriesRunner>();
-			s_Instance.Configure(battles, timeScale, label);
+			s_Instance.Configure(battles, timeScale, label, variants);
 			return s_Instance;
 		}
 
-		void Configure(int battles, float timeScale, string label)
+		void Configure(int battles, float timeScale, string label, string variants)
 		{
-			m_TargetBattles = Mathf.Max(1, battles);
+			foreach (string v in (variants ?? "").Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries))
+			{
+				int colon = v.IndexOf(':');
+				m_Variants.Add(colon < 0 ? new KeyValuePair<string, string>(v.Trim(), "")
+					: new KeyValuePair<string, string>(v.Substring(0, colon).Trim(), v.Substring(colon + 1).Trim()));
+			}
+			if (m_Variants.Count == 0) m_Variants.Add(new KeyValuePair<string, string>("defaut", ""));
+			m_TargetBattles = Mathf.Max(1, battles) * m_Variants.Count;
 			m_TimeScale = Mathf.Clamp(timeScale, 1f, 8f);
 			m_Label = label;
 
@@ -148,6 +162,39 @@ namespace RedVsGreen.Tools
 			m_StateTime = 0;
 			m_DeadlockSince = -1;
 			Time.timeScale = m_TimeScale;
+			ApplyVariant(CurrentVariant);
+		}
+
+		KeyValuePair<string, string> CurrentVariant => m_Variants[m_RunIndex % m_Variants.Count];
+
+		// Change les champs de ArmyManagerRed avant son Start : "m_HunterCount=3,m_EvadeMode=All"
+		static void ApplyVariant(KeyValuePair<string, string> variant)
+		{
+			if (string.IsNullOrEmpty(variant.Value)) return;
+			var manager = FindFirstObjectByType<ArmyManagerRed>();
+			if (manager == null) { Debug.LogError("[Série] ArmyManagerRed introuvable"); return; }
+
+			foreach (string assignment in variant.Value.Split(','))
+			{
+				string[] parts = assignment.Split('=');
+				if (parts.Length != 2) { Debug.LogError($"[Série] réglage illisible : {assignment}"); continue; }
+				string name = parts[0].Trim(), value = parts[1].Trim();
+
+				FieldInfo field = null;
+				for (Type t = manager.GetType(); t != null && field == null; t = t.BaseType)
+					field = t.GetField(name, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+				if (field == null) { Debug.LogError($"[Série] champ inconnu dans ArmyManagerRed : {name}"); continue; }
+
+				Type ft = field.FieldType;
+				object parsed;
+				if (ft.IsEnum) parsed = Enum.Parse(ft, value);
+				else if (ft == typeof(bool)) parsed = bool.Parse(value);
+				else if (ft == typeof(int)) parsed = int.Parse(value, Inv);
+				else if (ft == typeof(float)) parsed = float.Parse(value, Inv);
+				else if (ft == typeof(string[])) parsed = value.Split(';').Select(x => x.Trim()).ToArray();
+				else { Debug.LogError($"[Série] type non géré pour {name} : {ft.Name}"); continue; }
+				field.SetValue(manager, parsed);
+			}
 		}
 
 		// ===================================================================
@@ -353,12 +400,15 @@ namespace RedVsGreen.Tools
 			if (counted)
 			{
 				battleIndex = m_ValidIndex++;
+				string vname = CurrentVariant.Key;
+				if (!m_VariantResults.ContainsKey(vname)) m_VariantResults[vname] = new List<float[]>();
+				m_VariantResults[vname].Add(new float[] { result == "VICTORY" ? 1 : 0, redHp, greenHp, t });
 				bool victory = result == "VICTORY";
 				if (victory) m_Victories++;
 				// Annexe B : en cas de défaite, l'armée rouge n'a plus rien
 				string line = string.Join("\t", battleIndex, victory ? 1 : 0, (int)t,
 					victory ? redDrones : 0, victory ? redTurrets : 0, victory ? redHp : 0);
-				File.AppendAllText(m_BattlesPath, line + "\n");
+				if (m_Variants.Count == 1) File.AppendAllText(m_BattlesPath, line + "\n");
 			}
 
 			foreach (var kv in m_Red.obstacleHits) AddEvent(t, "OBSTACLE_HITS", "RED", kv.Key, "", Vector3.zero, kv.Value.ToString(Inv));
@@ -367,7 +417,7 @@ namespace RedVsGreen.Tools
 
 			var cols = new List<string>
 			{
-				m_RunIndex.ToString(Inv), battleIndex.ToString(Inv), result, F(t),
+				m_RunIndex.ToString(Inv), battleIndex.ToString(Inv), result, CurrentVariant.Key, F(t),
 				redDrones.ToString(Inv), redTurrets.ToString(Inv), redHp.ToString(Inv),
 				greenDrones.ToString(Inv), greenTurrets.ToString(Inv), greenHp.ToString(Inv),
 			};
@@ -375,7 +425,7 @@ namespace RedVsGreen.Tools
 			cols.AddRange(SideColumns(m_Green));
 			File.AppendAllText(m_TelemetryPath, string.Join("\t", cols) + "\n");
 
-			Debug.Log($"[Série] bataille {m_RunIndex} : {result} en {(int)t} s | rouge {redDrones}D {redTurrets}T {redHp}PV | vert {greenDrones}D {greenTurrets}T {greenHp}PV" +
+			Debug.Log($"[Série] bataille {m_RunIndex} ({CurrentVariant.Key}) : {result} en {(int)t} s | rouge {redDrones}D {redTurrets}T {redHp}PV | vert {greenDrones}D {greenTurrets}T {greenHp}PV" +
 				$" | précision rouge {Pct(m_Red.hitDrone + m_Red.hitTurret, m_Red.missiles)} vert {Pct(m_Green.hitDrone + m_Green.hitTurret, m_Green.missiles)}");
 		}
 
@@ -384,7 +434,9 @@ namespace RedVsGreen.Tools
 			m_RunIndex++;
 			if (m_ValidIndex >= m_TargetBattles || m_RunIndex >= m_TargetBattles * 2)
 			{
-				Debug.Log($"[Série {m_Label}] terminée : {m_Victories}/{m_ValidIndex} victoires. Fichiers : {m_BattlesPath}");
+				Debug.Log($"[Série {m_Label}] terminée : {m_Victories}/{m_ValidIndex} victoires. Fichiers : {m_TelemetryPath}");
+				foreach (var kv in m_VariantResults)
+					Debug.Log($"[Série] {kv.Key} : {kv.Value.Sum(r => r[0])}/{kv.Value.Count} victoires, PV rouges {kv.Value.Average(r => r[1]):0}, PV verts {kv.Value.Average(r => r[2]):0}");
 				Time.timeScale = 1f;
 #if UNITY_EDITOR
 				UnityEditor.SessionState.SetBool(BattleSeriesKeys.Active, false);
@@ -404,7 +456,7 @@ namespace RedVsGreen.Tools
 
 		static string TelemetryHeader()
 		{
-			var h = new List<string> { "RUN", "INDEX_BATTLE", "RESULT", "DURATION", "RED_DRONES", "RED_TURRETS", "RED_HP", "GREEN_DRONES", "GREEN_TURRETS", "GREEN_HP" };
+			var h = new List<string> { "RUN", "INDEX_BATTLE", "RESULT", "VARIANT", "DURATION", "RED_DRONES", "RED_TURRETS", "RED_HP", "GREEN_DRONES", "GREEN_TURRETS", "GREEN_HP" };
 			foreach (var s in new[] { "RED", "GREEN" })
 				h.AddRange(new[] {
 					"MSL", "MSL_HIT_DRONE", "MSL_HIT_TURRET", "MSL_HIT_FRIENDLY", "MSL_HIT_TERRAIN", "MSL_HIT_OBSTACLE", "MSL_HIT_MISSILE", "MSL_EXPIRED",
@@ -437,5 +489,6 @@ namespace RedVsGreen.Tools
 		public const string Battles = "RvG.Series.Battles";
 		public const string TimeScale = "RvG.Series.TimeScale";
 		public const string Label = "RvG.Series.Label";
+		public const string Variants = "RvG.Series.Variants";
 	}
 }
