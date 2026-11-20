@@ -8,6 +8,14 @@ public partial class ArmyManagerRed
 	[Header("Esquive des grenades")]
 	[Tooltip("Durée de vol d'une grenade (Annexe A : Rocket Travel Duration)")]
 	[SerializeField] float m_GrenadeTravelDuration = 4f;
+	[Tooltip("Distance maximale d'une esquive (m) : au-delà, le drone n'aurait pas le temps d'y arriver")]
+	[SerializeField] float m_MaxEscapeDistance = 10f;
+	[Tooltip("Distance à la tourelle verte visée après une esquive (m), sous ses 5 m de rayon minimal de tir")]
+	[SerializeField] float m_EscapeHugDistance = 4f;
+	[Tooltip("Pénalité par mètre d'éloignement de la cible lors d'une esquive")]
+	[SerializeField] float m_EscapeTargetWeight = 2f;
+	[Tooltip("Pénalité par drone rouge à portée de la même grenade (m équivalents)")]
+	[SerializeField] float m_EscapeCrowdPenalty = 3f;
 
 	struct GrenadeImpact
 	{
@@ -61,35 +69,66 @@ public partial class ArmyManagerRed
 		return false;
 	}
 
-	// Point sûr le plus proche, à l'opposé des impacts et à l'écart des autres drones rouges
-	public Vector3 GetEscapePoint(Vector3 position, float margin)
+	// Point où se mettre à l'abri : hors de portée de toutes les grenades en vol, joignable en ligne droite,
+	// le plus proche possible, sans s'éloigner de la cible du drone et sans se coller aux autres drones rouges.
+	// Un drone collé à une tourelle verte passe de préférence de l'autre côté de celle-ci : il reste dans son angle mort.
+	public Vector3 GetEscapePoint(GameObject drone, float margin)
 	{
-		Vector3 away = Vector3.zero;
-		foreach (GrenadeImpact impact in m_IncomingImpacts)
-		{
-			Vector3 offset = Vector3.ProjectOnPlane(position - impact.position, Vector3.up);
-			if (offset.magnitude < m_GrenadeRadius + margin)
-				away += offset.sqrMagnitude > 0.01f ? offset.normalized : Vector3.forward;
-		}
-		away = away.normalized;
+		Vector3 position = drone.transform.position;
+		ArmyElement target = CurrentTargetOf(drone);
+		bool hugging = target is Turret;
+		float wantedDistance = target == null ? 0f : (hugging ? m_EscapeHugDistance : GetEngageDistance(target.transform));
 
-		float escapeDistance = m_GrenadeRadius + margin + 2f;
+		// Le drone vole 1 m au-dessus du NavMesh (Base Offset) : on part de sa projection sur le NavMesh
+		Vector3 origin = NavMesh.SamplePosition(position, out NavMeshHit self, 2f, NavMesh.AllAreas) ? self.position : position;
+		bool requireStraightPath = true;
 		Vector3 best = position;
 		float bestScore = float.MaxValue;
-		for (int i = 0; i < 12; i++)
-		{
-			Vector3 direction = Quaternion.Euler(0f, i * 30f, 0f) * Vector3.forward;
-			if (!NavMesh.SamplePosition(position + direction * escapeDistance, out NavMeshHit hit, 2f, NavMesh.AllAreas)) continue;
-			if (IsInGrenadeDanger(hit.position, margin)) continue;
 
-			float score = -Vector3.Dot(direction, away) + (IsTooCloseToOtherDrones(null, hit.position) ? 1f : 0f);
+		void Consider(Vector3 candidate)
+		{
+			if (!NavMesh.SamplePosition(candidate, out NavMeshHit hit, 1.5f, NavMesh.AllAreas)) return;
+			Vector3 point = hit.position;
+			if (IsInGrenadeDanger(point, margin)) return;
+
+			float travel = HorizontalDistance(position, point);
+			if (travel > m_MaxEscapeDistance) return;
+			if (requireStraightPath && NavMesh.Raycast(origin, point, out _, NavMesh.AllAreas)) return; // mur ou bord de terrasse sur le chemin
+
+			float score = travel;
+			if (target != null)
+				score += m_EscapeTargetWeight * Mathf.Max(0f, HorizontalDistance(point, target.transform.position) - wantedDistance);
+			score += m_EscapeCrowdPenalty * CountRedDronesNear(drone, point, m_GrenadeRadius + 0.5f);
+
 			if (score < bestScore)
 			{
 				bestScore = score;
-				best = hit.position;
+				best = point;
+			}
+		}
+
+		float ring = m_GrenadeRadius + margin + 1.5f;
+		for (int pass = 0; pass < 2 && bestScore == float.MaxValue; pass++)
+		{
+			requireStraightPath = pass == 0; // 2e passage, si rien n'est joignable en ligne droite : on accepte un détour
+			for (int i = 0; i < 16; i++)
+			{
+				Vector3 direction = Quaternion.Euler(0f, i * 22.5f, 0f) * Vector3.forward;
+				Consider(origin + direction * ring);
+				Consider(origin + direction * (ring + 2f));
+				if (hugging) Consider(target.transform.position + direction * m_EscapeHugDistance);
 			}
 		}
 		return best;
+	}
+
+	int CountRedDronesNear(GameObject self, Vector3 point, float radius)
+	{
+		int count = 0;
+		foreach (IArmyElement element in m_ArmyElements)
+			if (element is Drone drone && drone && drone.gameObject != self
+				&& HorizontalDistance(drone.transform.position, point) < radius) count++;
+		return count;
 	}
 
 	string OwnTag

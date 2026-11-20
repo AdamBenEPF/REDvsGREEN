@@ -8,6 +8,7 @@ using UnityEngine.AI;
 //      escouade A dans l'ordre TurretGreen (1) à (8) puis (0), escouade B dans l'ordre inverse.
 //  - 7 drones chasseurs : ils attaquent les drones verts. Chaque chasseur garde sa cible jusqu'à ce qu'elle meure.
 //  - Quand un groupe n'a plus de cible (plus de tourelle ou plus de drone vert), il rejoint l'autre tâche.
+//  - Tous les drones esquivent les grenades vertes (voir ArmyManagerRed.Grenades.cs).
 //  - Nos tourelles : le plus gros groupe de drones verts à portée (rayon de 4 m), sinon la tourelle verte la plus proche.
 public partial class ArmyManagerRed : ArmyManager
 {
@@ -88,12 +89,6 @@ public partial class ArmyManagerRed : ArmyManager
 		return RoleOf(drone) == DroneRole.Hunter;
 	}
 
-	// Seuls les chasseurs esquivent les grenades : les drones d'assaut restent collés à leur tourelle, dans son angle mort
-	public bool CanEvade(GameObject drone)
-	{
-		return IsHunter(drone);
-	}
-
 	// =====================================================================
 	// DRONES
 	// =====================================================================
@@ -117,15 +112,12 @@ public partial class ArmyManagerRed : ArmyManager
 		return target != null ? target.transform : null;
 	}
 
-	// Les cibles sont verrouillées jusqu'à leur mort : rien à libérer après le tir
-	public void ReleaseFocusTarget(GameObject requester)
+	// Cible actuelle d'un drone, sans en attribuer de nouvelle (utilisée pour choisir où esquiver)
+	ArmyElement CurrentTargetOf(GameObject drone)
 	{
-	}
-
-	// Pas de poste de garde dans cette stratégie : un drone sans cible reste où il est
-	public Vector3 GetGuardPost(GameObject requester)
-	{
-		return requester.transform.position;
+		if (IsHunter(drone))
+			return m_DroneLocks.TryGetValue(drone, out ArmyElement locked) && locked != null && locked.Health > 0 ? locked : null;
+		return m_SquadTargets.TryGetValue(RoleOf(drone), out Turret turret) && turret != null && turret.Health > 0 ? turret : null;
 	}
 
 	// Chaque escouade reste sur sa tourelle jusqu'à sa destruction, puis prend la suivante dans son ordre :
