@@ -5,7 +5,7 @@ using BehaviorDesigner.Runtime.Tasks;
 [TaskDescription("Vrai si une grenade verte en vol va tomber près du drone")]
 public class IsInGrenadeDanger : Conditional
 {
-	public SharedFloat margin = 2f; // marge de sécurité au-delà du rayon de 5 m (m)
+	public SharedFloat margin = 1f; // marge au-delà du rayon de 5 m de la grenade (m)
 
 	IArmyElement m_ArmyElement;
 
@@ -18,6 +18,6 @@ public class IsInGrenadeDanger : Conditional
 	{
 		ArmyManagerRed manager = m_ArmyElement.ArmyManager as ArmyManagerRed;
 		if (manager == null) return TaskStatus.Failure;
-		return manager.CanEvade(gameObject) && manager.IsInGrenadeDanger(transform.position, margin.Value) ? TaskStatus.Success : TaskStatus.Failure;
+		return manager.IsInGrenadeDanger(transform.position, margin.Value) ? TaskStatus.Success : TaskStatus.Failure;
 	}
 }

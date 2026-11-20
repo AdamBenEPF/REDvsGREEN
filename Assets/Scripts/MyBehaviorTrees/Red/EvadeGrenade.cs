@@ -7,7 +7,7 @@ using BehaviorDesigner.Runtime.Tasks;
 [TaskDescription("Sort de la zone d'impact des grenades vertes")]
 public class EvadeGrenade : Action
 {
-	public SharedFloat margin = 2f;        // marge de sécurité (m)
+	public SharedFloat margin = 1f;        // marge au-delà du rayon de 5 m de la grenade (m)
 	public SharedFloat speed = 10f;        // Annexe A (m/s)
 	public SharedFloat angularSpeed = 180f; // Annexe A (°/s)
 	public SharedFloat timeout = 3f;       // abandon au-delà (s)
@@ -46,7 +46,7 @@ public class EvadeGrenade : Action
 		if (m_RepathTimer <= 0f)
 		{
 			m_Agent.isStopped = false;
-			m_Agent.SetDestination(manager.GetEscapePoint(transform.position, margin.Value));
+			m_Agent.SetDestination(manager.GetEscapePoint(gameObject, margin.Value));
 			m_RepathTimer = RepathPeriod;
 		}
 		return TaskStatus.Running;
