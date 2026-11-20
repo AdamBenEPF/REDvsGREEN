@@ -50,6 +50,8 @@ public partial class ArmyManagerRed : ArmyManager
 	[SerializeField] float m_GrenadeDamage = 10f;
 	[Tooltip("Rayon d'un groupe de drones verts visé par une grenade (m)")]
 	[SerializeField] float m_ClusterRadius = 4f;
+	[Tooltip("Tourelles vertes que nos tourelles détruisent en priorité quand elles sont à portée (noms dans la Hierarchy)")]
+	[SerializeField] string[] m_TurretPriorityTargets = { };
 	[Tooltip("Cible prioritaire de nos tourelles")]
 	[SerializeField] TurretPriority m_TurretPriority = TurretPriority.DroneClusters;
 	[Tooltip("Durée pendant laquelle un tir de grenade déjà commandé est compté sur sa cible (s) : rotation + vol")]
@@ -92,6 +94,7 @@ public partial class ArmyManagerRed : ArmyManager
 			if (i < m_HunterCount) m_Roles[drones[i].gameObject] = DroneRole.Hunter;
 			else m_Roles[drones[i].gameObject] = (i - m_HunterCount) % 2 == 0 ? DroneRole.SquadA : DroneRole.SquadB;
 		}
+		if (drones.Count > 0) ComputeTurretEngageDistances(drones[0].transform.position);
 	}
 
 	DroneRole RoleOf(GameObject drone)
@@ -233,9 +236,14 @@ public partial class ArmyManagerRed : ArmyManager
 	public Transform GetTurretTarget(GameObject requester, float minRadius, float maxRadius)
 	{
 		Vector3 from = requester.transform.position;
+		if (m_TurretPriorityTargets.Length > 0)
+		{
+			Turret priority = GetArtilleryFocus(from, minRadius, maxRadius, m_TurretPriorityTargets);
+			if (priority != null) return priority.transform;
+		}
 		if (m_TurretPriority == TurretPriority.GreenTurrets)
 		{
-			Turret focus = GetArtilleryFocus(from, minRadius, maxRadius);
+			Turret focus = GetArtilleryFocus(from, minRadius, maxRadius, null);
 			if (focus != null) return focus.transform;
 		}
 		List<Drone> greenDrones = GetAllEnemiesOfType<Drone>(false).Where(d => d.Health > 0).ToList();
@@ -269,8 +277,8 @@ public partial class ArmyManagerRed : ArmyManager
 	}
 
 	// Contre-batterie : toutes nos tourelles sur la même tourelle verte, la plus entamée, sans gaspiller de tirs
-	// sur une tourelle que les grenades déjà commandées suffisent à détruire
-	Turret GetArtilleryFocus(Vector3 from, float minRadius, float maxRadius)
+	// sur une tourelle que les grenades déjà commandées suffisent à détruire. names : limite le choix à ces tourelles
+	Turret GetArtilleryFocus(Vector3 from, float minRadius, float maxRadius, string[] names)
 	{
 		m_PendingTurretShots.RemoveAll(shot => shot.Key == null || Time.time - shot.Value > m_PendingShotDuration);
 
@@ -279,6 +287,7 @@ public partial class ArmyManagerRed : ArmyManager
 		foreach (Turret enemy in GetAllEnemiesOfType<Turret>(false))
 		{
 			if (enemy.Health <= 0 || !IsWithinRadius(from, enemy.transform.position, minRadius, maxRadius)) continue;
+			if (names != null && System.Array.IndexOf(names, enemy.name) < 0) continue;
 			int pending = m_PendingTurretShots.Count(shot => shot.Key == enemy);
 			float remaining = enemy.Health - pending * m_GrenadeDamage;
 			if (remaining <= 0) continue;
