@@ -32,9 +32,9 @@ public partial class ArmyManagerRed : ArmyManager
 	[SerializeField] string[] m_AssaultOrder = { "TurretGreen (1)", "TurretGreen (2)", "TurretGreen (3)", "TurretGreen (4)", "TurretGreen (5)", "TurretGreen (6)", "TurretGreen (7)", "TurretGreen (8)", "TurretGreen (0)" };
 
 	[Tooltip("Drones qui esquivent les grenades vertes. Endgame : les chasseurs, plus tous les drones quand il reste peu de drones verts")]
-	[SerializeField] EvadeMode m_EvadeMode = EvadeMode.HuntersOnly;
+	[SerializeField] EvadeMode m_EvadeMode = EvadeMode.Endgame;
 	[Tooltip("Mode Endgame : tous nos drones esquivent quand il reste au plus ce nombre de drones verts")]
-	[SerializeField] int m_EndgameGreenDrones = 3;
+	[SerializeField] int m_EndgameGreenDrones = 6;
 
 	[Header("Chasseurs")]
 	[Tooltip("Dégâts attendus d'une salve de drone : 2 missiles x 5 pts, moins les ratés")]
