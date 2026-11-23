@@ -18,12 +18,16 @@ public partial class ArmyManagerRed
 	// un drone ne peut pas s'en approcher à 3 m et restait bloqué sans jamais tirer.
 	readonly Dictionary<Turret, float> m_TurretEngageDistances = new Dictionary<Turret, float>();
 
-	// Collé à une tourelle (dans son angle mort sous 5 m) si possible, sinon au plus près ; à distance de tir d'un drone
-	public float GetEngageDistance(Transform target)
+	// Collé à une tourelle (dans son angle mort sous 5 m) si possible, sinon au plus près ; à distance de tir d'un drone.
+	// Sous le feu de l'artillerie et en tir en mouvement, un drone reste à m_StrafeExposedTurretRadius d'une tourelle
+	// pour avoir la place d'esquiver les grenades en tournant autour d'elle.
+	public float GetEngageDistance(Transform target, Vector3? from = null)
 	{
 		Turret turret = target.GetComponent<Turret>();
 		if (turret == null) return m_FiringDistance;
-		return m_TurretEngageDistances.TryGetValue(turret, out float distance) ? distance : m_HugDistance;
+		float distance = m_TurretEngageDistances.TryGetValue(turret, out float reach) ? reach : m_HugDistance;
+		if (m_StrafeWhileFiring && from.HasValue && IsExposedToArtillery(from.Value)) distance = Mathf.Max(distance, m_StrafeExposedTurretRadius);
+		return distance;
 	}
 
 	// Pour chaque tourelle verte, plus petit rayon autour d'elle où un point du NavMesh est joignable depuis notre camp

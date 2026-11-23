@@ -14,6 +14,9 @@ public partial class ArmyManagerRed
 	[SerializeField] float m_StrafeMinLeg = 6f;
 	[Tooltip("Rayon du cercle autour d'une tourelle verte (m), sous ses 5 m de rayon minimal de tir")]
 	[SerializeField] float m_StrafeHugRadius = 3.5f;
+	[Tooltip("Rayon du cercle autour d'une tourelle verte quand l'artillerie verte peut viser le drone (m). Sur un cercle de 3,5 m, "
+		+ "aucun point n'est assez loin d'un impact de grenade (5 m) : il faut plus de place pour esquiver en tournant")]
+	[SerializeField] float m_StrafeExposedTurretRadius = 8f;
 	[Tooltip("Distance minimale à un drone vert visé (m)")]
 	[SerializeField] float m_StrafeMinDroneDistance = 8f;
 
@@ -21,7 +24,7 @@ public partial class ArmyManagerRed
 
 	float StrafeRadius(Vector3 dronePosition, Transform target)
 	{
-		if (target.GetComponent<Turret>() != null) return Mathf.Max(m_StrafeHugRadius, GetEngageDistance(target));
+		if (target.GetComponent<Turret>() != null) return Mathf.Max(m_StrafeHugRadius, GetEngageDistance(target, dronePosition));
 		return Mathf.Clamp(HorizontalDistance(dronePosition, target.position), m_StrafeMinDroneDistance, m_FiringDistance);
 	}
 

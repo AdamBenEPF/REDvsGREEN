@@ -53,7 +53,7 @@ public class MoveToFiringSlot : Action
 		m_Elapsed += Time.deltaTime;
 		if (m_Elapsed > timeout.Value) return TaskStatus.Failure;
 
-		float wanted = Mathf.Min(m_Manager.GetEngageDistance(target.Value), firingRange.Value);
+		float wanted = Mathf.Min(m_Manager.GetEngageDistance(target.Value, transform.position), firingRange.Value);
 		float distance = Vector3.ProjectOnPlane(target.Value.position - transform.position, Vector3.up).magnitude;
 		bool isTurret = target.Value.GetComponent<Turret>() != null;
 		bool clearShot = isTurret || FiringSolution.HasClearShot(transform.position, target.Value);

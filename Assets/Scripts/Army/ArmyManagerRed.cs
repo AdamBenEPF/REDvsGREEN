@@ -12,7 +12,8 @@ using UnityEngine.AI;
 //    (m_StrafeWhileFiring, voir ArmyManagerRed.Strafe.cs et StrafeAroundTarget).
 //  - Esquive des grenades vertes (m_EvadeMode, voir ArmyManagerRed.Grenades.cs) et repositionnement à chaque salve
 //    quand l'artillerie verte peut viser le drone (m_RepositionWhenExposed, voir ArmyManagerRed.Reposition.cs).
-//  - Nos tourelles : le plus gros groupe de drones verts à portée (rayon de 4 m), sinon la tourelle verte la plus proche ;
+//  - Nos tourelles : le plus gros groupe de drones verts à portée, sur leurs positions prévues à l'arrivée de la grenade
+//    (m_PredictClusters, voir ArmyManagerRed.Prediction.cs), sinon la tourelle verte la plus proche ;
 //    ou, avec m_TurretPriority = GreenTurrets, contre-batterie concentrée sur une tourelle verte.
 //    Les tourelles de m_TurretPriorityTargets passent avant tout : TurretGreen (6), perchée, que nos drones atteignent mal.
 public partial class ArmyManagerRed : ArmyManager
@@ -34,7 +35,7 @@ public partial class ArmyManagerRed : ArmyManager
 	[SerializeField] string[] m_AssaultOrder = { "TurretGreen (1)", "TurretGreen (2)", "TurretGreen (3)", "TurretGreen (4)", "TurretGreen (5)", "TurretGreen (6)", "TurretGreen (7)", "TurretGreen (8)", "TurretGreen (0)" };
 
 	[Tooltip("Drones qui esquivent les grenades vertes. Endgame : les chasseurs, plus tous les drones quand il reste peu de drones verts")]
-	[SerializeField] EvadeMode m_EvadeMode = EvadeMode.Endgame;
+	[SerializeField] EvadeMode m_EvadeMode = EvadeMode.None;
 	[Tooltip("Mode Endgame : tous nos drones esquivent quand il reste au plus ce nombre de drones verts")]
 	[SerializeField] int m_EndgameGreenDrones = 6;
 
@@ -265,6 +266,28 @@ public partial class ArmyManagerRed : ArmyManager
 			Turret focus = GetArtilleryFocus(from, minRadius, maxRadius, null);
 			if (focus != null) return focus.transform;
 		}
+		if (m_PredictClusters)
+		{
+			Transform predicted = GetPredictedClusterTarget(requester, minRadius, maxRadius);
+			if (predicted != null) return predicted;
+		}
+		else
+		{
+			Transform current = GetCurrentClusterTarget(requester, from, minRadius, maxRadius);
+			if (current != null) return current;
+		}
+
+		// Aucun drone vert à portée : la tourelle verte la plus proche à portée
+		Turret nearest = GetAllEnemiesOfType<Turret>(false)
+			.Where(t => t.Health > 0 && IsWithinRadius(from, t.transform.position, minRadius, maxRadius))
+			.OrderBy(t => Vector3.Distance(from, t.transform.position))
+			.FirstOrDefault();
+		return nearest != null ? nearest.transform : null;
+	}
+
+	// Groupe le plus gros autour de la position actuelle des drones verts (sans prédiction)
+	Transform GetCurrentClusterTarget(GameObject requester, Vector3 from, float minRadius, float maxRadius)
+	{
 		List<Drone> greenDrones = GetAllEnemiesOfType<Drone>(false).Where(d => d.Health > 0).ToList();
 
 		List<ArmyElement> bestCluster = null;
@@ -285,14 +308,7 @@ public partial class ArmyManagerRed : ArmyManager
 				bestCluster = cluster;
 			}
 		}
-		if (bestCluster != null) return AimAtCluster(requester, bestCluster);
-
-		// Aucun drone vert à portée : la tourelle verte la plus proche à portée
-		Turret nearest = GetAllEnemiesOfType<Turret>(false)
-			.Where(t => t.Health > 0 && IsWithinRadius(from, t.transform.position, minRadius, maxRadius))
-			.OrderBy(t => Vector3.Distance(from, t.transform.position))
-			.FirstOrDefault();
-		return nearest != null ? nearest.transform : null;
+		return bestCluster != null ? AimAtCluster(requester, bestCluster) : null;
 	}
 
 	// Contre-batterie : toutes nos tourelles sur la même tourelle verte, la plus entamée, sans gaspiller de tirs
@@ -330,7 +346,7 @@ public partial class ArmyManagerRed : ArmyManager
 			m_TurretAims[turret] = aim;
 		}
 		aim.members = members;
-		aim.marker.position = Centroid(members.Select(member => member.transform.position));
+		aim.marker.position = PredictedClusterCenter(members);
 		return aim.marker;
 	}
 
@@ -347,7 +363,7 @@ public partial class ArmyManagerRed : ArmyManager
 		{
 			aim.members.RemoveAll(member => member == null);
 			if (aim.members.Count > 0)
-				aim.marker.position = Centroid(aim.members.Select(member => member.transform.position));
+				aim.marker.position = PredictedClusterCenter(aim.members);
 		}
 	}
 
