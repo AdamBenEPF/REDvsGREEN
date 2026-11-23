@@ -4,18 +4,19 @@ using UnityEngine;
 using UnityEngine.AI;
 
 // État-major rouge
-//  - 6 drones d'assaut en 2 escouades de 3, chacune sur une tourelle verte jusqu'à sa destruction :
+//  - 4 drones d'assaut en 2 escouades de 2, chacune sur une tourelle verte jusqu'à sa destruction :
 //      escouade A dans l'ordre TurretGreen (1) à (8) puis (0), escouade B dans l'ordre inverse.
-//  - 7 drones chasseurs : ils attaquent les drones verts. Chaque chasseur garde sa cible jusqu'à ce qu'elle meure.
+//  - 9 drones chasseurs : ils attaquent les drones verts. Chaque chasseur garde sa cible jusqu'à ce qu'elle meure.
 //  - Quand un groupe n'a plus de cible (plus de tourelle ou plus de drone vert), il rejoint l'autre tâche.
 //  - Esquive des grenades vertes (m_EvadeMode, voir ArmyManagerRed.Grenades.cs) et repositionnement à chaque salve
 //    quand l'artillerie verte peut viser le drone (m_RepositionWhenExposed, voir ArmyManagerRed.Reposition.cs).
 //  - Nos tourelles : le plus gros groupe de drones verts à portée (rayon de 4 m), sinon la tourelle verte la plus proche ;
 //    ou, avec m_TurretPriority = GreenTurrets, contre-batterie concentrée sur une tourelle verte.
+//    Les tourelles de m_TurretPriorityTargets passent avant tout : TurretGreen (6), perchée, que nos drones atteignent mal.
 public partial class ArmyManagerRed : ArmyManager
 {
 	enum DroneRole { SquadA, SquadB, Hunter }
-	public enum EvadeMode { None, HuntersOnly, All }
+	public enum EvadeMode { None, HuntersOnly, All, Endgame }
 	public enum TurretPriority { DroneClusters, GreenTurrets }
 
 	class TurretAim
@@ -26,12 +27,14 @@ public partial class ArmyManagerRed : ArmyManager
 
 	[Header("Rôles des drones")]
 	[Tooltip("Nombre de drones chasseurs, sur les drones verts (les autres forment les 2 escouades d'assaut)")]
-	[SerializeField] int m_HunterCount = 7;
+	[SerializeField] int m_HunterCount = 9;
 	[Tooltip("Ordre d'attaque des tourelles vertes par l'escouade A (noms dans la Hierarchy). L'escouade B le suit à l'envers")]
 	[SerializeField] string[] m_AssaultOrder = { "TurretGreen (1)", "TurretGreen (2)", "TurretGreen (3)", "TurretGreen (4)", "TurretGreen (5)", "TurretGreen (6)", "TurretGreen (7)", "TurretGreen (8)", "TurretGreen (0)" };
 
-	[Tooltip("Drones qui esquivent les grenades vertes")]
+	[Tooltip("Drones qui esquivent les grenades vertes. Endgame : les chasseurs, plus tous les drones quand il reste peu de drones verts")]
 	[SerializeField] EvadeMode m_EvadeMode = EvadeMode.HuntersOnly;
+	[Tooltip("Mode Endgame : tous nos drones esquivent quand il reste au plus ce nombre de drones verts")]
+	[SerializeField] int m_EndgameGreenDrones = 3;
 
 	[Header("Chasseurs")]
 	[Tooltip("Dégâts attendus d'une salve de drone : 2 missiles x 5 pts, moins les ratés")]
@@ -51,7 +54,7 @@ public partial class ArmyManagerRed : ArmyManager
 	[Tooltip("Rayon d'un groupe de drones verts visé par une grenade (m)")]
 	[SerializeField] float m_ClusterRadius = 4f;
 	[Tooltip("Tourelles vertes que nos tourelles détruisent en priorité quand elles sont à portée (noms dans la Hierarchy)")]
-	[SerializeField] string[] m_TurretPriorityTargets = { };
+	[SerializeField] string[] m_TurretPriorityTargets = { "TurretGreen (6)" };
 	[Tooltip("Cible prioritaire de nos tourelles")]
 	[SerializeField] TurretPriority m_TurretPriority = TurretPriority.DroneClusters;
 	[Tooltip("Durée pendant laquelle un tir de grenade déjà commandé est compté sur sa cible (s) : rotation + vol")]
@@ -136,8 +139,22 @@ public partial class ArmyManagerRed : ArmyManager
 		{
 			case EvadeMode.All: return true;
 			case EvadeMode.HuntersOnly: return IsHunter(drone);
+			// En fin de bataille, l'artillerie verte est la principale menace et il n'y a presque plus de drones à abattre :
+			// le temps passé à esquiver ne coûte plus rien
+			case EvadeMode.Endgame: return IsHunter(drone) || GreenDroneCount() <= m_EndgameGreenDrones;
 			default: return false;
 		}
+	}
+
+	int m_GreenDroneCount, m_GreenDroneCountFrame = -1;
+	int GreenDroneCount()
+	{
+		if (m_GreenDroneCountFrame != Time.frameCount)
+		{
+			m_GreenDroneCountFrame = Time.frameCount;
+			m_GreenDroneCount = GetAllEnemiesOfType<Drone>(false).Count(d => d.Health > 0);
+		}
+		return m_GreenDroneCount;
 	}
 
 	// Cible actuelle d'un drone, sans en attribuer de nouvelle (utilisée pour choisir où esquiver)

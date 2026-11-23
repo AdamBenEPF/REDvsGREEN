@@ -24,10 +24,10 @@ namespace RedVsGreen.EditorTools
 		// Variantes comparées par la série comparative : "nom:champ=valeur,champ=valeur" (champs de ArmyManagerRed)
 		static readonly string[] Variants =
 		{
-			"controle:m_EvadeMode=HuntersOnly",
-			"tourelles-sur-6:m_EvadeMode=HuntersOnly,m_TurretPriorityTargets=TurretGreen (6)",
-			"ordre-nord-sud:m_EvadeMode=HuntersOnly,m_AssaultOrder=TurretGreen (1);TurretGreen (5);TurretGreen (4);TurretGreen (3);TurretGreen (8);TurretGreen (6);TurretGreen (7);TurretGreen (0);TurretGreen (2)",
-			"chasseurs-9:m_EvadeMode=HuntersOnly,m_HunterCount=9",
+			"base:m_EvadeMode=HuntersOnly",
+			"esquive-fin-3:m_EvadeMode=Endgame,m_EndgameGreenDrones=3",
+			"esquive-fin-6:m_EvadeMode=Endgame,m_EndgameGreenDrones=6",
+			"esquive-tous:m_EvadeMode=All",
 		};
 
 		[MenuItem("RedVsGreen/Série comparative (10 batailles par variante, vitesse x3)", priority = 10)]
