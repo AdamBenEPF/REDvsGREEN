@@ -1,0 +1,1735 @@
+RUN	TIME	EVENT	SIDE	UNIT	CAUSE	X	Z	DETAIL
+0	7.7	DEATH	GREEN	DroneGreen (14)	Missile	16.9	-0.3	drone
+0	8.2	DEATH	GREEN	DroneGreen (9)	Missile	11.5	1.8	drone
+0	8.2	DEATH	GREEN	DroneGreen (1)	Missile	11.9	2.3	drone
+0	9.5	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+0	9.6	DEATH	GREEN	DroneGreen (3)	Missile	9.0	3.8	drone
+0	10.2	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+0	10.5	DEATH	GREEN	DroneGreen (8)	Missile	8.8	1.3	drone
+0	11.5	DEATH	GREEN	DroneGreen (11)	Missile	-19.1	2.3	drone
+0	12.7	DEATH	GREEN	DroneGreen (12)	Missile	2.1	3.9	drone
+0	13.6	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+0	13.9	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+0	15.2	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+0	15.3	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+0	17.7	DEATH	GREEN	DroneGreen (0)	Grenade	21.2	24.9	drone
+0	17.9	DEATH	RED	TurretRed (4)	Missile	23.0	21.4	turret
+0	22.2	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+0	23.1	DEATH	GREEN	DroneGreen (18)	Grenade	13.9	27.0	drone
+0	25.4	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+0	29.1	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+0	29.4	DEATH	RED	DroneRed (3)	Grenade	10.2	17.8	drone
+0	30.0	DEATH	RED	DroneRed (4)	Missile	13.9	19.6	drone
+0	30.9	DEATH	RED	DroneRed (12)	Grenade	-20.3	29.1	drone
+0	35.1	DEATH	GREEN	DroneGreen (13)	Missile	-6.5	11.4	drone
+0	35.9	DEATH	RED	DroneRed (1)	Missile	-17.1	1.2	drone
+0	39.8	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+0	41.0	DEATH	RED	DroneRed (10)	Missile	-19.2	16.8	drone
+0	43.0	DEATH	GREEN	DroneGreen (17)	Missile	-7.0	8.8	drone
+0	44.9	DEATH	GREEN	DroneGreen (15)	Missile	-3.2	9.5	drone
+0	48.0	DEATH	RED	DroneRed (11)	Grenade	-29.3	-2.1	drone
+0	49.5	DEATH	GREEN	DroneGreen (5)	Missile	-3.3	15.7	drone
+0	49.5	DEATH	GREEN	DroneGreen (2)	Missile	-2.8	16.3	drone
+0	50.3	DEATH	GREEN	DroneGreen (10)	Missile	-7.4	11.1	drone
+0	52.6	DEATH	RED	DroneRed (9)	Grenade	-21.8	17.1	drone
+0	53.9	DEATH	RED	DroneRed (2)	Missile	-8.8	4.7	drone
+0	58.8	DEATH	GREEN	DroneGreen (6)	Missile	6.7	12.6	drone
+0	62.7	DEATH	RED	DroneRed (7)	Grenade	-26.4	11.9	drone
+0	72.1	DEATH	RED	DroneRed (5)	Grenade	11.3	7.3	drone
+0	72.1	DEATH	GREEN	DroneGreen (16)	Missile	12.0	19.1	drone
+0	74.6	DEATH	RED	DroneRed (6)	Grenade	-26.9	18.6	drone
+0	77.1	DEATH	GREEN	TurretGreen (4)	Missile	-24.8	10.8	turret
+0	83.9	DEATH	RED	DroneRed (8)	Missile	8.1	2.2	drone
+0	107.8	DEATH	RED	DroneRed (0)	Missile	11.8	5.8	drone
+0	107.8	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	1
+0	107.8	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	1
+0	107.8	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	5
+0	107.8	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	7
+0	107.8	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	6
+0	107.8	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	5
+1	8.0	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+1	10.3	DEATH	GREEN	DroneGreen (5)	Grenade	11.3	-4.7	drone
+1	13.9	DEATH	GREEN	DroneGreen (15)	Grenade	29.7	2.3	drone
+1	14.0	DEATH	RED	TurretRed (2)	Missile	25.7	1.3	turret
+1	14.0	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+1	14.0	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+1	14.3	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+1	16.5	DEATH	GREEN	DroneGreen (1)	Grenade	24.1	8.1	drone
+1	16.6	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+1	17.0	DEATH	RED	DroneRed (6)	Grenade	28.4	-2.4	drone
+1	17.3	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+1	18.8	DEATH	GREEN	DroneGreen (14)	Missile	28.6	2.7	drone
+1	19.2	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+1	21.5	DEATH	RED	DroneRed (9)	Missile	29.3	-2.0	drone
+1	21.6	DEATH	RED	DroneRed (1)	Grenade	22.7	-8.1	drone
+1	23.1	DEATH	RED	DroneRed (5)	Missile	28.3	8.1	drone
+1	23.9	DEATH	RED	DroneRed (4)	Grenade	27.6	2.1	drone
+1	27.4	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+1	28.8	DEATH	RED	DroneRed (8)	Grenade	16.5	-10.7	drone
+1	29.0	DEATH	RED	DroneRed (0)	Missile	21.0	22.8	drone
+1	30.9	DEATH	RED	DroneRed (11)	Missile	-18.7	27.6	drone
+1	31.7	DEATH	RED	DroneRed (12)	Grenade	-16.2	27.7	drone
+1	34.6	DEATH	RED	DroneRed (10)	Grenade	-15.1	19.9	drone
+1	36.9	DEATH	RED	DroneRed (3)	Grenade	-15.0	11.4	drone
+1	38.3	DEATH	RED	DroneRed (7)	Missile	-23.1	13.4	drone
+1	61.2	DEATH	RED	DroneRed (2)	Missile	-17.9	-13.1	drone
+1	61.2	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	1
+1	61.2	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	5
+1	61.2	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	4
+1	61.2	OBSTACLE_HITS	GREEN	propCrate (3)		0.0	0.0	1
+2	10.3	DEATH	RED	TurretRed (4)	Missile	23.0	21.4	turret
+2	10.6	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+2	10.7	DEATH	GREEN	DroneGreen (14)	Missile	21.1	25.1	drone
+2	11.2	DEATH	GREEN	DroneGreen (1)	Grenade	13.7	7.5	drone
+2	11.9	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+2	12.8	DEATH	GREEN	DroneGreen (9)	Missile	23.2	24.1	drone
+2	14.0	DEATH	GREEN	DroneGreen (17)	Missile	14.8	25.3	drone
+2	14.1	DEATH	RED	DroneRed (0)	Missile	17.8	-17.9	drone
+2	15.2	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+2	15.7	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+2	15.9	DEATH	RED	DroneRed (8)	Grenade	23.7	17.9	drone
+2	15.9	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+2	17.1	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+2	18.7	DEATH	GREEN	DroneGreen (2)	Grenade	29.7	3.3	drone
+2	19.0	DEATH	RED	TurretRed (2)	Missile	25.7	1.3	turret
+2	19.9	DEATH	GREEN	DroneGreen (5)	Missile	27.0	4.2	drone
+2	21.0	DEATH	GREEN	DroneGreen (11)	Missile	13.9	29.7	drone
+2	21.8	DEATH	RED	DroneRed (1)	Grenade	24.3	15.0	drone
+2	24.3	DEATH	RED	DroneRed (5)	Grenade	24.1	16.0	drone
+2	27.3	DEATH	RED	DroneRed (12)	Missile	-19.3	27.9	drone
+2	27.8	DEATH	GREEN	DroneGreen (16)	Missile	6.5	2.9	drone
+2	29.3	DEATH	RED	DroneRed (7)	Missile	-19.3	-12.3	drone
+2	29.7	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+2	30.0	DEATH	RED	DroneRed (10)	Grenade	-19.0	-13.2	drone
+2	31.8	DEATH	RED	DroneRed (11)	Grenade	-17.5	27.2	drone
+2	34.2	DEATH	GREEN	DroneGreen (4)	Missile	7.3	19.1	drone
+2	36.7	DEATH	RED	DroneRed (9)	Grenade	-5.7	22.8	drone
+2	37.0	DEATH	RED	DroneRed (3)	Grenade	-3.5	22.3	drone
+2	37.4	DEATH	GREEN	DroneGreen (13)	Missile	12.1	27.7	drone
+2	42.2	DEATH	RED	DroneRed (2)	Grenade	4.8	10.5	drone
+2	44.0	DEATH	RED	DroneRed (6)	Grenade	10.5	13.2	drone
+2	44.2	DEATH	RED	DroneRed (4)	Missile	16.7	25.6	drone
+2	44.2	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	4
+2	44.2	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	2
+2	44.2	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	3
+2	44.2	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	6
+3	6.3	DEATH	GREEN	DroneGreen (14)	Missile	18.6	-0.3	drone
+3	7.1	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+3	10.4	DEATH	GREEN	DroneGreen (2)	Grenade	10.9	0.9	drone
+3	11.3	DEATH	RED	DroneRed (4)	Grenade	27.1	-8.9	drone
+3	11.3	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+3	11.4	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+3	11.5	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+3	12.7	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+3	12.8	DEATH	GREEN	DroneGreen (8)	Grenade	17.1	-9.6	drone
+3	12.8	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+3	13.8	DEATH	GREEN	DroneGreen (0)	Grenade	11.9	-9.5	drone
+3	13.8	DEATH	GREEN	DroneGreen (6)	Grenade	13.9	-9.8	drone
+3	14.0	DEATH	RED	DroneRed (9)	Grenade	17.5	-21.9	drone
+3	15.0	DEATH	GREEN	DroneGreen (11)	Grenade	12.6	-12.4	drone
+3	15.3	DEATH	GREEN	DroneGreen (7)	Grenade	15.6	-12.9	drone
+3	15.8	DEATH	GREEN	DroneGreen (15)	Grenade	18.7	-8.8	drone
+3	15.9	DEATH	RED	DroneRed (0)	Grenade	12.5	-11.5	drone
+3	20.2	DEATH	RED	TurretRed (4)	Missile	23.0	21.4	turret
+3	21.4	DEATH	GREEN	DroneGreen (17)	Grenade	24.6	9.3	drone
+3	21.4	DEATH	GREEN	DroneGreen (18)	Grenade	25.9	10.0	drone
+3	23.6	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+3	24.1	DEATH	RED	TurretRed (3)	Missile	25.2	13.7	turret
+3	26.2	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+3	28.4	DEATH	GREEN	DroneGreen (13)	Missile	-1.7	-5.5	drone
+3	40.3	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+3	40.4	DEATH	RED	DroneRed (8)	Grenade	-28.9	2.2	drone
+3	41.4	DEATH	RED	DroneRed (11)	Grenade	-25.2	2.7	drone
+3	41.8	DEATH	RED	DroneRed (10)	Grenade	-20.2	17.3	drone
+3	45.1	DEATH	RED	DroneRed (12)	Grenade	-26.3	0.5	drone
+3	47.6	DEATH	RED	DroneRed (7)	Missile	-25.5	9.6	drone
+3	52.8	DEATH	GREEN	DroneGreen (16)	Missile	29.7	-9.1	drone
+3	53.3	DEATH	RED	DroneRed (3)	Missile	18.5	-15.3	drone
+3	55.3	DEATH	GREEN	DroneGreen (4)	Missile	13.7	-12.8	drone
+3	62.7	DEATH	RED	DroneRed (5)	Grenade	-24.9	3.1	drone
+3	70.6	DEATH	RED	DroneRed (6)	Missile	10.5	5.7	drone
+3	87.2	DEATH	RED	DroneRed (2)	Grenade	14.5	-10.2	drone
+3	93.0	DEATH	RED	DroneRed (1)	Missile	27.9	-9.9	drone
+3	93.0	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	2
+3	93.0	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	4
+3	93.0	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	2
+3	93.0	OBSTACLE_HITS	RED	propCrate (3)		0.0	0.0	1
+3	93.0	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	8
+3	93.0	OBSTACLE_HITS	GREEN	propCrate (3)		0.0	0.0	8
+3	93.0	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	10
+3	93.0	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	1
+4	8.8	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+4	8.8	DEATH	GREEN	DroneGreen (14)	Missile	8.3	-10.5	drone
+4	10.0	DEATH	GREEN	DroneGreen (6)	Grenade	11.8	-3.4	drone
+4	10.5	DEATH	GREEN	DroneGreen (9)	Grenade	11.1	-6.1	drone
+4	10.6	DEATH	GREEN	DroneGreen (0)	Grenade	7.5	-6.2	drone
+4	11.0	DEATH	GREEN	DroneGreen (18)	Missile	16.3	-18.3	drone
+4	11.1	DEATH	GREEN	DroneGreen (10)	Missile	6.8	-7.5	drone
+4	12.2	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+4	12.7	DEATH	GREEN	DroneGreen (17)	Missile	9.6	-12.1	drone
+4	12.9	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+4	13.4	DEATH	GREEN	DroneGreen (12)	Missile	10.0	-14.9	drone
+4	14.8	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+4	14.9	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+4	15.5	DEATH	GREEN	DroneGreen (8)	Grenade	13.9	-10.9	drone
+4	16.5	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+4	16.8	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+4	16.9	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+4	17.2	DEATH	GREEN	DroneGreen (5)	Missile	15.4	-6.7	drone
+4	22.2	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+4	24.3	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+4	29.5	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+4	33.7	DEATH	RED	DroneRed (5)	Missile	14.2	-20.5	drone
+4	37.7	DEATH	GREEN	DroneGreen (1)	Missile	12.2	-22.4	drone
+4	37.7	DEATH	RED	DroneRed (4)	Grenade	4.1	-9.3	drone
+4	38.9	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+4	40.1	DEATH	GREEN	DroneGreen (2)	Missile	3.3	-11.7	drone
+4	41.0	DEATH	RED	DroneRed (3)	Missile	16.8	-15.2	drone
+4	43.7	DEATH	GREEN	TurretGreen (7)	Missile	-28.9	0.1	turret
+4	44.9	DEATH	GREEN	DroneGreen (3)	Missile	-6.5	-5.8	drone
+4	49.6	DEATH	GREEN	DroneGreen (15)	Missile	22.5	-15.6	drone
+4	58.0	DEATH	GREEN	DroneGreen (7)	Missile	-24.1	5.5	drone
+4	63.9	DEATH	RED	DroneRed (9)	Missile	-9.6	2.3	drone
+4	66.7	DEATH	RED	DroneRed (6)	Missile	8.9	27.5	drone
+4	70.1	DEATH	GREEN	DroneGreen (16)	Missile	-29.7	17.6	drone
+4	71.7	DEATH	GREEN	DroneGreen (11)	Missile	-4.5	11.6	drone
+4	73.2	DEATH	GREEN	TurretGreen (5)	Missile	-23.2	1.0	turret
+4	73.2	DEATH	GREEN	DroneGreen (13)	Grenade	-23.4	2.5	drone
+4	76.4	DEATH	GREEN	TurretGreen (4)	Missile	-24.8	10.8	turret
+4	79.8	DEATH	GREEN	DroneGreen (4)	Missile	-18.6	20.8	drone
+4	79.8	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	9
+4	79.8	OBSTACLE_HITS	RED	propCrate (3)		0.0	0.0	2
+4	79.8	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	1
+4	79.8	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	4
+4	79.8	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	12
+4	79.8	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	2
+4	79.8	OBSTACLE_HITS	GREEN	propCrate (3)		0.0	0.0	2
+4	79.8	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	2
+5	7.3	DEATH	RED	DroneRed (4)	Missile	13.3	3.1	drone
+5	9.9	DEATH	GREEN	DroneGreen (14)	Missile	21.1	25.3	drone
+5	10.4	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+5	12.6	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+5	14.2	DEATH	GREEN	DroneGreen (0)	Grenade	20.9	24.8	drone
+5	14.2	DEATH	GREEN	DroneGreen (15)	Grenade	24.5	24.1	drone
+5	14.2	DEATH	GREEN	DroneGreen (9)	Grenade	23.1	25.4	drone
+5	14.3	DEATH	GREEN	DroneGreen (12)	Missile	21.3	25.1	drone
+5	14.5	DEATH	GREEN	DroneGreen (16)	Grenade	16.4	23.1	drone
+5	14.5	DEATH	GREEN	DroneGreen (10)	Grenade	16.0	23.0	drone
+5	14.7	DEATH	GREEN	DroneGreen (8)	Missile	25.5	24.1	drone
+5	15.9	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+5	16.2	DEATH	GREEN	DroneGreen (3)	Missile	14.0	28.3	drone
+5	16.3	DEATH	GREEN	DroneGreen (17)	Missile	13.2	29.0	drone
+5	16.8	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+5	17.8	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+5	17.9	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+5	17.9	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+5	18.0	DEATH	GREEN	DroneGreen (2)	Missile	13.9	27.3	drone
+5	18.1	DEATH	GREEN	DroneGreen (5)	Grenade	21.9	20.7	drone
+5	19.3	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+5	21.9	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+5	23.1	DEATH	RED	DroneRed (5)	Grenade	20.5	25.0	drone
+5	23.7	DEATH	GREEN	DroneGreen (13)	Missile	23.9	23.6	drone
+5	24.2	DEATH	RED	DroneRed (10)	Grenade	-17.7	-15.5	drone
+5	31.9	DEATH	GREEN	DroneGreen (7)	Missile	4.3	17.9	drone
+5	34.8	DEATH	RED	DroneRed (3)	Grenade	-5.1	6.4	drone
+5	37.3	DEATH	RED	DroneRed (6)	Grenade	-10.1	1.1	drone
+5	37.4	DEATH	RED	DroneRed (7)	Missile	-20.0	-1.5	drone
+5	46.0	DEATH	GREEN	DroneGreen (4)	Missile	-9.4	-6.2	drone
+5	54.5	DEATH	RED	DroneRed (9)	Missile	7.3	20.0	drone
+5	55.8	DEATH	GREEN	DroneGreen (18)	Missile	2.8	17.6	drone
+5	58.5	DEATH	GREEN	DroneGreen (11)	Missile	-13.2	-6.0	drone
+5	61.4	DEATH	RED	DroneRed (12)	Missile	-21.8	28.4	drone
+5	69.3	DEATH	RED	DroneRed (11)	Grenade	-22.7	26.4	drone
+5	72.7	DEATH	RED	DroneRed (2)	Grenade	-13.5	10.8	drone
+5	74.8	DEATH	RED	DroneRed (8)	Missile	-24.4	26.9	drone
+5	80.5	DEATH	RED	DroneRed (1)	Grenade	-10.6	22.9	drone
+5	84.4	DEATH	RED	DroneRed (0)	Grenade	15.5	-6.8	drone
+5	84.4	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	4
+5	84.4	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	5
+5	84.4	OBSTACLE_HITS	RED	propCrate (4)		0.0	0.0	1
+5	84.4	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	2
+5	84.4	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	6
+5	84.4	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	6
+5	84.4	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	4
+5	84.4	OBSTACLE_HITS	GREEN	propCrate (3)		0.0	0.0	1
+6	3.4	DEATH	GREEN	DroneGreen (14)	Missile	7.5	3.2	drone
+6	5.4	DEATH	GREEN	DroneGreen (13)	Missile	8.2	-0.5	drone
+6	6.2	DEATH	GREEN	DroneGreen (1)	Missile	10.0	1.0	drone
+6	9.1	DEATH	RED	TurretRed (2)	Missile	25.7	1.3	turret
+6	9.7	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+6	11.8	DEATH	RED	TurretRed (0)	Missile	23.8	-10.9	turret
+6	11.9	DEATH	GREEN	DroneGreen (10)	Missile	15.7	-14.4	drone
+6	12.6	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+6	14.0	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+6	14.4	DEATH	GREEN	DroneGreen (4)	Missile	7.0	-2.0	drone
+6	14.9	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+6	17.8	DEATH	RED	TurretRed (3)	Missile	25.2	13.7	turret
+6	19.1	DEATH	RED	DroneRed (5)	Grenade	13.1	-12.4	drone
+6	21.2	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+6	23.6	DEATH	GREEN	DroneGreen (0)	Missile	-19.1	-12.8	drone
+6	24.0	DEATH	GREEN	DroneGreen (8)	Missile	-22.0	-8.8	drone
+6	24.3	DEATH	RED	DroneRed (10)	Grenade	-18.5	-13.0	drone
+6	24.8	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+6	25.3	DEATH	GREEN	DroneGreen (12)	Missile	-15.2	1.2	drone
+6	25.3	DEATH	GREEN	DroneGreen (15)	Missile	3.6	-15.3	drone
+6	25.7	DEATH	RED	DroneRed (7)	Grenade	-17.6	-13.5	drone
+6	28.4	DEATH	GREEN	DroneGreen (5)	Missile	-13.6	4.4	drone
+6	31.2	DEATH	GREEN	DroneGreen (2)	Missile	-1.3	-13.2	drone
+6	31.7	DEATH	RED	DroneRed (4)	Grenade	-10.1	-11.7	drone
+6	33.4	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+6	34.2	DEATH	GREEN	DroneGreen (9)	Missile	2.7	8.1	drone
+6	36.1	DEATH	RED	DroneRed (9)	Grenade	-4.4	1.2	drone
+6	36.4	DEATH	GREEN	DroneGreen (11)	Missile	0.5	13.5	drone
+6	36.9	DEATH	RED	DroneRed (0)	Missile	-18.8	-12.6	drone
+6	40.6	DEATH	RED	DroneRed (6)	Grenade	1.5	3.8	drone
+6	43.7	DEATH	GREEN	DroneGreen (3)	Missile	-2.9	-1.9	drone
+6	44.5	DEATH	GREEN	DroneGreen (18)	Missile	-3.8	-10.2	drone
+6	45.1	DEATH	GREEN	DroneGreen (6)	Missile	-6.5	2.1	drone
+6	50.8	DEATH	RED	DroneRed (3)	Grenade	-15.5	24.3	drone
+6	51.6	DEATH	GREEN	TurretGreen (7)	Missile	-28.9	0.1	turret
+6	52.5	DEATH	RED	DroneRed (11)	Grenade	-27.2	-0.9	drone
+6	52.5	DEATH	RED	DroneRed (12)	Grenade	-27.6	0.0	drone
+6	54.8	DEATH	GREEN	DroneGreen (7)	Missile	-13.6	14.5	drone
+6	56.4	DEATH	RED	DroneRed (8)	Missile	-15.3	10.0	drone
+6	58.2	DEATH	RED	DroneRed (1)	Missile	0.3	4.5	drone
+6	58.9	DEATH	GREEN	DroneGreen (16)	Missile	-10.7	14.0	drone
+6	65.0	DEATH	RED	DroneRed (2)	Grenade	-8.5	16.9	drone
+6	65.0	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	10
+6	65.0	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	1
+6	65.0	OBSTACLE_HITS	RED	propCrate (3)		0.0	0.0	2
+6	65.0	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	4
+6	65.0	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	10
+6	65.0	OBSTACLE_HITS	GREEN	propCrate (3)		0.0	0.0	1
+6	65.0	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	2
+7	4.0	DEATH	GREEN	DroneGreen (14)	Missile	7.7	2.0	drone
+7	8.5	DEATH	GREEN	DroneGreen (9)	Grenade	9.2	-3.0	drone
+7	9.1	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+7	9.8	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+7	9.8	DEATH	GREEN	DroneGreen (2)	Grenade	12.2	-5.0	drone
+7	12.3	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+7	13.4	DEATH	GREEN	DroneGreen (3)	Grenade	29.7	0.9	drone
+7	13.4	DEATH	GREEN	DroneGreen (15)	Grenade	27.7	-0.5	drone
+7	13.8	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+7	14.1	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+7	16.2	DEATH	RED	DroneRed (4)	Missile	17.4	-12.0	drone
+7	17.3	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+7	17.7	DEATH	GREEN	DroneGreen (12)	Missile	-5.1	-17.2	drone
+7	18.8	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+7	19.0	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+7	19.3	DEATH	GREEN	DroneGreen (18)	Grenade	9.0	-20.9	drone
+7	19.7	DEATH	GREEN	DroneGreen (4)	Missile	28.6	-15.0	drone
+7	20.8	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+7	21.7	DEATH	RED	DroneRed (9)	Missile	23.6	-14.8	drone
+7	22.6	DEATH	GREEN	DroneGreen (1)	Grenade	18.6	-14.5	drone
+7	23.8	DEATH	GREEN	DroneGreen (16)	Grenade	15.5	-16.0	drone
+7	25.1	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+7	27.0	DEATH	GREEN	DroneGreen (13)	Missile	28.5	-5.5	drone
+7	28.2	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+7	30.9	DEATH	GREEN	DroneGreen (6)	Missile	26.3	-14.7	drone
+7	31.1	DEATH	GREEN	DroneGreen (17)	Missile	29.7	-10.4	drone
+7	34.8	DEATH	RED	DroneRed (5)	Grenade	-17.5	15.1	drone
+7	39.0	DEATH	GREEN	DroneGreen (0)	Missile	22.4	-16.8	drone
+7	42.1	DEATH	RED	DroneRed (0)	Missile	27.7	-16.6	drone
+7	43.9	DEATH	GREEN	DroneGreen (7)	Missile	24.0	-16.0	drone
+7	44.4	DEATH	RED	DroneRed (3)	Grenade	26.7	-6.4	drone
+7	48.6	DEATH	RED	DroneRed (10)	Grenade	-20.4	16.6	drone
+7	52.9	DEATH	GREEN	TurretGreen (7)	Missile	-28.9	0.1	turret
+7	53.8	DEATH	RED	DroneRed (7)	Grenade	-20.9	16.1	drone
+7	56.8	DEATH	GREEN	DroneGreen (8)	Missile	15.4	-11.8	drone
+7	73.6	DEATH	RED	DroneRed (12)	Grenade	-19.3	0.0	drone
+7	86.1	DEATH	GREEN	DroneGreen (10)	Missile	-12.4	-0.5	drone
+7	95.8	DEATH	RED	DroneRed (1)	Grenade	-4.6	17.1	drone
+7	99.3	DEATH	RED	DroneRed (11)	Missile	-22.9	1.7	drone
+7	109.8	DEATH	RED	DroneRed (8)	Grenade	-20.0	11.0	drone
+7	123.6	DEATH	GREEN	TurretGreen (5)	Missile	-23.2	1.0	turret
+7	125.2	DEATH	RED	DroneRed (2)	Missile	-23.1	-1.1	drone
+7	127.5	DEATH	RED	DroneRed (6)	Grenade	-15.3	17.3	drone
+7	127.5	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	7
+7	127.5	OBSTACLE_HITS	RED	propCrate (3)		0.0	0.0	2
+7	127.5	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	1
+7	127.5	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	6
+7	127.5	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	8
+7	127.5	OBSTACLE_HITS	GREEN	propCrate (3)		0.0	0.0	2
+7	127.5	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	1
+8	6.5	DEATH	RED	TurretRed (5)	Missile	17.6	-19.7	turret
+8	7.2	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+8	9.5	DEATH	GREEN	DroneGreen (12)	Missile	10.9	-1.3	drone
+8	12.5	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+8	15.2	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+8	16.4	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+8	17.6	DEATH	GREEN	DroneGreen (7)	Grenade	17.8	24.0	drone
+8	17.7	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+8	18.2	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+8	18.9	DEATH	RED	DroneRed (5)	Grenade	27.5	-9.7	drone
+8	20.0	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+8	20.0	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+8	20.3	DEATH	GREEN	DroneGreen (1)	Grenade	23.9	10.9	drone
+8	24.6	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+8	26.5	DEATH	GREEN	DroneGreen (14)	Missile	0.4	6.4	drone
+8	28.6	DEATH	GREEN	DroneGreen (15)	Missile	2.2	4.3	drone
+8	30.5	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+8	33.2	DEATH	GREEN	DroneGreen (16)	Missile	-13.5	-8.3	drone
+8	38.7	DEATH	RED	DroneRed (0)	Missile	16.3	-18.2	drone
+8	38.8	DEATH	GREEN	DroneGreen (6)	Missile	-16.4	29.3	drone
+8	39.6	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+8	40.7	DEATH	GREEN	DroneGreen (2)	Missile	6.7	-1.7	drone
+8	43.6	DEATH	GREEN	TurretGreen (7)	Missile	-28.9	0.1	turret
+8	44.4	DEATH	GREEN	DroneGreen (11)	Missile	-17.5	18.3	drone
+8	45.8	DEATH	GREEN	DroneGreen (17)	Missile	-6.2	16.8	drone
+8	46.7	DEATH	RED	DroneRed (10)	Grenade	-27.8	16.3	drone
+8	49.9	DEATH	RED	DroneRed (11)	Missile	-24.9	3.2	drone
+8	50.0	DEATH	RED	DroneRed (7)	Missile	-25.7	8.4	drone
+8	54.4	DEATH	GREEN	DroneGreen (13)	Missile	-23.6	18.3	drone
+8	54.5	DEATH	RED	DroneRed (4)	Missile	-27.8	17.8	drone
+8	56.0	DEATH	GREEN	DroneGreen (8)	Missile	-24.0	18.3	drone
+8	57.3	DEATH	GREEN	DroneGreen (18)	Missile	-17.7	16.8	drone
+8	65.0	DEATH	RED	DroneRed (6)	Missile	-17.0	10.3	drone
+8	66.2	DEATH	GREEN	TurretGreen (5)	Missile	-23.2	1.0	turret
+8	67.9	DEATH	GREEN	DroneGreen (10)	Missile	-15.5	13.5	drone
+8	69.3	DEATH	GREEN	DroneGreen (0)	Missile	-13.0	19.6	drone
+8	69.8	DEATH	RED	DroneRed (9)	Missile	-14.4	18.2	drone
+8	70.8	DEATH	GREEN	DroneGreen (9)	Missile	-22.5	17.7	drone
+8	74.9	DEATH	GREEN	DroneGreen (3)	Missile	-14.5	17.3	drone
+8	81.8	DEATH	RED	DroneRed (8)	Missile	-17.0	18.3	drone
+8	83.1	DEATH	GREEN	DroneGreen (4)	Missile	-21.7	16.2	drone
+8	89.6	DEATH	GREEN	DroneGreen (5)	Missile	-10.3	10.6	drone
+8	97.2	DEATH	RED	DroneRed (3)	Grenade	-16.5	23.7	drone
+8	97.4	DEATH	GREEN	TurretGreen (4)	Missile	-24.8	10.8	turret
+8	97.4	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	16
+8	97.4	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	2
+8	97.4	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	1
+8	97.4	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	12
+8	97.4	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	4
+8	97.4	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	7
+9	4.2	DEATH	GREEN	DroneGreen (14)	Missile	3.0	4.4	drone
+9	7.1	DEATH	GREEN	DroneGreen (5)	Grenade	5.9	6.0	drone
+9	7.4	DEATH	GREEN	DroneGreen (15)	Missile	17.0	-12.8	drone
+9	8.4	DEATH	GREEN	DroneGreen (12)	Missile	8.4	2.8	drone
+9	10.3	DEATH	GREEN	DroneGreen (7)	Missile	7.2	-0.7	drone
+9	10.6	DEATH	GREEN	DroneGreen (18)	Grenade	6.8	-4.3	drone
+9	11.6	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+9	12.6	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+9	13.4	DEATH	GREEN	DroneGreen (0)	Missile	6.5	-0.5	drone
+9	14.4	DEATH	RED	TurretRed (0)	Missile	23.8	-10.9	turret
+9	14.8	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+9	15.5	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+9	16.3	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+9	17.6	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+9	22.5	DEATH	RED	TurretRed (4)	Missile	23.0	21.4	turret
+9	25.6	DEATH	GREEN	DroneGreen (16)	Grenade	-22.8	-1.0	drone
+9	26.7	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+9	28.6	DEATH	GREEN	DroneGreen (8)	Grenade	19.4	25.0	drone
+9	29.9	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+9	31.7	DEATH	GREEN	DroneGreen (6)	Missile	9.1	20.7	drone
+9	34.3	DEATH	RED	DroneRed (8)	Missile	-14.7	2.2	drone
+9	34.6	DEATH	GREEN	DroneGreen (10)	Missile	-6.1	2.6	drone
+9	34.7	DEATH	RED	DroneRed (10)	Grenade	-13.9	15.4	drone
+9	35.7	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+9	37.8	DEATH	GREEN	DroneGreen (1)	Missile	1.7	-9.4	drone
+9	38.1	DEATH	RED	DroneRed (9)	Grenade	0.1	-4.5	drone
+9	38.3	DEATH	RED	DroneRed (0)	Missile	0.4	-4.9	drone
+9	42.8	DEATH	RED	DroneRed (7)	Missile	-21.0	15.7	drone
+9	44.5	DEATH	RED	DroneRed (12)	Grenade	-28.3	17.4	drone
+9	46.9	DEATH	GREEN	DroneGreen (4)	Missile	-10.6	15.5	drone
+9	47.6	DEATH	RED	DroneRed (4)	Missile	-23.2	-3.5	drone
+9	49.6	DEATH	GREEN	DroneGreen (3)	Grenade	-22.3	5.3	drone
+9	50.9	DEATH	GREEN	DroneGreen (13)	Missile	-5.6	24.0	drone
+9	63.7	DEATH	RED	DroneRed (3)	Grenade	-16.7	15.1	drone
+9	65.4	DEATH	GREEN	DroneGreen (17)	Missile	-21.0	16.5	drone
+9	67.1	DEATH	GREEN	TurretGreen (7)	Missile	-28.9	0.1	turret
+9	71.9	DEATH	RED	DroneRed (11)	Grenade	-21.3	11.7	drone
+9	73.6	DEATH	RED	DroneRed (5)	Grenade	-14.9	23.4	drone
+9	78.4	DEATH	RED	DroneRed (6)	Grenade	-12.7	19.8	drone
+9	78.4	DEATH	RED	DroneRed (1)	Grenade	-11.8	21.9	drone
+9	89.4	DEATH	GREEN	DroneGreen (2)	Missile	-27.9	-0.8	drone
+9	97.8	DEATH	RED	DroneRed (2)	Grenade	-28.4	-8.0	drone
+9	97.8	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	10
+9	97.8	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	2
+9	97.8	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	5
+9	97.8	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	13
+9	97.8	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	4
+9	97.8	OBSTACLE_HITS	GREEN	propCrate (3)		0.0	0.0	2
+9	97.8	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	1
+10	5.9	DEATH	GREEN	DroneGreen (14)	Missile	7.9	1.5	drone
+10	7.8	DEATH	GREEN	DroneGreen (15)	Grenade	11.1	-0.3	drone
+10	9.3	DEATH	GREEN	DroneGreen (5)	Grenade	12.0	-2.9	drone
+10	10.0	DEATH	GREEN	DroneGreen (7)	Missile	10.8	-4.2	drone
+10	10.7	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+10	11.0	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+10	12.1	DEATH	GREEN	DroneGreen (16)	Grenade	9.4	-4.1	drone
+10	13.9	DEATH	RED	TurretRed (3)	Missile	25.2	13.7	turret
+10	14.1	DEATH	GREEN	DroneGreen (13)	Missile	-20.9	-3.5	drone
+10	14.6	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+10	15.8	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+10	16.2	DEATH	GREEN	DroneGreen (18)	Missile	-1.2	7.5	drone
+10	17.3	DEATH	GREEN	DroneGreen (9)	Grenade	25.4	15.8	drone
+10	17.5	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+10	17.6	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+10	19.8	DEATH	GREEN	DroneGreen (10)	Missile	13.5	-7.2	drone
+10	20.0	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+10	21.3	DEATH	RED	TurretRed (0)	Missile	23.8	-10.9	turret
+10	21.4	DEATH	GREEN	DroneGreen (2)	Missile	17.2	-10.5	drone
+10	22.3	DEATH	GREEN	DroneGreen (1)	Missile	15.3	23.5	drone
+10	24.8	DEATH	GREEN	DroneGreen (6)	Missile	0.3	-6.5	drone
+10	28.2	DEATH	GREEN	DroneGreen (3)	Missile	-16.2	4.5	drone
+10	29.6	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+10	29.8	DEATH	GREEN	DroneGreen (12)	Missile	-3.8	-10.8	drone
+10	32.2	DEATH	GREEN	DroneGreen (4)	Missile	-0.2	-8.8	drone
+10	36.4	DEATH	GREEN	DroneGreen (8)	Missile	-4.1	6.4	drone
+10	38.2	DEATH	GREEN	DroneGreen (0)	Missile	-21.5	-10.3	drone
+10	38.7	DEATH	RED	DroneRed (6)	Grenade	-16.1	-13.7	drone
+10	40.7	DEATH	GREEN	DroneGreen (17)	Missile	-3.3	-3.1	drone
+10	42.8	DEATH	GREEN	DroneGreen (11)	Missile	1.4	-8.2	drone
+10	45.4	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+10	47.2	DEATH	RED	DroneRed (9)	Grenade	-14.5	20.5	drone
+10	47.2	DEATH	RED	DroneRed (2)	Grenade	-14.2	18.9	drone
+10	50.5	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+10	52.4	DEATH	RED	DroneRed (5)	Grenade	-20.3	15.4	drone
+10	52.5	DEATH	RED	DroneRed (3)	Grenade	-29.7	17.2	drone
+10	52.5	DEATH	RED	DroneRed (8)	Grenade	-28.3	18.1	drone
+10	52.5	DEATH	RED	DroneRed (1)	Grenade	-29.7	16.5	drone
+10	52.9	DEATH	RED	DroneRed (4)	Grenade	-24.1	18.0	drone
+10	52.9	DEATH	RED	DroneRed (7)	Grenade	-24.5	18.8	drone
+10	54.9	DEATH	RED	DroneRed (0)	Grenade	-26.7	17.8	drone
+10	55.3	DEATH	RED	DroneRed (10)	Grenade	-26.0	18.1	drone
+10	62.9	DEATH	GREEN	TurretGreen (7)	Missile	-28.9	0.1	turret
+10	63.2	DEATH	RED	DroneRed (11)	Grenade	-28.7	-1.8	drone
+10	64.7	DEATH	RED	DroneRed (12)	Grenade	-26.9	0.4	drone
+10	64.7	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	15
+10	64.7	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	1
+10	64.7	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	6
+10	64.7	OBSTACLE_HITS	RED	propCrate (3)		0.0	0.0	4
+10	64.7	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	12
+10	64.7	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	1
+11	8.9	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+11	9.7	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+11	10.3	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+11	14.4	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+11	15.1	DEATH	RED	TurretRed (3)	Missile	25.2	13.7	turret
+11	17.2	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+11	17.4	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+11	20.1	DEATH	RED	TurretRed (4)	Missile	23.0	21.4	turret
+11	22.0	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+11	23.9	DEATH	RED	DroneRed (0)	Grenade	-10.8	6.2	drone
+11	24.7	DEATH	RED	DroneRed (4)	Grenade	-17.4	11.4	drone
+11	27.9	DEATH	GREEN	DroneGreen (14)	Missile	-15.6	-13.9	drone
+11	29.6	DEATH	RED	DroneRed (5)	Missile	-13.8	19.6	drone
+11	31.0	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+11	39.4	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+11	40.4	DEATH	RED	DroneRed (10)	Grenade	-19.5	16.9	drone
+11	41.0	DEATH	RED	DroneRed (12)	Grenade	-28.6	1.8	drone
+11	41.0	DEATH	RED	DroneRed (11)	Grenade	-28.9	0.6	drone
+11	43.9	DEATH	RED	DroneRed (9)	Missile	-0.4	17.0	drone
+11	47.1	DEATH	GREEN	TurretGreen (7)	Missile	-28.9	0.1	turret
+11	47.8	DEATH	RED	DroneRed (3)	Grenade	-1.6	17.1	drone
+11	48.1	DEATH	RED	DroneRed (6)	Missile	-10.0	25.4	drone
+11	48.3	DEATH	RED	DroneRed (1)	Missile	-1.0	27.4	drone
+11	54.3	DEATH	RED	DroneRed (7)	Missile	-28.1	20.4	drone
+11	56.6	DEATH	RED	DroneRed (8)	Missile	-29.4	-0.3	drone
+11	61.2	DEATH	RED	DroneRed (2)	Missile	-15.1	2.6	drone
+11	61.2	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	3
+11	61.2	OBSTACLE_HITS	RED	propCrate (3)		0.0	0.0	2
+11	61.2	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	16
+11	61.2	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	8
+11	61.2	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	5
+12	8.3	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+12	8.9	DEATH	GREEN	DroneGreen (14)	Missile	24.2	-6.7	drone
+12	10.5	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+12	10.9	DEATH	GREEN	DroneGreen (4)	Missile	12.2	-0.1	drone
+12	11.4	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+12	12.5	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+12	12.5	DEATH	RED	TurretRed (5)	Missile	17.6	-19.7	turret
+12	12.5	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+12	13.2	DEATH	GREEN	DroneGreen (2)	Missile	15.6	24.5	drone
+12	16.0	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+12	18.7	DEATH	RED	TurretRed (2)	Missile	25.7	1.3	turret
+12	18.7	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+12	19.7	DEATH	GREEN	DroneGreen (15)	Missile	8.2	-2.8	drone
+12	22.7	DEATH	GREEN	DroneGreen (7)	Missile	-22.7	-4.3	drone
+12	23.5	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+12	25.5	DEATH	GREEN	DroneGreen (12)	Missile	20.5	-15.6	drone
+12	30.0	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+12	30.0	DEATH	RED	DroneRed (12)	Grenade	-19.6	28.8	drone
+12	31.7	DEATH	RED	DroneRed (11)	Grenade	-19.9	28.8	drone
+12	32.3	DEATH	GREEN	DroneGreen (10)	Missile	-10.1	15.3	drone
+12	33.7	DEATH	GREEN	DroneGreen (3)	Missile	-9.2	8.0	drone
+12	36.2	DEATH	GREEN	DroneGreen (0)	Missile	-10.8	3.3	drone
+12	39.4	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+12	49.1	DEATH	GREEN	DroneGreen (5)	Missile	8.8	11.2	drone
+12	50.5	DEATH	RED	DroneRed (3)	Grenade	8.4	12.1	drone
+12	53.7	DEATH	GREEN	DroneGreen (16)	Missile	3.9	12.6	drone
+12	54.6	DEATH	GREEN	TurretGreen (4)	Missile	-24.8	10.8	turret
+12	54.7	DEATH	RED	DroneRed (4)	Missile	1.8	24.4	drone
+12	55.5	DEATH	RED	DroneRed (5)	Missile	13.9	22.0	drone
+12	59.1	DEATH	RED	DroneRed (0)	Missile	14.9	15.1	drone
+12	60.9	DEATH	GREEN	DroneGreen (9)	Missile	-17.8	19.3	drone
+12	62.3	DEATH	GREEN	DroneGreen (8)	Missile	-3.4	11.8	drone
+12	67.2	DEATH	RED	DroneRed (7)	Missile	-14.9	9.9	drone
+12	71.4	DEATH	GREEN	DroneGreen (13)	Missile	-21.6	18.0	drone
+12	73.6	DEATH	GREEN	DroneGreen (1)	Missile	-9.4	14.9	drone
+12	76.2	DEATH	RED	DroneRed (10)	Grenade	-13.9	11.5	drone
+12	76.2	DEATH	RED	DroneRed (9)	Grenade	-11.4	15.3	drone
+12	91.7	DEATH	GREEN	DroneGreen (18)	Missile	15.9	14.8	drone
+12	95.0	DEATH	GREEN	DroneGreen (11)	Missile	-4.3	13.7	drone
+12	96.0	DEATH	RED	DroneRed (6)	Missile	-4.2	14.1	drone
+12	99.4	DEATH	RED	DroneRed (8)	Grenade	-1.0	11.1	drone
+12	102.0	DEATH	RED	DroneRed (1)	Missile	-5.1	-13.5	drone
+12	123.3	DEATH	RED	DroneRed (2)	Missile	8.7	-8.7	drone
+12	123.3	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	6
+12	123.3	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	6
+12	123.3	OBSTACLE_HITS	RED	propCrate (3)		0.0	0.0	4
+12	123.3	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	8
+12	123.3	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	21
+12	123.3	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	7
+12	123.3	OBSTACLE_HITS	GREEN	propCrate (3)		0.0	0.0	9
+12	123.3	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	6
+13	9.6	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+13	9.8	DEATH	GREEN	DroneGreen (14)	Missile	21.6	25.4	drone
+13	10.2	DEATH	RED	TurretRed (2)	Missile	25.7	1.3	turret
+13	10.3	DEATH	GREEN	DroneGreen (15)	Grenade	13.1	1.2	drone
+13	11.7	DEATH	GREEN	DroneGreen (5)	Missile	11.3	17.2	drone
+13	12.7	DEATH	GREEN	DroneGreen (16)	Missile	12.9	25.0	drone
+13	12.7	DEATH	RED	TurretRed (3)	Missile	25.2	13.7	turret
+13	13.3	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+13	15.2	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+13	15.7	DEATH	GREEN	DroneGreen (1)	Missile	21.1	22.6	drone
+13	16.2	DEATH	GREEN	DroneGreen (13)	Grenade	27.8	8.7	drone
+13	16.7	DEATH	RED	DroneRed (0)	Grenade	20.4	25.3	drone
+13	17.0	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+13	18.0	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+13	18.0	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+13	19.3	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+13	27.7	DEATH	RED	DroneRed (6)	Missile	-2.9	19.3	drone
+13	28.4	DEATH	GREEN	DroneGreen (12)	Missile	23.7	26.3	drone
+13	29.2	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+13	32.2	DEATH	RED	DroneRed (4)	Missile	7.5	16.5	drone
+13	32.3	DEATH	RED	DroneRed (5)	Missile	22.2	20.9	drone
+13	34.7	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+13	44.0	DEATH	RED	DroneRed (10)	Grenade	-20.9	17.6	drone
+13	45.3	DEATH	RED	DroneRed (1)	Missile	15.4	16.6	drone
+13	46.8	DEATH	RED	DroneRed (11)	Grenade	-29.0	-1.7	drone
+13	48.1	DEATH	RED	DroneRed (8)	Missile	3.7	8.8	drone
+13	48.5	DEATH	RED	DroneRed (7)	Grenade	-20.0	18.6	drone
+13	51.8	DEATH	GREEN	TurretGreen (7)	Missile	-28.9	0.1	turret
+13	53.0	DEATH	RED	DroneRed (12)	Grenade	-28.8	2.3	drone
+13	57.6	DEATH	RED	DroneRed (2)	Missile	0.6	23.9	drone
+13	62.7	DEATH	RED	DroneRed (9)	Missile	-10.6	26.4	drone
+13	74.9	DEATH	RED	DroneRed (3)	Grenade	12.4	27.2	drone
+13	74.9	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	6
+13	74.9	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	5
+13	74.9	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	2
+13	74.9	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	16
+13	74.9	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	22
+13	74.9	OBSTACLE_HITS	GREEN	propCrate (3)		0.0	0.0	2
+13	74.9	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	2
+14	2.4	DEATH	GREEN	DroneGreen (14)	Missile	3.6	4.3	drone
+14	5.4	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+14	6.9	DEATH	GREEN	DroneGreen (13)	Grenade	6.5	-2.8	drone
+14	7.2	DEATH	GREEN	DroneGreen (15)	Missile	18.2	-0.8	drone
+14	7.9	DEATH	GREEN	DroneGreen (16)	Missile	17.8	-0.6	drone
+14	9.1	DEATH	GREEN	DroneGreen (7)	Missile	6.7	-4.2	drone
+14	9.4	DEATH	GREEN	DroneGreen (11)	Missile	18.9	-0.8	drone
+14	10.6	DEATH	GREEN	DroneGreen (10)	Missile	8.1	4.1	drone
+14	12.0	DEATH	GREEN	DroneGreen (6)	Missile	6.3	2.0	drone
+14	12.8	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+14	13.0	DEATH	GREEN	DroneGreen (4)	Grenade	11.0	-7.1	drone
+14	13.3	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+14	14.4	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+14	14.5	DEATH	GREEN	DroneGreen (1)	Grenade	14.5	-10.3	drone
+14	15.4	DEATH	RED	TurretRed (0)	Missile	23.8	-10.9	turret
+14	15.7	DEATH	GREEN	DroneGreen (9)	Missile	20.8	-5.4	drone
+14	16.6	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+14	16.8	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+14	17.0	DEATH	GREEN	DroneGreen (2)	Missile	-17.0	2.4	drone
+14	17.3	DEATH	GREEN	DroneGreen (17)	Grenade	15.8	-11.8	drone
+14	17.7	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+14	19.2	DEATH	RED	DroneRed (4)	Grenade	24.0	-7.4	drone
+14	21.0	DEATH	RED	DroneRed (6)	Grenade	9.4	-0.8	drone
+14	21.3	DEATH	GREEN	DroneGreen (5)	Missile	-20.1	-13.3	drone
+14	22.0	DEATH	RED	DroneRed (3)	Missile	-15.1	-10.5	drone
+14	25.7	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+14	26.1	DEATH	GREEN	DroneGreen (8)	Missile	-8.6	11.9	drone
+14	27.0	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+14	28.3	DEATH	GREEN	DroneGreen (18)	Missile	-10.9	-1.8	drone
+14	29.2	DEATH	GREEN	DroneGreen (3)	Missile	29.2	-4.0	drone
+14	29.4	DEATH	RED	DroneRed (9)	Grenade	-10.0	9.5	drone
+14	32.5	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+14	33.7	DEATH	GREEN	DroneGreen (0)	Missile	-15.7	-13.4	drone
+14	37.8	DEATH	GREEN	DroneGreen (12)	Missile	-3.5	3.8	drone
+14	42.3	DEATH	RED	DroneRed (10)	Grenade	-20.5	15.8	drone
+14	43.2	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+14	44.2	DEATH	RED	DroneRed (0)	Grenade	-21.7	18.1	drone
+14	44.2	DEATH	RED	DroneRed (7)	Grenade	-21.8	16.8	drone
+14	48.2	DEATH	GREEN	TurretGreen (7)	Missile	-28.9	0.1	turret
+14	52.4	DEATH	RED	DroneRed (12)	Grenade	-24.0	5.9	drone
+14	52.4	DEATH	RED	DroneRed (1)	Grenade	-25.4	11.8	drone
+14	53.1	DEATH	GREEN	TurretGreen (4)	Missile	-24.8	10.8	turret
+14	54.3	DEATH	RED	DroneRed (5)	Grenade	-25.9	9.4	drone
+14	69.4	DEATH	RED	DroneRed (11)	Grenade	-24.6	0.6	drone
+14	69.4	DEATH	RED	DroneRed (2)	Grenade	-23.8	-2.1	drone
+14	70.6	DEATH	GREEN	TurretGreen (5)	Missile	-23.2	1.0	turret
+14	70.6	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	11
+14	70.6	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	3
+14	70.6	OBSTACLE_HITS	RED	propCrate (3)		0.0	0.0	3
+14	70.6	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	10
+14	70.6	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	2
+15	8.9	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+15	8.9	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+15	11.4	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+15	11.6	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+15	14.6	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+15	14.6	DEATH	GREEN	DroneGreen (14)	Missile	-16.8	5.1	drone
+15	14.8	DEATH	GREEN	DroneGreen (16)	Grenade	29.7	3.4	drone
+15	15.3	DEATH	RED	TurretRed (3)	Missile	25.2	13.7	turret
+15	15.5	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+15	17.3	DEATH	GREEN	DroneGreen (8)	Grenade	24.0	11.0	drone
+15	17.6	DEATH	GREEN	DroneGreen (10)	Grenade	24.1	12.4	drone
+15	20.0	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+15	21.6	DEATH	RED	TurretRed (4)	Missile	23.0	21.4	turret
+15	23.2	DEATH	GREEN	DroneGreen (11)	Missile	-19.9	-12.1	drone
+15	24.8	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+15	30.6	DEATH	GREEN	DroneGreen (4)	Missile	-16.3	28.1	drone
+15	31.6	DEATH	GREEN	DroneGreen (1)	Missile	-14.4	24.5	drone
+15	32.6	DEATH	RED	DroneRed (8)	Grenade	-26.8	19.9	drone
+15	35.8	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+15	38.2	DEATH	GREEN	DroneGreen (3)	Missile	-21.8	12.9	drone
+15	40.6	DEATH	RED	DroneRed (7)	Missile	-25.9	18.1	drone
+15	44.2	DEATH	RED	DroneRed (4)	Grenade	-16.4	0.3	drone
+15	44.5	DEATH	GREEN	TurretGreen (7)	Missile	-28.9	0.1	turret
+15	44.6	DEATH	RED	DroneRed (12)	Missile	-26.2	-0.2	drone
+15	45.4	DEATH	RED	DroneRed (10)	Grenade	-26.1	8.4	drone
+15	49.7	DEATH	RED	DroneRed (5)	Missile	-25.1	11.8	drone
+15	51.6	DEATH	RED	DroneRed (11)	Grenade	-29.6	-2.8	drone
+15	58.4	DEATH	RED	DroneRed (1)	Grenade	-14.8	23.4	drone
+15	63.1	DEATH	RED	DroneRed (6)	Missile	-7.0	-6.9	drone
+15	63.2	DEATH	GREEN	DroneGreen (13)	Missile	-25.9	18.3	drone
+15	66.6	DEATH	RED	DroneRed (0)	Missile	-4.9	29.7	drone
+15	68.2	DEATH	GREEN	DroneGreen (6)	Missile	-22.9	23.7	drone
+15	68.4	DEATH	RED	DroneRed (9)	Missile	-29.5	15.5	drone
+15	77.2	DEATH	RED	DroneRed (2)	Missile	-29.7	27.5	drone
+15	81.5	DEATH	RED	DroneRed (3)	Missile	-20.3	22.2	drone
+15	81.5	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	3
+15	81.5	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	1
+15	81.5	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	1
+15	81.5	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	29
+15	81.5	OBSTACLE_HITS	GREEN	propCrate (3)		0.0	0.0	1
+15	81.5	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	4
+16	3.5	DEATH	GREEN	DroneGreen (14)	Missile	10.9	7.2	drone
+16	4.7	DEATH	GREEN	DroneGreen (11)	Missile	10.6	6.9	drone
+16	5.1	DEATH	GREEN	DroneGreen (17)	Missile	11.6	6.9	drone
+16	7.1	DEATH	RED	DroneRed (0)	Missile	10.9	6.7	drone
+16	7.9	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+16	8.7	DEATH	GREEN	DroneGreen (10)	Missile	14.8	-11.6	drone
+16	10.8	DEATH	GREEN	DroneGreen (13)	Grenade	13.4	-5.9	drone
+16	11.9	DEATH	GREEN	DroneGreen (15)	Grenade	21.8	-5.4	drone
+16	11.9	DEATH	GREEN	DroneGreen (16)	Missile	5.4	0.5	drone
+16	12.2	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+16	12.9	DEATH	GREEN	DroneGreen (1)	Missile	6.3	-0.2	drone
+16	13.1	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+16	14.0	DEATH	GREEN	DroneGreen (6)	Missile	6.0	-0.1	drone
+16	14.1	DEATH	RED	TurretRed (2)	Missile	25.7	1.3	turret
+16	14.8	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+16	15.0	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+16	18.4	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+16	22.2	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+16	23.9	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+16	27.6	DEATH	GREEN	DroneGreen (9)	Missile	12.2	18.3	drone
+16	30.0	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+16	30.6	DEATH	GREEN	DroneGreen (0)	Missile	3.1	2.7	drone
+16	41.2	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+16	42.8	DEATH	RED	DroneRed (3)	Grenade	2.5	-21.1	drone
+16	43.3	DEATH	GREEN	TurretGreen (7)	Missile	-28.9	0.1	turret
+16	48.2	DEATH	RED	DroneRed (8)	Grenade	9.9	-7.3	drone
+16	48.5	DEATH	GREEN	DroneGreen (18)	Missile	9.8	-5.7	drone
+16	52.3	DEATH	RED	DroneRed (7)	Grenade	-25.8	8.7	drone
+16	52.3	DEATH	RED	DroneRed (10)	Grenade	-25.7	8.3	drone
+16	53.1	DEATH	GREEN	DroneGreen (3)	Missile	-2.1	16.4	drone
+16	57.5	DEATH	RED	DroneRed (2)	Grenade	-4.7	9.8	drone
+16	57.9	DEATH	RED	DroneRed (6)	Missile	15.2	-14.4	drone
+16	59.5	DEATH	GREEN	TurretGreen (6)	Missile	-23.4	-22.0	turret
+16	67.3	DEATH	RED	DroneRed (5)	Missile	15.7	15.2	drone
+16	78.6	DEATH	RED	DroneRed (9)	Missile	-10.3	2.7	drone
+16	80.4	DEATH	RED	DroneRed (4)	Missile	-17.8	6.8	drone
+16	83.2	DEATH	RED	DroneRed (1)	Missile	-20.5	14.4	drone
+16	87.8	DEATH	RED	DroneRed (12)	Missile	-25.0	2.4	drone
+16	95.5	DEATH	RED	DroneRed (11)	Missile	-11.9	-4.2	drone
+16	95.5	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	3
+16	95.5	OBSTACLE_HITS	RED	propCrate (3)		0.0	0.0	1
+16	95.5	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	10
+16	95.5	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	6
+16	95.5	OBSTACLE_HITS	GREEN	propCrate (3)		0.0	0.0	2
+16	95.5	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	2
+17	7.1	DEATH	RED	TurretRed (5)	Missile	17.6	-19.7	turret
+17	10.8	DEATH	GREEN	DroneGreen (2)	Grenade	8.6	-3.5	drone
+17	11.0	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+17	12.3	DEATH	RED	DroneRed (9)	Grenade	19.4	-13.9	drone
+17	12.8	DEATH	GREEN	DroneGreen (6)	Grenade	15.7	-12.3	drone
+17	13.1	DEATH	GREEN	DroneGreen (5)	Grenade	13.1	-9.5	drone
+17	13.2	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+17	13.2	DEATH	RED	TurretRed (2)	Missile	25.7	1.3	turret
+17	13.2	DEATH	RED	DroneRed (3)	Grenade	20.3	-7.9	drone
+17	13.3	DEATH	GREEN	DroneGreen (12)	Grenade	18.6	-13.3	drone
+17	13.8	DEATH	GREEN	DroneGreen (14)	Missile	16.5	-13.1	drone
+17	14.0	DEATH	RED	DroneRed (6)	Grenade	27.0	-7.3	drone
+17	15.1	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+17	15.6	DEATH	GREEN	DroneGreen (16)	Grenade	16.9	-13.1	drone
+17	16.3	DEATH	GREEN	DroneGreen (4)	Grenade	17.6	-10.1	drone
+17	16.3	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+17	16.9	DEATH	RED	DroneRed (4)	Grenade	22.1	-6.9	drone
+17	17.0	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+17	17.9	DEATH	GREEN	DroneGreen (1)	Grenade	18.3	-13.3	drone
+17	18.1	DEATH	RED	TurretRed (4)	Missile	23.0	21.4	turret
+17	21.6	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+17	28.5	DEATH	RED	DroneRed (8)	Grenade	1.6	7.8	drone
+17	28.5	DEATH	RED	DroneRed (7)	Missile	-18.7	-12.7	drone
+17	29.6	DEATH	RED	DroneRed (10)	Grenade	-16.9	-12.7	drone
+17	34.3	DEATH	GREEN	DroneGreen (10)	Missile	-2.8	20.0	drone
+17	36.6	DEATH	RED	DroneRed (5)	Missile	12.8	3.4	drone
+17	37.1	DEATH	RED	DroneRed (12)	Grenade	-17.5	27.7	drone
+17	38.9	DEATH	RED	DroneRed (11)	Missile	-17.9	27.2	drone
+17	41.7	DEATH	RED	DroneRed (0)	Missile	-11.1	18.5	drone
+17	46.6	DEATH	RED	DroneRed (1)	Grenade	-10.9	22.5	drone
+17	49.6	DEATH	RED	DroneRed (2)	Missile	2.4	26.8	drone
+17	49.6	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	3
+17	49.6	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	2
+17	49.6	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	2
+17	49.6	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	13
+17	49.6	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	2
+18	10.5	DEATH	RED	TurretRed (4)	Missile	23.0	21.4	turret
+18	10.8	DEATH	GREEN	DroneGreen (8)	Grenade	11.8	2.8	drone
+18	10.9	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+18	11.6	DEATH	GREEN	DroneGreen (4)	Missile	21.1	25.3	drone
+18	11.8	DEATH	GREEN	DroneGreen (13)	Missile	21.3	25.1	drone
+18	11.8	DEATH	GREEN	DroneGreen (1)	Missile	21.3	24.4	drone
+18	12.0	DEATH	GREEN	DroneGreen (2)	Grenade	15.6	24.6	drone
+18	12.9	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+18	12.9	DEATH	GREEN	DroneGreen (14)	Missile	18.1	24.0	drone
+18	14.5	DEATH	GREEN	DroneGreen (15)	Grenade	16.6	27.7	drone
+18	14.6	DEATH	GREEN	DroneGreen (7)	Missile	15.6	24.6	drone
+18	15.1	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+18	15.5	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+18	15.6	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+18	16.7	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+18	16.8	DEATH	GREEN	DroneGreen (6)	Missile	14.7	25.1	drone
+18	17.0	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+18	19.7	DEATH	GREEN	DroneGreen (17)	Missile	18.0	25.9	drone
+18	20.6	DEATH	RED	DroneRed (0)	Missile	27.0	23.0	drone
+18	20.9	DEATH	GREEN	DroneGreen (10)	Missile	18.9	26.1	drone
+18	21.1	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+18	22.0	DEATH	GREEN	DroneGreen (18)	Missile	19.5	23.5	drone
+18	23.3	DEATH	GREEN	DroneGreen (12)	Missile	-23.6	-2.7	drone
+18	27.1	DEATH	GREEN	DroneGreen (3)	Missile	11.4	-2.4	drone
+18	27.7	DEATH	RED	DroneRed (9)	Grenade	18.7	26.6	drone
+18	27.8	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+18	28.6	DEATH	GREEN	DroneGreen (0)	Missile	24.8	28.3	drone
+18	30.1	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+18	30.7	DEATH	RED	DroneRed (12)	Grenade	-19.1	27.6	drone
+18	30.7	DEATH	RED	DroneRed (11)	Grenade	-18.3	27.0	drone
+18	32.6	DEATH	GREEN	DroneGreen (9)	Missile	5.0	22.0	drone
+18	33.0	DEATH	GREEN	DroneGreen (5)	Missile	-10.9	13.3	drone
+18	34.2	DEATH	RED	DroneRed (5)	Grenade	16.4	26.8	drone
+18	36.4	DEATH	GREEN	DroneGreen (16)	Missile	15.2	27.3	drone
+18	41.5	DEATH	GREEN	DroneGreen (11)	Missile	-7.3	-0.6	drone
+18	43.9	DEATH	RED	DroneRed (3)	Grenade	-6.4	3.8	drone
+18	45.9	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+18	53.8	DEATH	GREEN	TurretGreen (4)	Missile	-24.8	10.8	turret
+18	55.9	DEATH	RED	DroneRed (1)	Grenade	-26.1	11.8	drone
+18	55.9	DEATH	RED	DroneRed (6)	Grenade	-26.6	12.4	drone
+18	60.5	DEATH	RED	DroneRed (4)	Grenade	-27.0	16.0	drone
+18	61.8	DEATH	RED	DroneRed (10)	Grenade	-24.3	18.1	drone
+18	69.9	DEATH	RED	DroneRed (8)	Grenade	-23.1	1.8	drone
+18	71.7	DEATH	GREEN	TurretGreen (5)	Missile	-23.2	1.0	turret
+18	72.0	DEATH	RED	DroneRed (7)	Grenade	-19.5	10.9	drone
+18	97.8	DEATH	GREEN	TurretGreen (7)	Missile	-28.9	0.1	turret
+18	97.8	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	2
+18	97.8	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	1
+18	97.8	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	2
+18	97.8	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	2
+18	97.8	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	2
+19	6.6	DEATH	GREEN	DroneGreen (14)	Missile	12.5	-3.2	drone
+19	8.7	DEATH	GREEN	DroneGreen (3)	Grenade	10.1	-2.4	drone
+19	8.7	DEATH	GREEN	DroneGreen (11)	Grenade	7.1	0.6	drone
+19	9.5	DEATH	GREEN	DroneGreen (10)	Missile	9.6	-3.8	drone
+19	9.5	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+19	10.3	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+19	10.7	DEATH	RED	TurretRed (2)	Missile	25.7	1.3	turret
+19	11.5	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+19	13.3	DEATH	GREEN	DroneGreen (5)	Grenade	28.9	3.7	drone
+19	14.2	DEATH	GREEN	DroneGreen (7)	Grenade	27.4	-0.5	drone
+19	15.0	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+19	16.1	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+19	18.5	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+19	18.9	DEATH	GREEN	DroneGreen (18)	Missile	20.2	24.9	drone
+19	19.3	DEATH	RED	DroneRed (0)	Grenade	15.0	-7.9	drone
+19	20.0	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+19	20.8	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+19	23.7	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+19	26.2	DEATH	GREEN	DroneGreen (0)	Missile	28.1	-17.7	drone
+19	27.9	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+19	27.9	DEATH	RED	DroneRed (8)	Grenade	-18.3	27.4	drone
+19	27.9	DEATH	RED	DroneRed (11)	Grenade	-19.8	29.1	drone
+19	28.1	DEATH	RED	DroneRed (12)	Grenade	-18.2	28.4	drone
+19	38.1	DEATH	RED	DroneRed (5)	Grenade	-17.6	16.1	drone
+19	38.5	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+19	38.6	DEATH	RED	DroneRed (10)	Grenade	-20.7	18.7	drone
+19	38.8	DEATH	RED	DroneRed (9)	Missile	9.7	-13.2	drone
+19	39.6	DEATH	RED	DroneRed (7)	Grenade	-21.9	15.1	drone
+19	41.1	DEATH	GREEN	DroneGreen (8)	Missile	14.9	-18.0	drone
+19	46.9	DEATH	RED	DroneRed (4)	Grenade	19.2	-18.7	drone
+19	47.8	DEATH	RED	DroneRed (3)	Missile	-7.4	8.9	drone
+19	50.7	DEATH	RED	DroneRed (2)	Missile	-14.7	18.8	drone
+19	51.7	DEATH	RED	DroneRed (6)	Missile	-9.4	26.7	drone
+19	99.2	DEATH	RED	DroneRed (1)	Missile	20.6	-14.3	drone
+19	99.2	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	4
+19	99.2	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	6
+19	99.2	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	3
+19	99.2	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	6
+19	99.2	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	35
+19	99.2	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	5
+19	99.2	OBSTACLE_HITS	GREEN	propCrate (3)		0.0	0.0	13
+20	9.6	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+20	12.2	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+20	12.8	DEATH	RED	TurretRed (0)	Missile	23.8	-10.9	turret
+20	13.1	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+20	13.4	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+20	13.4	DEATH	GREEN	DroneGreen (9)	Grenade	27.8	4.1	drone
+20	16.9	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+20	17.0	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+20	20.2	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+20	20.9	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+20	21.8	DEATH	GREEN	DroneGreen (6)	Grenade	11.1	-11.9	drone
+20	24.9	DEATH	RED	DroneRed (9)	Missile	27.6	1.0	drone
+20	25.1	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+20	28.5	DEATH	RED	DroneRed (5)	Grenade	27.8	4.9	drone
+20	32.5	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+20	36.8	DEATH	RED	DroneRed (3)	Missile	3.2	9.4	drone
+20	40.7	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+20	41.3	DEATH	RED	DroneRed (6)	Missile	25.6	-2.9	drone
+20	42.9	DEATH	RED	DroneRed (0)	Grenade	12.2	7.0	drone
+20	43.3	DEATH	RED	DroneRed (10)	Missile	-24.9	19.2	drone
+20	46.2	DEATH	GREEN	TurretGreen (7)	Missile	-28.9	0.1	turret
+20	47.4	DEATH	RED	DroneRed (7)	Grenade	-27.6	17.0	drone
+20	48.9	DEATH	GREEN	DroneGreen (14)	Missile	15.1	13.9	drone
+20	49.2	DEATH	RED	DroneRed (1)	Missile	15.6	6.7	drone
+20	49.9	DEATH	RED	DroneRed (8)	Grenade	7.9	2.4	drone
+20	51.1	DEATH	RED	DroneRed (4)	Missile	17.1	7.2	drone
+20	51.8	DEATH	RED	DroneRed (11)	Missile	-24.2	5.3	drone
+20	58.8	DEATH	RED	DroneRed (2)	Missile	-18.2	8.6	drone
+20	64.1	DEATH	RED	DroneRed (12)	Missile	-24.2	0.2	drone
+20	64.1	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	6
+20	64.1	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	2
+20	64.1	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	18
+20	64.1	OBSTACLE_HITS	GREEN	propCrate (3)		0.0	0.0	2
+20	64.1	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	4
+20	64.1	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	4
+21	5.4	DEATH	RED	DroneRed (4)	Grenade	13.9	1.1	drone
+21	6.2	DEATH	GREEN	DroneGreen (14)	Grenade	10.8	7.1	drone
+21	7.0	DEATH	RED	TurretRed (1)	Missile	17.8	-1.5	turret
+21	10.9	DEATH	GREEN	DroneGreen (7)	Grenade	10.5	0.1	drone
+21	11.5	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+21	13.3	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+21	13.9	DEATH	RED	DroneRed (0)	Missile	15.0	-15.1	drone
+21	13.9	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+21	14.7	DEATH	GREEN	DroneGreen (16)	Grenade	7.7	-3.0	drone
+21	14.7	DEATH	GREEN	DroneGreen (13)	Grenade	5.2	1.3	drone
+21	14.9	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+21	15.6	DEATH	GREEN	DroneGreen (17)	Missile	9.4	-2.6	drone
+21	17.7	DEATH	GREEN	DroneGreen (4)	Missile	10.3	-1.9	drone
+21	18.5	DEATH	GREEN	DroneGreen (18)	Grenade	7.5	-4.2	drone
+21	18.5	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+21	18.6	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+21	20.4	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+21	22.9	DEATH	RED	TurretRed (3)	Missile	25.2	13.7	turret
+21	29.1	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+21	30.1	DEATH	GREEN	DroneGreen (9)	Missile	-17.9	26.4	drone
+21	30.4	DEATH	RED	DroneRed (11)	Grenade	-18.1	27.7	drone
+21	33.3	DEATH	RED	DroneRed (12)	Grenade	-20.8	29.3	drone
+21	38.0	DEATH	GREEN	DroneGreen (12)	Missile	0.5	-26.4	drone
+21	42.0	DEATH	RED	DroneRed (9)	Missile	-12.2	0.5	drone
+21	44.3	DEATH	RED	DroneRed (10)	Missile	-20.8	17.5	drone
+21	45.1	DEATH	RED	DroneRed (6)	Missile	-5.0	13.3	drone
+21	49.8	DEATH	RED	DroneRed (7)	Missile	-22.1	17.2	drone
+21	51.2	DEATH	RED	DroneRed (5)	Missile	7.0	4.3	drone
+21	52.7	DEATH	GREEN	DroneGreen (10)	Missile	6.1	5.1	drone
+21	53.9	DEATH	GREEN	DroneGreen (1)	Missile	-5.0	27.3	drone
+21	56.7	DEATH	RED	DroneRed (2)	Grenade	-7.2	8.6	drone
+21	58.5	DEATH	RED	DroneRed (1)	Grenade	-6.6	25.7	drone
+21	67.9	DEATH	RED	DroneRed (8)	Grenade	16.0	-16.1	drone
+21	70.3	DEATH	RED	DroneRed (3)	Grenade	6.6	-26.6	drone
+21	70.3	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	5
+21	70.3	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	8
+21	70.3	OBSTACLE_HITS	RED	propCrate (3)		0.0	0.0	2
+21	70.3	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	3
+21	70.3	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	10
+21	70.3	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	7
+21	70.3	OBSTACLE_HITS	GREEN	propCrate (4)		0.0	0.0	1
+21	70.3	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	3
+21	70.3	OBSTACLE_HITS	GREEN	propCrate (3)		0.0	0.0	1
+22	3.8	DEATH	GREEN	DroneGreen (14)	Missile	8.1	0.5	drone
+22	4.7	DEATH	GREEN	DroneGreen (16)	Missile	8.7	4.7	drone
+22	5.7	DEATH	GREEN	DroneGreen (11)	Missile	8.7	0.9	drone
+22	6.9	DEATH	GREEN	DroneGreen (15)	Grenade	7.3	-3.3	drone
+22	8.3	DEATH	GREEN	DroneGreen (4)	Missile	5.6	-4.6	drone
+22	8.7	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+22	9.6	DEATH	GREEN	DroneGreen (1)	Missile	10.5	-1.2	drone
+22	10.0	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+22	10.3	DEATH	GREEN	DroneGreen (6)	Missile	6.9	1.8	drone
+22	10.5	DEATH	GREEN	DroneGreen (8)	Missile	7.3	-0.3	drone
+22	10.7	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+22	11.7	DEATH	RED	DroneRed (3)	Grenade	14.9	2.6	drone
+22	13.1	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+22	15.1	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+22	15.3	DEATH	GREEN	DroneGreen (7)	Missile	19.3	-7.1	drone
+22	15.5	DEATH	GREEN	DroneGreen (2)	Missile	21.3	-5.6	drone
+22	17.6	DEATH	RED	DroneRed (1)	Grenade	21.9	-15.3	drone
+22	18.7	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+22	19.2	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+22	20.6	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+22	22.6	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+22	25.5	DEATH	GREEN	DroneGreen (17)	Missile	10.9	21.9	drone
+22	26.8	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+22	27.4	DEATH	RED	DroneRed (9)	Grenade	13.9	20.3	drone
+22	30.6	DEATH	RED	DroneRed (4)	Missile	5.9	7.9	drone
+22	34.3	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+22	35.1	DEATH	GREEN	DroneGreen (13)	Missile	-16.6	-15.2	drone
+22	35.7	DEATH	RED	DroneRed (5)	Missile	-19.8	-13.3	drone
+22	38.3	DEATH	RED	DroneRed (10)	Grenade	-19.6	16.5	drone
+22	38.3	DEATH	RED	DroneRed (7)	Grenade	-18.6	17.5	drone
+22	38.7	DEATH	GREEN	DroneGreen (10)	Missile	-13.5	8.1	drone
+22	40.9	DEATH	GREEN	DroneGreen (9)	Missile	-13.9	19.1	drone
+22	44.4	DEATH	GREEN	DroneGreen (3)	Missile	-8.6	-9.6	drone
+22	49.7	DEATH	RED	DroneRed (8)	Grenade	-9.9	23.6	drone
+22	50.0	DEATH	GREEN	DroneGreen (12)	Missile	-14.3	15.6	drone
+22	52.2	DEATH	GREEN	TurretGreen (7)	Missile	-28.9	0.1	turret
+22	53.6	DEATH	GREEN	DroneGreen (5)	Missile	-20.2	-6.5	drone
+22	53.6	DEATH	RED	DroneRed (12)	Grenade	-26.4	1.3	drone
+22	59.8	DEATH	RED	DroneRed (6)	Grenade	-15.6	18.4	drone
+22	59.8	DEATH	RED	DroneRed (2)	Grenade	-16.7	19.2	drone
+22	69.5	DEATH	RED	DroneRed (0)	Missile	-15.1	19.9	drone
+22	69.8	DEATH	RED	DroneRed (11)	Grenade	-23.8	0.0	drone
+22	69.8	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	7
+22	69.8	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	2
+22	69.8	OBSTACLE_HITS	RED	propCrate (3)		0.0	0.0	1
+22	69.8	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	3
+22	69.8	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	12
+22	69.8	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	2
+22	69.8	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	1
+23	8.5	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+23	10.3	DEATH	GREEN	DroneGreen (9)	Grenade	6.1	1.3	drone
+23	10.6	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+23	10.8	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+23	11.9	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+23	13.7	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+23	14.6	DEATH	RED	TurretRed (5)	Missile	17.6	-19.7	turret
+23	15.5	DEATH	GREEN	DroneGreen (6)	Grenade	25.6	-3.2	drone
+23	16.0	DEATH	GREEN	DroneGreen (16)	Grenade	17.6	-19.7	drone
+23	17.7	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+23	19.4	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+23	19.6	DEATH	GREEN	DroneGreen (14)	Grenade	-15.3	4.7	drone
+23	20.0	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+23	20.2	DEATH	RED	DroneRed (9)	Missile	16.9	-10.8	drone
+23	20.9	DEATH	RED	DroneRed (5)	Grenade	-19.4	-13.1	drone
+23	26.8	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+23	27.7	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+23	33.8	DEATH	RED	DroneRed (7)	Grenade	-19.5	17.9	drone
+23	35.0	DEATH	RED	DroneRed (11)	Missile	-28.6	2.9	drone
+23	35.5	DEATH	RED	DroneRed (0)	Missile	-8.0	-1.0	drone
+23	37.6	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+23	39.3	DEATH	RED	DroneRed (10)	Grenade	-19.0	16.1	drone
+23	39.4	DEATH	GREEN	TurretGreen (7)	Missile	-28.9	0.1	turret
+23	41.8	DEATH	RED	DroneRed (8)	Missile	-26.0	1.4	drone
+23	47.2	DEATH	RED	DroneRed (12)	Missile	-15.3	12.0	drone
+23	53.0	DEATH	GREEN	DroneGreen (3)	Missile	3.4	18.1	drone
+23	55.2	DEATH	RED	DroneRed (4)	Missile	-16.7	15.7	drone
+23	55.7	DEATH	RED	DroneRed (2)	Grenade	-26.3	22.2	drone
+23	58.6	DEATH	GREEN	DroneGreen (12)	Missile	12.8	26.4	drone
+23	59.3	DEATH	GREEN	DroneGreen (2)	Missile	15.6	24.6	drone
+23	60.5	DEATH	RED	DroneRed (6)	Missile	24.6	22.2	drone
+23	63.5	DEATH	RED	DroneRed (1)	Missile	23.6	21.3	drone
+23	63.7	DEATH	RED	DroneRed (3)	Missile	3.7	28.5	drone
+23	63.7	OBSTACLE_HITS	RED	propCrate (3)		0.0	0.0	1
+23	63.7	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	2
+23	63.7	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	2
+23	63.7	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	17
+23	63.7	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	8
+24	3.8	DEATH	GREEN	DroneGreen (14)	Missile	11.0	0.1	drone
+24	5.3	DEATH	RED	DroneRed (2)	Missile	4.5	3.6	drone
+24	6.6	DEATH	GREEN	DroneGreen (15)	Missile	7.2	0.9	drone
+24	6.6	DEATH	GREEN	DroneGreen (4)	Missile	9.9	0.4	drone
+24	7.7	DEATH	RED	DroneRed (3)	Missile	3.8	3.3	drone
+24	8.1	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+24	8.7	DEATH	GREEN	DroneGreen (9)	Grenade	8.0	3.2	drone
+24	8.7	DEATH	GREEN	DroneGreen (7)	Grenade	6.3	3.6	drone
+24	10.4	DEATH	GREEN	DroneGreen (2)	Grenade	9.4	-0.2	drone
+24	12.3	DEATH	RED	TurretRed (4)	Missile	23.0	21.4	turret
+24	12.7	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+24	13.4	DEATH	GREEN	DroneGreen (5)	Grenade	19.6	24.0	drone
+24	13.4	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+24	13.5	DEATH	GREEN	DroneGreen (10)	Grenade	18.4	24.8	drone
+24	14.8	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+24	14.9	DEATH	GREEN	DroneGreen (6)	Grenade	21.8	22.2	drone
+24	15.8	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+24	16.0	DEATH	GREEN	DroneGreen (11)	Missile	4.2	6.2	drone
+24	16.4	DEATH	GREEN	DroneGreen (1)	Missile	8.6	9.1	drone
+24	17.2	DEATH	RED	DroneRed (9)	Missile	8.7	11.2	drone
+24	19.3	DEATH	GREEN	DroneGreen (18)	Grenade	10.5	5.6	drone
+24	23.0	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+24	24.4	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+24	26.1	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+24	28.0	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+24	30.2	DEATH	GREEN	DroneGreen (0)	Missile	13.1	-7.6	drone
+24	36.6	DEATH	RED	DroneRed (4)	Grenade	-2.1	13.1	drone
+24	39.8	DEATH	GREEN	DroneGreen (17)	Missile	-5.5	-1.3	drone
+24	41.9	DEATH	GREEN	TurretGreen (7)	Missile	-28.9	0.1	turret
+24	44.1	DEATH	RED	DroneRed (10)	Grenade	-14.0	21.1	drone
+24	45.5	DEATH	GREEN	DroneGreen (12)	Missile	-12.8	-9.8	drone
+24	48.3	DEATH	RED	DroneRed (6)	Grenade	-2.3	-17.1	drone
+24	67.7	DEATH	RED	DroneRed (7)	Grenade	-14.7	13.1	drone
+24	69.4	DEATH	RED	DroneRed (12)	Grenade	-22.2	21.8	drone
+24	74.8	DEATH	RED	DroneRed (1)	Missile	-12.3	19.1	drone
+24	88.5	DEATH	RED	DroneRed (0)	Missile	19.3	2.8	drone
+24	91.2	DEATH	RED	DroneRed (5)	Missile	15.4	4.7	drone
+24	98.9	DEATH	RED	DroneRed (11)	Grenade	-20.1	19.1	drone
+24	110.7	DEATH	RED	DroneRed (8)	Missile	7.4	5.5	drone
+24	110.7	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	9
+24	110.7	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	3
+24	110.7	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	4
+24	110.7	OBSTACLE_HITS	RED	propCrate (3)		0.0	0.0	2
+24	110.7	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	10
+24	110.7	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	6
+24	110.7	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	3
+24	110.7	OBSTACLE_HITS	GREEN	propCrate (3)		0.0	0.0	4
+25	3.5	DEATH	GREEN	DroneGreen (14)	Missile	6.8	3.0	drone
+25	5.3	DEATH	GREEN	DroneGreen (9)	Missile	7.5	0.5	drone
+25	9.0	DEATH	GREEN	DroneGreen (17)	Missile	6.2	2.1	drone
+25	10.4	DEATH	GREEN	DroneGreen (7)	Missile	4.9	2.8	drone
+25	10.5	DEATH	GREEN	DroneGreen (3)	Grenade	9.1	-1.3	drone
+25	11.9	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+25	11.9	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+25	12.3	DEATH	RED	TurretRed (3)	Missile	25.2	13.7	turret
+25	12.5	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+25	14.8	DEATH	RED	TurretRed (0)	Missile	23.8	-10.9	turret
+25	14.9	DEATH	GREEN	DroneGreen (12)	Missile	10.6	-6.9	drone
+25	15.3	DEATH	GREEN	DroneGreen (2)	Grenade	20.1	-14.7	drone
+25	15.5	DEATH	GREEN	DroneGreen (6)	Missile	19.9	-8.5	drone
+25	15.5	DEATH	GREEN	DroneGreen (5)	Grenade	19.9	-7.1	drone
+25	15.8	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+25	17.9	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+25	18.9	DEATH	GREEN	DroneGreen (18)	Missile	10.2	-12.9	drone
+25	19.5	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+25	20.1	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+25	24.2	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+25	26.6	DEATH	GREEN	DroneGreen (15)	Missile	11.6	-22.6	drone
+25	29.4	DEATH	GREEN	DroneGreen (8)	Missile	29.7	2.9	drone
+25	30.1	DEATH	RED	DroneRed (0)	Grenade	27.9	4.9	drone
+25	36.5	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+25	42.4	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+25	43.0	DEATH	RED	DroneRed (10)	Missile	-22.6	8.5	drone
+25	43.6	DEATH	GREEN	DroneGreen (16)	Missile	-20.0	15.7	drone
+25	56.9	DEATH	GREEN	TurretGreen (7)	Missile	-28.9	0.1	turret
+25	59.9	DEATH	GREEN	DroneGreen (13)	Missile	-25.6	1.3	drone
+25	60.1	DEATH	RED	DroneRed (6)	Missile	8.1	-4.5	drone
+25	61.2	DEATH	RED	DroneRed (3)	Grenade	13.9	-9.6	drone
+25	68.4	DEATH	GREEN	DroneGreen (11)	Missile	-7.6	20.9	drone
+25	70.6	DEATH	GREEN	DroneGreen (0)	Missile	-5.7	9.4	drone
+25	77.5	DEATH	GREEN	DroneGreen (1)	Missile	7.5	16.5	drone
+25	79.1	DEATH	GREEN	TurretGreen (5)	Missile	-23.2	1.0	turret
+25	79.2	DEATH	RED	DroneRed (9)	Missile	-26.1	22.7	drone
+25	84.7	DEATH	RED	DroneRed (4)	Missile	-14.3	21.8	drone
+25	85.2	DEATH	GREEN	DroneGreen (10)	Missile	10.9	22.4	drone
+25	86.0	DEATH	RED	DroneRed (8)	Grenade	7.8	22.9	drone
+25	89.4	DEATH	GREEN	TurretGreen (4)	Missile	-24.8	10.8	turret
+25	90.2	DEATH	GREEN	DroneGreen (4)	Missile	-14.8	18.4	drone
+25	90.2	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	12
+25	90.2	OBSTACLE_HITS	RED	propCrate (3)		0.0	0.0	2
+25	90.2	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	5
+25	90.2	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	6
+25	90.2	OBSTACLE_HITS	GREEN	propCrate (3)		0.0	0.0	4
+25	90.2	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	2
+26	4.7	DEATH	GREEN	DroneGreen (14)	Missile	7.8	3.2	drone
+26	8.2	DEATH	GREEN	DroneGreen (16)	Missile	10.1	1.6	drone
+26	8.8	DEATH	GREEN	DroneGreen (4)	Grenade	10.9	0.3	drone
+26	10.0	DEATH	GREEN	DroneGreen (5)	Missile	7.8	2.3	drone
+26	10.6	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+26	12.1	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+26	13.5	DEATH	GREEN	DroneGreen (12)	Missile	2.7	2.4	drone
+26	13.9	DEATH	RED	TurretRed (4)	Missile	23.0	21.4	turret
+26	15.4	DEATH	RED	DroneRed (0)	Grenade	26.0	-15.5	drone
+26	16.3	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+26	16.8	DEATH	RED	TurretRed (3)	Missile	25.2	13.7	turret
+26	17.1	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+26	17.1	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+26	17.6	DEATH	RED	DroneRed (5)	Grenade	23.4	25.9	drone
+26	21.6	DEATH	RED	TurretRed (5)	Missile	17.6	-19.7	turret
+26	26.3	DEATH	RED	DroneRed (6)	Grenade	24.2	15.6	drone
+26	28.5	DEATH	GREEN	DroneGreen (15)	Missile	2.2	9.9	drone
+26	29.6	DEATH	GREEN	DroneGreen (17)	Missile	14.0	5.9	drone
+26	29.9	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+26	30.2	DEATH	RED	DroneRed (4)	Missile	4.1	3.3	drone
+26	31.7	DEATH	RED	DroneRed (10)	Grenade	-19.0	-12.0	drone
+26	32.1	DEATH	RED	DroneRed (9)	Missile	13.1	11.8	drone
+26	32.6	DEATH	GREEN	DroneGreen (7)	Missile	15.2	2.9	drone
+26	34.0	DEATH	GREEN	DroneGreen (6)	Missile	-1.7	14.9	drone
+26	34.1	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+26	36.6	DEATH	RED	DroneRed (12)	Grenade	-18.0	23.0	drone
+26	37.4	DEATH	GREEN	DroneGreen (0)	Missile	14.8	12.8	drone
+26	39.3	DEATH	GREEN	DroneGreen (10)	Missile	14.8	24.7	drone
+26	44.2	DEATH	RED	DroneRed (7)	Grenade	-21.2	14.2	drone
+26	44.3	DEATH	RED	DroneRed (3)	Missile	14.0	22.8	drone
+26	47.4	DEATH	RED	DroneRed (1)	Grenade	-3.8	19.2	drone
+26	55.5	DEATH	RED	DroneRed (2)	Missile	-28.1	7.3	drone
+26	56.1	DEATH	RED	DroneRed (11)	Grenade	-29.1	-1.8	drone
+26	61.8	DEATH	GREEN	DroneGreen (11)	Missile	-18.7	20.8	drone
+26	61.9	DEATH	RED	DroneRed (8)	Grenade	-27.3	16.2	drone
+26	61.9	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	9
+26	61.9	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	4
+26	61.9	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	6
+26	61.9	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	10
+26	61.9	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	15
+27	8.2	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+27	9.6	DEATH	RED	TurretRed (5)	Missile	17.6	-19.7	turret
+27	10.2	DEATH	GREEN	DroneGreen (14)	Missile	16.2	-16.7	drone
+27	11.0	DEATH	GREEN	DroneGreen (2)	Grenade	9.6	-1.9	drone
+27	11.1	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+27	11.7	DEATH	RED	DroneRed (9)	Grenade	17.1	-17.8	drone
+27	12.6	DEATH	GREEN	DroneGreen (15)	Grenade	13.3	-9.1	drone
+27	12.7	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+27	14.2	DEATH	RED	TurretRed (0)	Missile	23.8	-10.9	turret
+27	17.5	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+27	17.6	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+27	18.3	DEATH	GREEN	DroneGreen (18)	Missile	-16.4	3.5	drone
+27	19.5	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+27	20.2	DEATH	GREEN	DroneGreen (6)	Missile	-14.3	1.7	drone
+27	20.4	DEATH	GREEN	DroneGreen (7)	Grenade	26.2	10.2	drone
+27	20.4	DEATH	GREEN	DroneGreen (10)	Grenade	29.4	3.6	drone
+27	20.4	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+27	20.8	DEATH	GREEN	DroneGreen (1)	Grenade	25.3	0.2	drone
+27	22.1	DEATH	GREEN	DroneGreen (13)	Grenade	27.0	8.0	drone
+27	23.5	DEATH	RED	DroneRed (2)	Grenade	28.3	-2.7	drone
+27	23.5	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+27	25.3	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+27	35.4	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+27	36.3	DEATH	GREEN	TurretGreen (7)	Missile	-28.9	0.1	turret
+27	37.1	DEATH	RED	DroneRed (10)	Grenade	-21.1	18.4	drone
+27	38.2	DEATH	RED	DroneRed (6)	Missile	11.2	0.8	drone
+27	39.4	DEATH	GREEN	DroneGreen (17)	Missile	-20.8	17.6	drone
+27	43.5	DEATH	RED	DroneRed (7)	Missile	-25.4	9.7	drone
+27	48.3	DEATH	RED	DroneRed (3)	Missile	-17.1	28.1	drone
+27	51.5	DEATH	RED	DroneRed (1)	Missile	-14.3	15.2	drone
+27	53.9	DEATH	RED	DroneRed (0)	Missile	-6.7	21.8	drone
+27	54.8	DEATH	GREEN	TurretGreen (5)	Missile	-23.2	1.0	turret
+27	57.2	DEATH	RED	DroneRed (5)	Missile	-24.9	9.1	drone
+27	61.2	DEATH	RED	DroneRed (4)	Missile	-21.0	19.0	drone
+27	65.6	DEATH	RED	DroneRed (8)	Missile	-26.8	17.7	drone
+27	70.9	DEATH	GREEN	TurretGreen (4)	Missile	-24.8	10.8	turret
+27	71.0	DEATH	RED	DroneRed (11)	Missile	-25.5	9.2	drone
+27	71.1	DEATH	RED	DroneRed (12)	Missile	-25.9	9.0	drone
+27	71.1	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	4
+27	71.1	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	1
+27	71.1	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	18
+27	71.1	OBSTACLE_HITS	GREEN	propCrate (3)		0.0	0.0	4
+28	3.8	DEATH	GREEN	DroneGreen (14)	Missile	8.4	1.6	drone
+28	5.8	DEATH	GREEN	DroneGreen (0)	Missile	7.6	3.1	drone
+28	6.1	DEATH	GREEN	DroneGreen (15)	Missile	8.8	2.4	drone
+28	9.0	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+28	11.6	DEATH	GREEN	DroneGreen (4)	Grenade	10.2	4.5	drone
+28	12.3	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+28	13.1	DEATH	RED	TurretRed (3)	Missile	25.2	13.7	turret
+28	13.1	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+28	14.6	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+28	14.8	DEATH	GREEN	DroneGreen (2)	Grenade	26.8	9.5	drone
+28	15.3	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+28	15.3	DEATH	GREEN	DroneGreen (12)	Grenade	13.5	21.2	drone
+28	15.6	DEATH	GREEN	DroneGreen (1)	Missile	9.9	18.3	drone
+28	18.4	DEATH	GREEN	DroneGreen (11)	Grenade	14.8	27.0	drone
+28	18.5	DEATH	GREEN	DroneGreen (6)	Missile	2.2	18.5	drone
+28	19.2	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+28	20.6	DEATH	GREEN	DroneGreen (7)	Missile	3.1	17.1	drone
+28	21.8	DEATH	GREEN	DroneGreen (18)	Missile	14.9	11.0	drone
+28	22.3	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+28	23.4	DEATH	GREEN	DroneGreen (3)	Missile	12.1	6.8	drone
+28	24.1	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+28	24.7	DEATH	GREEN	DroneGreen (13)	Grenade	10.3	12.0	drone
+28	25.8	DEATH	GREEN	TurretGreen (6)	Missile	-23.4	-22.0	turret
+28	28.1	DEATH	GREEN	DroneGreen (9)	Missile	-13.4	-8.3	drone
+28	29.0	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+28	31.0	DEATH	RED	DroneRed (9)	Missile	14.3	-2.9	drone
+28	33.7	DEATH	GREEN	DroneGreen (17)	Missile	8.6	-13.4	drone
+28	34.3	DEATH	RED	DroneRed (0)	Grenade	9.3	-10.4	drone
+28	35.3	DEATH	GREEN	DroneGreen (10)	Missile	14.6	11.4	drone
+28	38.1	DEATH	GREEN	DroneGreen (16)	Missile	9.9	20.4	drone
+28	39.7	DEATH	RED	DroneRed (1)	Grenade	3.7	14.2	drone
+28	43.6	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+28	46.3	DEATH	GREEN	DroneGreen (8)	Missile	3.1	20.2	drone
+28	52.0	DEATH	GREEN	DroneGreen (5)	Missile	6.2	2.3	drone
+28	56.2	DEATH	GREEN	TurretGreen (7)	Missile	-28.9	0.1	turret
+28	68.3	DEATH	GREEN	TurretGreen (4)	Missile	-24.8	10.8	turret
+28	70.3	DEATH	RED	DroneRed (6)	Grenade	-15.4	13.6	drone
+28	74.3	DEATH	GREEN	TurretGreen (5)	Missile	-23.2	1.0	turret
+28	74.3	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	4
+28	74.3	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	9
+28	74.3	OBSTACLE_HITS	RED	propCrate (3)		0.0	0.0	1
+28	74.3	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	7
+28	74.3	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	1
+28	74.3	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	4
+29	10.2	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+29	11.0	DEATH	GREEN	DroneGreen (16)	Grenade	10.1	-7.9	drone
+29	11.0	DEATH	GREEN	DroneGreen (2)	Grenade	7.1	-8.8	drone
+29	12.5	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+29	12.8	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+29	14.6	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+29	14.7	DEATH	GREEN	DroneGreen (15)	Grenade	27.7	0.4	drone
+29	16.0	DEATH	GREEN	DroneGreen (17)	Grenade	23.8	-4.8	drone
+29	16.4	DEATH	GREEN	DroneGreen (14)	Grenade	20.9	-8.0	drone
+29	16.6	DEATH	RED	DroneRed (1)	Grenade	23.3	-5.5	drone
+29	17.3	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+29	18.4	DEATH	GREEN	DroneGreen (13)	Grenade	18.0	-11.5	drone
+29	18.9	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+29	19.1	DEATH	GREEN	DroneGreen (12)	Grenade	17.5	-11.1	drone
+29	19.3	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+29	20.8	DEATH	GREEN	DroneGreen (4)	Missile	25.3	6.6	drone
+29	21.1	DEATH	RED	DroneRed (5)	Grenade	24.1	-5.2	drone
+29	21.1	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+29	21.4	DEATH	GREEN	DroneGreen (11)	Grenade	24.5	11.0	drone
+29	25.8	DEATH	GREEN	DroneGreen (6)	Missile	28.1	-1.1	drone
+29	26.0	DEATH	RED	DroneRed (9)	Missile	27.5	-13.7	drone
+29	26.7	DEATH	GREEN	DroneGreen (1)	Missile	26.1	-15.6	drone
+29	29.6	DEATH	RED	DroneRed (10)	Grenade	-18.7	-12.8	drone
+29	29.7	DEATH	RED	DroneRed (7)	Grenade	-18.5	-12.5	drone
+29	31.3	DEATH	RED	DroneRed (3)	Missile	14.5	-10.4	drone
+29	37.7	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+29	40.0	DEATH	RED	DroneRed (2)	Grenade	21.3	2.9	drone
+29	45.6	DEATH	RED	DroneRed (4)	Missile	17.1	-10.4	drone
+29	47.3	DEATH	RED	DroneRed (8)	Missile	26.7	-3.9	drone
+29	52.0	DEATH	RED	DroneRed (12)	Grenade	-28.8	-3.3	drone
+29	52.4	DEATH	RED	DroneRed (11)	Grenade	-28.8	-2.3	drone
+29	71.1	DEATH	RED	DroneRed (6)	Missile	-19.2	14.8	drone
+29	79.9	DEATH	RED	DroneRed (0)	Grenade	-3.3	13.9	drone
+29	79.9	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	1
+29	79.9	OBSTACLE_HITS	RED	propCrate (3)		0.0	0.0	5
+29	79.9	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	1
+29	79.9	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	11
+29	79.9	OBSTACLE_HITS	GREEN	propCrate (3)		0.0	0.0	1
+29	79.9	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	10
+30	3.7	DEATH	GREEN	DroneGreen (14)	Missile	5.4	4.5	drone
+30	5.6	DEATH	GREEN	DroneGreen (9)	Missile	10.0	-1.5	drone
+30	7.9	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+30	8.1	DEATH	GREEN	DroneGreen (11)	Missile	4.5	4.3	drone
+30	9.4	DEATH	GREEN	DroneGreen (3)	Missile	3.7	3.0	drone
+30	9.4	DEATH	GREEN	DroneGreen (2)	Missile	5.3	-1.1	drone
+30	9.9	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+30	11.7	DEATH	GREEN	DroneGreen (6)	Grenade	4.4	1.1	drone
+30	14.0	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+30	15.0	DEATH	RED	TurretRed (0)	Missile	23.8	-10.9	turret
+30	16.7	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+30	16.9	DEATH	GREEN	DroneGreen (12)	Missile	-11.7	7.6	drone
+30	18.0	DEATH	GREEN	TurretGreen (0)	Grenade	-24.5	-5.5	turret
+30	23.3	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+30	23.6	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+30	25.3	DEATH	GREEN	DroneGreen (5)	Missile	-22.8	3.6	drone
+30	25.8	DEATH	GREEN	DroneGreen (4)	Grenade	-22.7	1.5	drone
+30	27.1	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+30	30.4	DEATH	RED	DroneRed (12)	Grenade	-21.8	25.7	drone
+30	31.2	DEATH	GREEN	DroneGreen (7)	Grenade	-23.8	-6.5	drone
+30	33.3	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+30	34.2	DEATH	RED	DroneRed (5)	Missile	15.2	-6.9	drone
+30	35.6	DEATH	RED	DroneRed (9)	Grenade	4.2	-12.6	drone
+30	36.3	DEATH	RED	DroneRed (0)	Grenade	2.6	-14.2	drone
+30	36.6	DEATH	GREEN	DroneGreen (0)	Missile	6.4	-3.9	drone
+30	38.7	DEATH	GREEN	DroneGreen (8)	Missile	4.8	-10.4	drone
+30	39.1	DEATH	RED	DroneRed (4)	Grenade	2.4	7.7	drone
+30	39.7	DEATH	GREEN	DroneGreen (17)	Missile	13.2	-4.1	drone
+30	42.3	DEATH	RED	DroneRed (10)	Grenade	-20.6	17.5	drone
+30	45.4	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+30	46.9	DEATH	GREEN	DroneGreen (15)	Missile	5.4	9.5	drone
+30	52.0	DEATH	RED	DroneRed (7)	Missile	-26.6	18.0	drone
+30	52.9	DEATH	GREEN	DroneGreen (18)	Missile	-27.9	15.4	drone
+30	53.1	DEATH	GREEN	DroneGreen (10)	Missile	-11.2	9.4	drone
+30	54.9	DEATH	RED	DroneRed (1)	Grenade	0.2	-7.9	drone
+30	59.6	DEATH	GREEN	DroneGreen (16)	Missile	-8.9	20.3	drone
+30	62.1	DEATH	RED	DroneRed (6)	Missile	-13.8	27.1	drone
+30	63.4	DEATH	GREEN	DroneGreen (1)	Missile	-14.0	25.4	drone
+30	65.4	DEATH	RED	DroneRed (3)	Grenade	-14.6	26.1	drone
+30	65.5	DEATH	RED	DroneRed (2)	Grenade	-20.0	28.7	drone
+30	68.2	DEATH	GREEN	DroneGreen (13)	Missile	-16.7	16.8	drone
+30	75.1	DEATH	GREEN	TurretGreen (7)	Missile	-28.9	0.1	turret
+30	75.2	DEATH	RED	DroneRed (8)	Grenade	-14.8	21.4	drone
+30	75.2	DEATH	RED	DroneRed (11)	Grenade	-29.3	-0.4	drone
+30	75.2	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	20
+30	75.2	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	7
+30	75.2	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	4
+30	75.2	OBSTACLE_HITS	RED	propCrate (3)		0.0	0.0	3
+30	75.2	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	14
+30	75.2	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	1
+30	75.2	OBSTACLE_HITS	GREEN	propCrate (3)		0.0	0.0	3
+30	75.2	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	1
+31	9.6	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+31	11.4	DEATH	GREEN	DroneGreen (14)	Missile	19.2	24.2	drone
+31	11.4	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+31	11.9	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+31	12.2	DEATH	GREEN	DroneGreen (11)	Grenade	13.1	-5.4	drone
+31	12.4	DEATH	GREEN	DroneGreen (12)	Grenade	10.1	-1.1	drone
+31	15.4	DEATH	RED	TurretRed (4)	Missile	23.0	21.4	turret
+31	15.8	DEATH	GREEN	DroneGreen (9)	Grenade	17.2	11.4	drone
+31	17.0	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+31	17.2	DEATH	RED	TurretRed (2)	Missile	25.7	1.3	turret
+31	18.0	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+31	18.7	DEATH	RED	DroneRed (4)	Grenade	27.2	14.2	drone
+31	20.0	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+31	20.9	DEATH	RED	TurretRed (3)	Missile	25.2	13.7	turret
+31	21.5	DEATH	RED	DroneRed (9)	Missile	16.0	26.4	drone
+31	23.9	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+31	27.4	DEATH	RED	DroneRed (8)	Grenade	-16.8	27.9	drone
+31	28.1	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+31	30.5	DEATH	RED	DroneRed (11)	Grenade	-20.5	27.1	drone
+31	32.3	DEATH	RED	DroneRed (0)	Missile	18.1	23.3	drone
+31	32.8	DEATH	GREEN	DroneGreen (7)	Missile	-3.8	19.2	drone
+31	35.0	DEATH	GREEN	DroneGreen (2)	Missile	-25.0	29.0	drone
+31	37.7	DEATH	RED	DroneRed (12)	Grenade	-29.3	1.5	drone
+31	38.3	DEATH	GREEN	DroneGreen (10)	Missile	24.8	16.1	drone
+31	40.4	DEATH	GREEN	DroneGreen (6)	Missile	22.8	21.6	drone
+31	40.9	DEATH	RED	DroneRed (7)	Missile	-21.8	14.8	drone
+31	41.4	DEATH	RED	DroneRed (5)	Missile	-19.3	15.0	drone
+31	41.4	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+31	44.0	DEATH	RED	DroneRed (10)	Grenade	-18.1	17.1	drone
+31	48.0	DEATH	RED	DroneRed (6)	Missile	8.0	25.4	drone
+31	48.7	DEATH	RED	DroneRed (1)	Grenade	17.2	23.6	drone
+31	48.7	DEATH	RED	DroneRed (3)	Grenade	16.2	23.6	drone
+31	55.3	DEATH	RED	DroneRed (2)	Missile	-6.3	29.2	drone
+31	55.3	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	2
+31	55.3	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	4
+31	55.3	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	1
+31	55.3	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	2
+32	4.2	DEATH	GREEN	DroneGreen (14)	Missile	5.7	4.5	drone
+32	5.8	DEATH	GREEN	DroneGreen (13)	Grenade	8.3	1.6	drone
+32	7.0	DEATH	GREEN	DroneGreen (0)	Missile	9.8	2.2	drone
+32	7.6	DEATH	GREEN	DroneGreen (16)	Grenade	11.3	-3.0	drone
+32	8.8	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+32	9.9	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+32	10.2	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+32	10.3	DEATH	GREEN	DroneGreen (11)	Missile	-9.5	10.5	drone
+32	12.2	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+32	14.7	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+32	16.1	DEATH	GREEN	DroneGreen (8)	Missile	-20.2	6.7	drone
+32	16.1	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+32	20.7	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+32	23.1	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+32	24.6	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+32	28.3	DEATH	RED	DroneRed (2)	Grenade	13.6	2.1	drone
+32	28.8	DEATH	RED	DroneRed (12)	Grenade	-19.7	28.7	drone
+32	31.9	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+32	34.3	DEATH	GREEN	DroneGreen (18)	Missile	15.6	5.0	drone
+32	37.0	DEATH	RED	DroneRed (0)	Missile	17.1	16.3	drone
+32	37.5	DEATH	RED	DroneRed (6)	Grenade	17.3	15.0	drone
+32	38.3	DEATH	GREEN	DroneGreen (10)	Missile	12.6	6.7	drone
+32	39.5	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+32	39.5	DEATH	RED	DroneRed (3)	Grenade	15.8	10.1	drone
+32	42.5	DEATH	RED	DroneRed (9)	Missile	-1.7	11.3	drone
+32	46.6	DEATH	RED	DroneRed (11)	Grenade	-29.1	-2.1	drone
+32	47.2	DEATH	RED	DroneRed (4)	Missile	14.8	-7.2	drone
+32	52.4	DEATH	RED	DroneRed (7)	Grenade	-25.7	8.9	drone
+32	52.7	DEATH	RED	DroneRed (10)	Missile	-25.9	8.5	drone
+32	59.9	DEATH	RED	DroneRed (5)	Missile	-22.7	2.6	drone
+32	67.1	DEATH	RED	DroneRed (1)	Missile	-25.0	4.1	drone
+32	69.1	DEATH	RED	DroneRed (8)	Missile	-29.0	11.6	drone
+32	69.1	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	4
+32	69.1	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	3
+32	69.1	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	4
+32	69.1	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	7
+32	69.1	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	3
+33	5.5	DEATH	GREEN	DroneGreen (14)	Grenade	11.5	6.6	drone
+33	7.6	DEATH	GREEN	DroneGreen (17)	Grenade	11.6	6.2	drone
+33	8.3	DEATH	GREEN	DroneGreen (13)	Grenade	10.7	6.2	drone
+33	8.3	DEATH	GREEN	DroneGreen (12)	Grenade	4.9	6.9	drone
+33	9.0	DEATH	GREEN	DroneGreen (6)	Grenade	5.1	8.0	drone
+33	9.8	DEATH	GREEN	DroneGreen (15)	Missile	13.9	-12.6	drone
+33	10.3	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+33	11.0	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+33	11.4	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+33	12.4	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+33	12.6	DEATH	GREEN	DroneGreen (5)	Grenade	11.3	-8.0	drone
+33	13.5	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+33	14.9	DEATH	RED	TurretRed (0)	Missile	23.8	-10.9	turret
+33	16.8	DEATH	GREEN	DroneGreen (10)	Missile	9.3	0.2	drone
+33	17.4	DEATH	GREEN	DroneGreen (11)	Missile	9.4	-15.1	drone
+33	19.0	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+33	19.2	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+33	19.8	DEATH	GREEN	DroneGreen (9)	Grenade	26.7	5.8	drone
+33	19.8	DEATH	GREEN	DroneGreen (4)	Grenade	24.4	7.7	drone
+33	24.6	DEATH	GREEN	DroneGreen (0)	Missile	-3.4	1.9	drone
+33	26.4	DEATH	GREEN	DroneGreen (16)	Grenade	11.0	6.5	drone
+33	27.7	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+33	28.4	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+33	28.7	DEATH	RED	DroneRed (4)	Missile	2.5	-14.3	drone
+33	34.2	DEATH	GREEN	DroneGreen (3)	Missile	13.6	-5.3	drone
+33	50.7	DEATH	RED	DroneRed (9)	Grenade	-14.1	22.3	drone
+33	51.3	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+33	51.9	DEATH	GREEN	DroneGreen (18)	Missile	1.2	24.7	drone
+33	53.6	DEATH	RED	DroneRed (12)	Grenade	-18.5	28.1	drone
+33	59.9	DEATH	GREEN	DroneGreen (1)	Missile	12.2	29.3	drone
+33	62.0	DEATH	RED	DroneRed (0)	Missile	22.8	26.1	drone
+33	63.1	DEATH	RED	DroneRed (6)	Grenade	-17.2	12.1	drone
+33	64.8	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+33	66.5	DEATH	RED	DroneRed (5)	Grenade	-5.9	24.1	drone
+33	69.4	DEATH	RED	DroneRed (3)	Grenade	-12.0	24.3	drone
+33	72.5	DEATH	GREEN	DroneGreen (7)	Missile	-27.1	15.0	drone
+33	78.5	DEATH	RED	DroneRed (1)	Missile	-26.4	18.6	drone
+33	80.8	DEATH	GREEN	DroneGreen (2)	Missile	-25.7	18.4	drone
+33	81.3	DEATH	RED	DroneRed (10)	Missile	-27.7	13.7	drone
+33	84.2	DEATH	GREEN	DroneGreen (8)	Missile	-29.2	14.1	drone
+33	85.7	DEATH	RED	DroneRed (2)	Grenade	-26.8	15.7	drone
+33	108.8	DEATH	RED	DroneRed (11)	Grenade	-29.0	-2.0	drone
+33	128.3	DEATH	RED	DroneRed (7)	Grenade	-29.7	5.8	drone
+33	154.5	DEATH	RED	DroneRed (8)	Grenade	-27.0	3.4	drone
+33	154.5	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	2
+33	154.5	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	5
+33	154.5	OBSTACLE_HITS	RED	propCrate (3)		0.0	0.0	4
+33	154.5	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	2
+33	154.5	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	2
+33	154.5	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	6
+33	154.5	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	4
+34	10.6	DEATH	GREEN	DroneGreen (11)	Grenade	10.5	-5.2	drone
+34	11.4	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+34	12.6	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+34	13.0	DEATH	RED	TurretRed (2)	Missile	25.7	1.3	turret
+34	13.2	DEATH	GREEN	DroneGreen (6)	Grenade	9.1	-0.2	drone
+34	13.8	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+34	13.8	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+34	15.1	DEATH	GREEN	DroneGreen (7)	Grenade	28.1	5.5	drone
+34	15.6	DEATH	GREEN	DroneGreen (14)	Missile	24.3	-17.6	drone
+34	15.7	DEATH	GREEN	DroneGreen (16)	Grenade	29.4	2.9	drone
+34	16.9	DEATH	GREEN	DroneGreen (5)	Missile	17.9	-14.1	drone
+34	17.2	DEATH	RED	DroneRed (4)	Grenade	26.2	-15.6	drone
+34	18.2	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+34	18.2	DEATH	RED	DroneRed (8)	Grenade	20.9	-15.3	drone
+34	18.2	DEATH	GREEN	DroneGreen (12)	Missile	15.9	-17.3	drone
+34	20.0	DEATH	RED	DroneRed (9)	Grenade	22.6	-15.3	drone
+34	20.4	DEATH	RED	DroneRed (1)	Grenade	25.5	-15.3	drone
+34	21.2	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+34	21.3	DEATH	GREEN	DroneGreen (3)	Grenade	16.1	-17.8	drone
+34	23.8	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+34	25.9	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+34	31.6	DEATH	RED	DroneRed (6)	Missile	-20.1	11.1	drone
+34	35.8	DEATH	GREEN	DroneGreen (8)	Missile	-12.3	26.4	drone
+34	37.8	DEATH	RED	DroneRed (12)	Grenade	-17.8	28.0	drone
+34	37.8	DEATH	RED	DroneRed (11)	Grenade	-17.6	27.7	drone
+34	39.1	DEATH	RED	DroneRed (3)	Missile	-14.9	19.4	drone
+34	44.1	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+34	45.5	DEATH	RED	DroneRed (7)	Grenade	-20.0	14.8	drone
+34	46.2	DEATH	RED	DroneRed (5)	Missile	-9.9	23.6	drone
+34	46.2	DEATH	RED	DroneRed (10)	Grenade	-23.5	17.8	drone
+34	46.7	DEATH	GREEN	DroneGreen (17)	Missile	-22.6	18.3	drone
+34	53.6	DEATH	GREEN	DroneGreen (15)	Missile	21.2	21.8	drone
+34	57.8	DEATH	RED	DroneRed (2)	Missile	29.6	1.7	drone
+34	61.2	DEATH	RED	DroneRed (0)	Missile	23.8	23.3	drone
+34	61.2	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	6
+34	61.2	OBSTACLE_HITS	RED	propCrate (3)		0.0	0.0	3
+34	61.2	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	20
+34	61.2	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	1
+35	6.9	DEATH	RED	TurretRed (5)	Missile	17.6	-19.7	turret
+35	8.9	DEATH	RED	DroneRed (9)	Missile	13.0	-14.6	drone
+35	9.9	DEATH	GREEN	DroneGreen (14)	Missile	16.8	-17.4	drone
+35	10.7	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+35	11.0	DEATH	GREEN	DroneGreen (15)	Missile	16.5	-11.8	drone
+35	11.7	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+35	12.4	DEATH	GREEN	DroneGreen (13)	Missile	13.4	-9.5	drone
+35	13.3	DEATH	RED	TurretRed (2)	Missile	25.7	1.3	turret
+35	13.5	DEATH	GREEN	DroneGreen (16)	Grenade	14.5	-13.2	drone
+35	14.3	DEATH	GREEN	DroneGreen (3)	Grenade	14.8	-15.1	drone
+35	15.4	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+35	15.4	DEATH	GREEN	DroneGreen (2)	Missile	16.5	-11.2	drone
+35	16.2	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+35	18.0	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+35	18.5	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+35	19.9	DEATH	RED	DroneRed (4)	Grenade	27.8	-10.8	drone
+35	21.6	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+35	24.6	DEATH	RED	DroneRed (0)	Missile	13.6	-13.1	drone
+35	26.5	DEATH	RED	TurretRed (3)	Grenade	25.2	13.7	turret
+35	27.1	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+35	34.8	DEATH	GREEN	DroneGreen (1)	Missile	-8.1	4.3	drone
+35	37.0	DEATH	RED	DroneRed (7)	Grenade	-20.6	15.7	drone
+35	37.0	DEATH	RED	DroneRed (10)	Grenade	-19.5	16.6	drone
+35	38.2	DEATH	RED	DroneRed (5)	Grenade	-19.6	16.2	drone
+35	41.6	DEATH	GREEN	DroneGreen (6)	Missile	-0.8	15.0	drone
+35	42.1	DEATH	GREEN	DroneGreen (9)	Missile	-1.3	-5.4	drone
+35	43.6	DEATH	GREEN	TurretGreen (7)	Missile	-28.9	0.1	turret
+35	44.9	DEATH	RED	DroneRed (8)	Grenade	-27.1	0.7	drone
+35	45.6	DEATH	RED	DroneRed (6)	Missile	-23.1	7.9	drone
+35	46.2	DEATH	RED	DroneRed (12)	Grenade	-26.0	1.0	drone
+35	51.2	DEATH	RED	DroneRed (3)	Missile	-3.9	16.0	drone
+35	59.1	DEATH	RED	DroneRed (11)	Grenade	-23.6	-0.6	drone
+35	65.0	DEATH	RED	DroneRed (2)	Missile	-17.6	16.5	drone
+35	66.3	DEATH	RED	DroneRed (1)	Grenade	-24.3	19.4	drone
+35	66.3	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	1
+35	66.3	OBSTACLE_HITS	RED	propCrate (3)		0.0	0.0	3
+35	66.3	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	1
+35	66.3	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	5
+35	66.3	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	2
+35	66.3	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	2
+36	6.2	DEATH	RED	TurretRed (1)	Missile	17.8	-1.5	turret
+36	7.6	DEATH	GREEN	DroneGreen (14)	Missile	19.2	-1.0	drone
+36	8.3	DEATH	GREEN	DroneGreen (11)	Grenade	9.2	2.8	drone
+36	9.6	DEATH	GREEN	DroneGreen (18)	Grenade	4.0	5.1	drone
+36	11.4	DEATH	GREEN	DroneGreen (16)	Missile	6.7	4.9	drone
+36	12.1	DEATH	GREEN	DroneGreen (12)	Missile	2.1	3.5	drone
+36	12.2	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+36	12.8	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+36	13.3	DEATH	GREEN	DroneGreen (0)	Grenade	11.2	-2.0	drone
+36	15.0	DEATH	GREEN	DroneGreen (1)	Missile	11.4	-1.9	drone
+36	15.5	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+36	15.5	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+36	15.9	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+36	16.1	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+36	17.8	DEATH	GREEN	DroneGreen (10)	Grenade	15.7	-13.1	drone
+36	19.4	DEATH	RED	TurretRed (4)	Grenade	23.0	21.4	turret
+36	20.5	DEATH	RED	DroneRed (5)	Grenade	7.1	-9.5	drone
+36	20.6	DEATH	GREEN	DroneGreen (5)	Missile	23.4	10.5	drone
+36	23.1	DEATH	RED	TurretRed (3)	Missile	25.2	13.7	turret
+36	24.3	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+36	24.7	DEATH	GREEN	DroneGreen (8)	Missile	24.1	10.1	drone
+36	25.4	DEATH	RED	DroneRed (9)	Missile	3.7	-3.6	drone
+36	28.0	DEATH	GREEN	DroneGreen (13)	Missile	-20.6	-11.8	drone
+36	30.6	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+36	33.5	DEATH	RED	DroneRed (4)	Missile	-0.9	10.5	drone
+36	40.1	DEATH	RED	DroneRed (10)	Missile	-21.9	15.3	drone
+36	40.4	DEATH	GREEN	DroneGreen (17)	Missile	-29.6	16.9	drone
+36	43.8	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+36	46.7	DEATH	GREEN	TurretGreen (7)	Missile	-28.9	0.1	turret
+36	50.3	DEATH	RED	DroneRed (3)	Missile	-11.3	16.2	drone
+36	55.3	DEATH	GREEN	DroneGreen (15)	Missile	-7.3	18.5	drone
+36	60.4	DEATH	RED	DroneRed (2)	Grenade	-20.7	17.5	drone
+36	60.7	DEATH	RED	DroneRed (0)	Missile	-17.0	20.1	drone
+36	63.3	DEATH	GREEN	DroneGreen (2)	Missile	-19.1	18.1	drone
+36	63.8	DEATH	GREEN	DroneGreen (7)	Missile	-29.7	9.4	drone
+36	67.1	DEATH	RED	DroneRed (8)	Grenade	-15.4	18.4	drone
+36	69.7	DEATH	RED	DroneRed (7)	Grenade	-24.8	9.8	drone
+36	77.0	DEATH	GREEN	DroneGreen (9)	Missile	-15.6	15.6	drone
+36	77.6	DEATH	RED	DroneRed (1)	Missile	-9.4	7.2	drone
+36	80.9	DEATH	RED	DroneRed (12)	Missile	-22.8	3.0	drone
+36	83.0	DEATH	RED	DroneRed (11)	Missile	-21.7	6.2	drone
+36	90.8	DEATH	RED	DroneRed (6)	Missile	-3.3	-15.2	drone
+36	90.8	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	8
+36	90.8	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	1
+36	90.8	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	3
+36	90.8	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	7
+36	90.8	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	4
+36	90.8	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	3
+36	90.8	OBSTACLE_HITS	GREEN	propCrate (3)		0.0	0.0	1
+37	6.6	DEATH	RED	DroneRed (2)	Grenade	13.9	-1.3	drone
+37	7.9	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+37	12.7	DEATH	RED	TurretRed (3)	Missile	25.2	13.7	turret
+37	13.3	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+37	14.8	DEATH	GREEN	DroneGreen (10)	Grenade	15.7	-14.7	drone
+37	16.1	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+37	17.5	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+37	18.1	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+37	18.2	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+37	19.1	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+37	19.4	DEATH	RED	DroneRed (4)	Grenade	24.5	24.6	drone
+37	19.4	DEATH	RED	DroneRed (0)	Grenade	26.4	23.4	drone
+37	20.1	DEATH	RED	TurretRed (4)	Missile	23.0	21.4	turret
+37	20.9	DEATH	RED	DroneRed (6)	Grenade	22.9	22.1	drone
+37	21.7	DEATH	RED	DroneRed (9)	Missile	17.3	23.9	drone
+37	28.7	DEATH	RED	DroneRed (10)	Grenade	-16.1	-15.4	drone
+37	30.1	DEATH	RED	DroneRed (11)	Grenade	-18.3	27.8	drone
+37	30.1	DEATH	RED	DroneRed (12)	Grenade	-20.6	27.0	drone
+37	30.3	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+37	30.7	DEATH	RED	DroneRed (7)	Grenade	-17.9	-13.5	drone
+37	31.5	DEATH	RED	DroneRed (5)	Missile	2.1	20.3	drone
+37	31.6	DEATH	GREEN	DroneGreen (14)	Missile	-14.8	25.6	drone
+37	35.6	DEATH	RED	DroneRed (1)	Missile	-15.2	18.8	drone
+37	43.8	DEATH	RED	DroneRed (3)	Missile	11.8	-9.4	drone
+37	54.3	DEATH	RED	DroneRed (8)	Grenade	13.5	20.1	drone
+37	54.3	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	2
+37	54.3	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	3
+37	54.3	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	2
+37	54.3	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	1
+38	3.8	DEATH	GREEN	DroneGreen (14)	Missile	4.0	4.5	drone
+38	7.5	DEATH	GREEN	DroneGreen (15)	Missile	6.4	-3.5	drone
+38	9.9	DEATH	RED	TurretRed (0)	Missile	23.8	-10.9	turret
+38	10.0	DEATH	GREEN	DroneGreen (12)	Missile	-14.1	12.1	drone
+38	10.2	DEATH	GREEN	DroneGreen (2)	Missile	6.3	-4.7	drone
+38	10.5	DEATH	GREEN	DroneGreen (0)	Grenade	22.4	-8.1	drone
+38	13.3	DEATH	RED	TurretRed (3)	Missile	25.2	13.7	turret
+38	13.4	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+38	13.4	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+38	14.6	DEATH	GREEN	DroneGreen (8)	Missile	13.4	7.6	drone
+38	14.9	DEATH	GREEN	DroneGreen (16)	Grenade	27.9	6.6	drone
+38	15.2	DEATH	GREEN	DroneGreen (7)	Grenade	18.7	22.4	drone
+38	16.3	DEATH	GREEN	DroneGreen (1)	Missile	11.4	10.5	drone
+38	17.2	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+38	18.1	DEATH	RED	TurretRed (4)	Missile	23.0	21.4	turret
+38	18.7	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+38	23.3	DEATH	RED	TurretRed (5)	Grenade	17.6	-19.7	turret
+38	23.8	DEATH	GREEN	DroneGreen (17)	Missile	0.7	24.9	drone
+38	24.2	DEATH	GREEN	DroneGreen (13)	Grenade	2.5	22.5	drone
+38	24.7	DEATH	GREEN	DroneGreen (9)	Missile	4.7	23.1	drone
+38	24.8	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+38	26.4	DEATH	GREEN	DroneGreen (18)	Missile	13.6	24.4	drone
+38	28.3	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+38	29.9	DEATH	RED	DroneRed (4)	Grenade	13.6	22.5	drone
+38	33.5	DEATH	GREEN	DroneGreen (11)	Missile	-21.4	-9.8	drone
+38	34.8	DEATH	RED	DroneRed (10)	Missile	-14.4	21.9	drone
+38	34.8	DEATH	RED	DroneRed (12)	Grenade	-16.3	27.4	drone
+38	35.9	DEATH	GREEN	DroneGreen (4)	Missile	-12.1	10.2	drone
+38	36.0	DEATH	RED	DroneRed (0)	Grenade	-15.2	8.2	drone
+38	37.7	DEATH	GREEN	DroneGreen (3)	Missile	-12.2	21.8	drone
+38	37.8	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+38	38.7	DEATH	GREEN	DroneGreen (5)	Missile	-15.7	19.3	drone
+38	40.4	DEATH	RED	DroneRed (7)	Grenade	-20.5	14.9	drone
+38	40.8	DEATH	GREEN	DroneGreen (6)	Missile	-15.0	3.0	drone
+38	41.6	DEATH	GREEN	DroneGreen (10)	Missile	-15.6	2.5	drone
+38	42.3	DEATH	RED	DroneRed (5)	Grenade	-18.4	9.7	drone
+38	42.3	DEATH	RED	DroneRed (9)	Grenade	-14.7	12.4	drone
+38	47.2	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+38	47.8	DEATH	RED	DroneRed (3)	Grenade	-21.4	16.8	drone
+38	48.0	DEATH	RED	DroneRed (2)	Grenade	-21.9	18.4	drone
+38	50.0	DEATH	RED	DroneRed (6)	Grenade	-26.1	18.1	drone
+38	52.1	DEATH	RED	DroneRed (1)	Grenade	-22.7	19.8	drone
+38	52.2	DEATH	RED	DroneRed (8)	Grenade	-26.8	18.0	drone
+38	57.9	DEATH	RED	DroneRed (11)	Grenade	-28.1	0.5	drone
+38	57.9	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	2
+38	57.9	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	5
+38	57.9	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	4
+38	57.9	OBSTACLE_HITS	RED	propCrate (3)		0.0	0.0	1
+38	57.9	OBSTACLE_HITS	GREEN	propCrate (0)		0.0	0.0	5
+38	57.9	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	3
+39	4.5	DEATH	GREEN	DroneGreen (14)	Missile	3.1	4.6	drone
+39	7.9	DEATH	GREEN	DroneGreen (1)	Missile	5.9	5.5	drone
+39	10.4	DEATH	GREEN	TurretGreen (1)	Missile	-17.8	2.8	turret
+39	11.6	DEATH	GREEN	DroneGreen (4)	Missile	12.4	-8.6	drone
+39	12.0	DEATH	RED	TurretRed (5)	Missile	17.6	-19.7	turret
+39	12.1	DEATH	RED	TurretRed (1)	Grenade	17.8	-1.5	turret
+39	12.3	DEATH	GREEN	DroneGreen (6)	Missile	-20.0	11.2	drone
+39	12.8	DEATH	RED	TurretRed (3)	Missile	25.2	13.7	turret
+39	13.2	DEATH	GREEN	TurretGreen (0)	Missile	-24.5	-5.5	turret
+39	13.4	DEATH	RED	TurretRed (0)	Grenade	23.8	-10.9	turret
+39	15.0	DEATH	GREEN	DroneGreen (7)	Missile	15.8	-12.3	drone
+39	17.0	DEATH	GREEN	TurretGreen (6)	Grenade	-23.4	-22.0	turret
+39	17.5	DEATH	RED	TurretRed (2)	Grenade	25.7	1.3	turret
+39	19.4	DEATH	GREEN	DroneGreen (9)	Missile	9.0	21.6	drone
+39	20.8	DEATH	RED	TurretRed (4)	Missile	23.0	21.4	turret
+39	21.0	DEATH	GREEN	TurretGreen (2)	Missile	-17.0	-13.7	turret
+39	29.0	DEATH	GREEN	TurretGreen (8)	Missile	-18.7	27.6	turret
+39	33.3	DEATH	GREEN	TurretGreen (3)	Missile	-20.0	16.3	turret
+39	36.0	DEATH	RED	DroneRed (7)	Missile	-26.3	18.6	drone
+39	36.6	DEATH	RED	DroneRed (5)	Grenade	-26.7	18.6	drone
+39	37.8	DEATH	GREEN	DroneGreen (5)	Missile	-24.2	27.2	drone
+39	38.5	DEATH	RED	DroneRed (11)	Missile	-29.7	4.1	drone
+39	38.7	DEATH	RED	DroneRed (1)	Missile	-15.9	18.2	drone
+39	38.9	DEATH	GREEN	DroneGreen (8)	Missile	-14.7	21.8	drone
+39	40.7	DEATH	RED	DroneRed (3)	Missile	-11.6	22.8	drone
+39	43.1	DEATH	RED	DroneRed (4)	Grenade	-14.4	23.3	drone
+39	43.2	DEATH	RED	DroneRed (10)	Grenade	-26.2	-2.8	drone
+39	44.6	DEATH	GREEN	TurretGreen (7)	Missile	-28.9	0.1	turret
+39	46.2	DEATH	RED	DroneRed (12)	Missile	-29.1	-0.6	drone
+39	58.6	DEATH	RED	DroneRed (6)	Missile	-16.7	20.1	drone
+39	63.3	DEATH	RED	DroneRed (9)	Missile	-14.3	15.8	drone
+39	63.9	DEATH	RED	DroneRed (2)	Grenade	-25.3	21.8	drone
+39	63.9	DEATH	RED	DroneRed (0)	Grenade	-24.5	19.4	drone
+39	67.3	DEATH	RED	DroneRed (8)	Missile	-23.7	-0.3	drone
+39	67.3	OBSTACLE_HITS	RED	propCrate (0)		0.0	0.0	9
+39	67.3	OBSTACLE_HITS	RED	propCrate (1)		0.0	0.0	4
+39	67.3	OBSTACLE_HITS	RED	propCrate (2)		0.0	0.0	1
+39	67.3	OBSTACLE_HITS	GREEN	propCrate (1)		0.0	0.0	3
+39	67.3	OBSTACLE_HITS	GREEN	propCrate (2)		0.0	0.0	4
