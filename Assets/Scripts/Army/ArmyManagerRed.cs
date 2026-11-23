@@ -8,6 +8,8 @@ using UnityEngine.AI;
 //      escouade A dans l'ordre TurretGreen (1) à (8) puis (0), escouade B dans l'ordre inverse.
 //  - 9 drones chasseurs : ils attaquent les drones verts. Chaque chasseur garde sa cible jusqu'à ce qu'elle meure.
 //  - Quand un groupe n'a plus de cible (plus de tourelle ou plus de drone vert), il rejoint l'autre tâche.
+//  - Tir en mouvement : les drones tournent autour de leur cible pendant la visée, le tir et le Wait
+//    (m_StrafeWhileFiring, voir ArmyManagerRed.Strafe.cs et StrafeAroundTarget).
 //  - Esquive des grenades vertes (m_EvadeMode, voir ArmyManagerRed.Grenades.cs) et repositionnement à chaque salve
 //    quand l'artillerie verte peut viser le drone (m_RepositionWhenExposed, voir ArmyManagerRed.Reposition.cs).
 //  - Nos tourelles : le plus gros groupe de drones verts à portée (rayon de 4 m), sinon la tourelle verte la plus proche ;
