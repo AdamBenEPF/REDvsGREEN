@@ -10,6 +10,8 @@ using UnityEngine.AI;
 //  - Quand un groupe n'a plus de cible (plus de tourelle ou plus de drone vert), il rejoint l'autre tâche.
 //  - Esquive « juste à temps » des grenades vertes par tous les drones (m_EvadeMode, voir ArmyManagerRed.Grenades.cs) :
 //    un drone continue de tirer et ne part qu'au dernier moment ; l'esquive interrompt l'attaque comme le Wait.
+//  - Fin de bataille (plus de drone vert) : tir d'élite sur les tourelles vertes depuis un point hors de portée de
+//    toute l'artillerie verte (voir ArmyManagerRed.Sniper.cs).
 //  - Options testées puis désactivées par défaut (moins efficaces, voir ReleaseNotes) : tir en mouvement
 //    (m_StrafeWhileFiring, ArmyManagerRed.Strafe.cs) et repositionnement à chaque salve (m_RepositionWhenExposed).
 //  - Nos tourelles : le plus gros groupe de drones verts à portée, sur leurs positions prévues à l'arrivée de la grenade
@@ -120,6 +122,10 @@ public partial class ArmyManagerRed : ArmyManager
 	public Transform GetFocusTarget(GameObject requester)
 	{
 		AssignRolesIfNeeded();
+
+		// Fin de bataille : tir d'élite sur une tourelle verte, hors de portée de toute l'artillerie verte
+		Transform sniperTarget = GetSniperTarget(requester);
+		if (sniperTarget != null) return sniperTarget;
 
 		ArmyElement target;
 		DroneRole role = RoleOf(requester);

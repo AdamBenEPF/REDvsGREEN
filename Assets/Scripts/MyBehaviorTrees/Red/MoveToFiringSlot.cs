@@ -19,6 +19,7 @@ public class MoveToFiringSlot : Action
 	const float StuckDelay = 0.5f;     // durée à l'arrêt avant de se considérer bloqué (s)
 	const float StuckTolerance = 3f;   // bloqué à moins de 3 m de la distance voulue : on tire quand même (m)
 	const float SpotTolerance = 1f;    // arrivé à moins de 1 m de la position de tir (m)
+	const float SniperTimeoutFactor = 3f; // tir d'élite : le point peut être de l'autre côté de la carte
 
 	NavMeshAgent m_Agent;
 	IArmyElement m_ArmyElement;
@@ -51,6 +52,11 @@ public class MoveToFiringSlot : Action
 		if (m_Manager == null || target.Value == null) return TaskStatus.Failure;
 
 		m_Elapsed += Time.deltaTime;
+
+		// Fin de bataille : rejoindre le point de tir d'élite (la traversée de la carte peut dépasser le timeout normal)
+		if (m_Manager.TryGetSniperSpot(target.Value, out Vector3 sniperSpot))
+			return m_Elapsed > SniperTimeoutFactor * timeout.Value ? TaskStatus.Failure : MoveToSniperSpot(sniperSpot);
+
 		if (m_Elapsed > timeout.Value) return TaskStatus.Failure;
 
 		float wanted = Mathf.Min(m_Manager.GetEngageDistance(target.Value, transform.position), firingRange.Value);
@@ -85,6 +91,24 @@ public class MoveToFiringSlot : Action
 		// Bloqué (autre drone, relief) presque à la bonne distance : on tire quand même
 		if (m_StuckTime > StuckDelay && distance <= wanted + StuckTolerance && clearShot) return Arrive();
 
+		return TaskStatus.Running;
+	}
+
+	TaskStatus MoveToSniperSpot(Vector3 spot)
+	{
+		if (m_Agent.velocity.magnitude < StuckSpeed) m_StuckTime += Time.deltaTime;
+		else m_StuckTime = 0f;
+
+		float toSpot = Vector3.ProjectOnPlane(spot - transform.position, Vector3.up).magnitude;
+		if (toSpot <= SpotTolerance || (m_StuckTime > StuckDelay && toSpot <= StuckTolerance)) return Arrive();
+
+		m_RepathTimer -= Time.deltaTime;
+		if (m_RepathTimer <= 0f)
+		{
+			m_Agent.isStopped = false;
+			m_Agent.SetDestination(spot);
+			m_RepathTimer = RepathPeriod;
+		}
 		return TaskStatus.Running;
 	}
 

@@ -18,6 +18,8 @@ DEFAULT = dict(
     expected_dmg=7.0, dist_weight=1.0, parked_bonus=25.0,
     turret_focus_turrets=False,
     evade_in_wait=False,      # l'esquive peut aussi interrompre le Wait (Selector(Esquive, Wait) dans l'arbre)
+    snipe=False,              # plus de drones verts : tirer sur les tourelles depuis un point hors de portée de toutes
+    snipe_min=51.0, snipe_max=56.0,
     kite=False,               # chasseurs : bougent en permanence entre deux salves (repositionnement latéral)
     kite_leg=6.0,
 )
@@ -198,6 +200,48 @@ class RedPolicy:
                     if s < bs: bs, best = s, (cx, cz)
         return best
 
+    # ------------------------------------------------------------------ tir d'élite (fin de bataille)
+    def threat_count(self, x, y, z, exclude=None):
+        n = 0
+        for t in self.green_turrets:
+            if t is exclude: continue
+            d = math.sqrt((x - t.x) ** 2 + (y - t.y) ** 2 + (z - t.z) ** 2)
+            if 5.0 < d < 50.0: n += 1
+        return n
+
+    def sniper_spot(self, t):
+        """point joignable, à plus de 50 m (3D) de la tourelle visée et hors de portée des autres, ligne de tir dégagée"""
+        if not self.p['snipe'] or self.green_drones: return None
+        key = (t.id, tuple(sorted(v.id for v in self.green_turrets)))
+        cache = getattr(self, '_snipe_cache', {})
+        self._snipe_cache = cache
+        if key in cache: return cache[key]
+        best, bs = None, 1e9
+        for r in (self.p['snipe_min'] + 0.5, (self.p['snipe_min'] + self.p['snipe_max']) / 2, self.p['snipe_max'] - 0.5):
+            for k in range(72):
+                a = math.radians(k * 5.0); cx, cz = t.x + math.sin(a) * r, t.z + math.cos(a) * r
+                i, j = cell(cx, cz)
+                if not (in_grid(i, j) and NAV[i, j] and REACH[i, j]): continue
+                cy = NAVH[i, j] + 1.0
+                if math.sqrt((cx - t.x) ** 2 + (cy - t.y) ** 2 + (cz - t.z) ** 2) < self.p['snipe_min']: continue
+                if missile_blocked(cx, cz, t.x, t.z): continue
+                n = self.threat_count(cx, cy, cz, exclude=t)
+                if n > 0: continue
+                s_ = r
+                if s_ < bs: bs, best = s_, (cx, cz)
+        cache[key] = best
+        return best
+
+    def snipe_target(self, u):
+        """tourelle verte qu'on peut atteindre depuis un point sûr (la plus proche de ce point)"""
+        best, bd = None, 1e9
+        for t in self.green_turrets:
+            sp = self.sniper_spot(t)
+            if sp is None: continue
+            d = math.hypot(sp[0] - u.x, sp[1] - u.z)
+            if d < bd: bd, best = d, t
+        return best
+
     # ------------------------------------------------------------------ cibles
     def engage_dist(self, t):
         if t.kind == 'D': return self.p['firing_distance']
@@ -228,6 +272,9 @@ class RedPolicy:
         t = min(self.green_turrets, key=lambda t: hdist(t, u)); self.squad_t[squad] = t; return t
 
     def target_for(self, u):
+        if self.p['snipe'] and not self.green_drones:
+            t = self.snipe_target(u)
+            if t is not None: return t
         r = self.role[u.id]
         if r == 'H':
             t = self.hunter_target(u)
@@ -408,6 +455,15 @@ class RedDrone:
         if self.state == 'move':
             if not t.alive: u.stop(); self.start_wait(); return
             if self.elapsed > 6.0: u.stop(); self.start_wait(); return
+            spot = pol.sniper_spot(t) if t.kind == 'T' else None
+            if spot is not None:
+                if self.elapsed > 12.0: u.stop(); self.start_wait(); return
+                if math.hypot(spot[0] - u.x, spot[1] - u.z) <= 1.0:
+                    u.stop(); self.goto('aim'); self.compute_aim(); return
+                self.repath -= dt
+                if self.repath <= 0:
+                    self.repath = 0.5; u.speed = 10.0; u.update_rot = True; u.set_destination(spot[0], spot[1], 0.0)
+                return
             want = min(pol.engage_dist(t), 30.0)
             d = hdist(u, t)
             clear = not missile_blocked(u.x, u.z, t.x, t.z)
