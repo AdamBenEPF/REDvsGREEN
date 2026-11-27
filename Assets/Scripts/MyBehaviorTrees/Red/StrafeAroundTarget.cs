@@ -44,7 +44,7 @@ public class StrafeAroundTarget : Action
 	public override TaskStatus OnUpdate()
 	{
 		ArmyManagerRed manager = m_ArmyElement.ArmyManager as ArmyManagerRed;
-		if (manager == null || !manager.StrafeWhileFiring || target.Value == null || !AgentUsable())
+		if (manager == null || target.Value == null || !manager.ShouldStrafe(target.Value) || !AgentUsable())
 		{
 			Stop();
 			return TaskStatus.Running;

@@ -13,7 +13,7 @@ using UnityEngine.AI;
 //  - Fin de bataille (plus de drone vert) : tir d'élite sur les tourelles vertes depuis un point hors de portée de
 //    toute l'artillerie verte (voir ArmyManagerRed.Sniper.cs).
 //  - Options testées puis désactivées par défaut (moins efficaces, voir ReleaseNotes) : tir en mouvement
-//    (m_StrafeWhileFiring, ArmyManagerRed.Strafe.cs) et repositionnement à chaque salve (m_RepositionWhenExposed).
+//    (m_StrafeMode, ArmyManagerRed.Strafe.cs) et repositionnement à chaque salve (m_RepositionWhenExposed).
 //  - Nos tourelles : le plus gros groupe de drones verts à portée, sur leurs positions prévues à l'arrivée de la grenade
 //    (m_PredictClusters, voir ArmyManagerRed.Prediction.cs), sinon la tourelle verte la plus proche ;
 //    ou, avec m_TurretPriority = GreenTurrets, contre-batterie concentrée sur une tourelle verte.

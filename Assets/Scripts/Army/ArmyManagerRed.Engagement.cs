@@ -26,7 +26,7 @@ public partial class ArmyManagerRed
 		Turret turret = target.GetComponent<Turret>();
 		if (turret == null) return m_FiringDistance;
 		float distance = m_TurretEngageDistances.TryGetValue(turret, out float reach) ? reach : m_HugDistance;
-		if (m_StrafeWhileFiring && from.HasValue && IsExposedToArtillery(from.Value)) distance = Mathf.Max(distance, m_StrafeExposedTurretRadius);
+		if (m_StrafeMode == StrafeMode.All && from.HasValue && IsExposedToArtillery(from.Value)) distance = Mathf.Max(distance, m_StrafeExposedTurretRadius);
 		return distance;
 	}
 

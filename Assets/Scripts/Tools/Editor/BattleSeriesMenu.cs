@@ -24,10 +24,10 @@ namespace RedVsGreen.EditorTools
 		// Variantes comparées par la série comparative : "nom:champ=valeur,champ=valeur" (champs de ArmyManagerRed)
 		static readonly string[] Variants =
 		{
-			"esquive-tous:m_EvadeMode=All",
-			"esquive-chasseurs:m_EvadeMode=HuntersOnly",
-			"sans-esquive:m_EvadeMode=None",
-			"esquive-tous-8-chasseurs:m_EvadeMode=All,m_HunterCount=8",
+			"v16:m_StrafeMode=None",
+			"mouvement-contre-drones:m_StrafeMode=AgainstDrones",
+			"mouvement-tous:m_StrafeMode=All",
+			"focus-reparti:m_StrafeMode=None,m_ExpectedDamagePerDrone=25,m_DistanceWeight=3",
 		};
 
 		[MenuItem("RedVsGreen/Série comparative (10 batailles par variante, vitesse x3)", priority = 10)]

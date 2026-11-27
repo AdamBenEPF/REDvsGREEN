@@ -8,8 +8,11 @@ using UnityEngine.AI;
 public partial class ArmyManagerRed
 {
 	[Header("Tir en mouvement")]
-	[Tooltip("Les drones continuent de se déplacer pendant la visée, le tir et le Wait")]
-	[SerializeField] bool m_StrafeWhileFiring = false;
+	public enum StrafeMode { None, AgainstDrones, All }
+
+	[Tooltip("Les drones continuent de se déplacer pendant la visée, le tir et le Wait. AgainstDrones : seulement quand la "
+		+ "cible est un drone vert (ses missiles visent notre position actuelle et ratent une cible qui bouge)")]
+	[SerializeField] StrafeMode m_StrafeMode = StrafeMode.None;
 	[Tooltip("Longueur minimale d'un bond (m) : rayon de la grenade (5 m) + rayon du drone + marge")]
 	[SerializeField] float m_StrafeMinLeg = 6f;
 	[Tooltip("Rayon du cercle autour d'une tourelle verte (m), sous ses 5 m de rayon minimal de tir")]
@@ -20,7 +23,16 @@ public partial class ArmyManagerRed
 	[Tooltip("Distance minimale à un drone vert visé (m)")]
 	[SerializeField] float m_StrafeMinDroneDistance = 8f;
 
-	public bool StrafeWhileFiring => m_StrafeWhileFiring;
+	public bool ShouldStrafe(Transform target)
+	{
+		if (target == null) return false;
+		switch (m_StrafeMode)
+		{
+			case StrafeMode.All: return true;
+			case StrafeMode.AgainstDrones: return target.GetComponent<Drone>() != null;
+			default: return false;
+		}
+	}
 
 	float StrafeRadius(Vector3 dronePosition, Transform target)
 	{
