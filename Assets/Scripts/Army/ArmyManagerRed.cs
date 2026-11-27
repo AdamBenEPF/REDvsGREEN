@@ -8,10 +8,10 @@ using UnityEngine.AI;
 //      escouade A dans l'ordre TurretGreen (1) à (8) puis (0), escouade B dans l'ordre inverse.
 //  - 9 drones chasseurs : ils attaquent les drones verts. Chaque chasseur garde sa cible jusqu'à ce qu'elle meure.
 //  - Quand un groupe n'a plus de cible (plus de tourelle ou plus de drone vert), il rejoint l'autre tâche.
-//  - Tir en mouvement : les drones tournent autour de leur cible pendant la visée, le tir et le Wait
-//    (m_StrafeWhileFiring, voir ArmyManagerRed.Strafe.cs et StrafeAroundTarget).
-//  - Esquive des grenades vertes (m_EvadeMode, voir ArmyManagerRed.Grenades.cs) et repositionnement à chaque salve
-//    quand l'artillerie verte peut viser le drone (m_RepositionWhenExposed, voir ArmyManagerRed.Reposition.cs).
+//  - Esquive « juste à temps » des grenades vertes par tous les drones (m_EvadeMode, voir ArmyManagerRed.Grenades.cs) :
+//    un drone continue de tirer et ne part qu'au dernier moment ; l'esquive interrompt l'attaque comme le Wait.
+//  - Options testées puis désactivées par défaut (moins efficaces, voir ReleaseNotes) : tir en mouvement
+//    (m_StrafeWhileFiring, ArmyManagerRed.Strafe.cs) et repositionnement à chaque salve (m_RepositionWhenExposed).
 //  - Nos tourelles : le plus gros groupe de drones verts à portée, sur leurs positions prévues à l'arrivée de la grenade
 //    (m_PredictClusters, voir ArmyManagerRed.Prediction.cs), sinon la tourelle verte la plus proche ;
 //    ou, avec m_TurretPriority = GreenTurrets, contre-batterie concentrée sur une tourelle verte.
@@ -35,7 +35,7 @@ public partial class ArmyManagerRed : ArmyManager
 	[SerializeField] string[] m_AssaultOrder = { "TurretGreen (1)", "TurretGreen (2)", "TurretGreen (3)", "TurretGreen (4)", "TurretGreen (5)", "TurretGreen (6)", "TurretGreen (7)", "TurretGreen (8)", "TurretGreen (0)" };
 
 	[Tooltip("Drones qui esquivent les grenades vertes. Endgame : les chasseurs, plus tous les drones quand il reste peu de drones verts")]
-	[SerializeField] EvadeMode m_EvadeMode = EvadeMode.None;
+	[SerializeField] EvadeMode m_EvadeMode = EvadeMode.All;
 	[Tooltip("Mode Endgame : tous nos drones esquivent quand il reste au plus ce nombre de drones verts")]
 	[SerializeField] int m_EndgameGreenDrones = 6;
 

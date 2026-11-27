@@ -1,12 +1,11 @@
-using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 
+// Condition de la branche Esquive (abort Lower Priority) : vraie au dernier moment, quand une grenade verte va tomber
+// sur le drone et qu'il lui reste juste le temps de sortir de la zone. Avant cela, le drone continue de viser et de tirer.
 [TaskCategory("MyTasks/Red")]
-[TaskDescription("Vrai si une grenade verte en vol va tomber près du drone")]
+[TaskDescription("Vrai quand il faut partir maintenant pour éviter une grenade verte (esquive juste à temps)")]
 public class IsInGrenadeDanger : Conditional
 {
-	public SharedFloat margin = 1f; // marge au-delà du rayon de 5 m de la grenade (m)
-
 	IArmyElement m_ArmyElement;
 
 	public override void OnAwake()
@@ -18,6 +17,6 @@ public class IsInGrenadeDanger : Conditional
 	{
 		ArmyManagerRed manager = m_ArmyElement.ArmyManager as ArmyManagerRed;
 		if (manager == null) return TaskStatus.Failure;
-		return manager.CanEvade(gameObject) && manager.IsInGrenadeDanger(transform.position, margin.Value) ? TaskStatus.Success : TaskStatus.Failure;
+		return manager.ShouldDodge(gameObject) ? TaskStatus.Success : TaskStatus.Failure;
 	}
 }

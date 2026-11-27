@@ -9,7 +9,7 @@ public partial class ArmyManagerRed
 {
 	[Header("Tir en mouvement")]
 	[Tooltip("Les drones continuent de se déplacer pendant la visée, le tir et le Wait")]
-	[SerializeField] bool m_StrafeWhileFiring = true;
+	[SerializeField] bool m_StrafeWhileFiring = false;
 	[Tooltip("Longueur minimale d'un bond (m) : rayon de la grenade (5 m) + rayon du drone + marge")]
 	[SerializeField] float m_StrafeMinLeg = 6f;
 	[Tooltip("Rayon du cercle autour d'une tourelle verte (m), sous ses 5 m de rayon minimal de tir")]

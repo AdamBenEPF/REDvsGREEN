@@ -24,10 +24,10 @@ namespace RedVsGreen.EditorTools
 		// Variantes comparées par la série comparative : "nom:champ=valeur,champ=valeur" (champs de ArmyManagerRed)
 		static readonly string[] Variants =
 		{
-			"immobile:m_StrafeWhileFiring=false,m_EvadeMode=Endgame,m_PredictClusters=false",
-			"immobile-prediction:m_StrafeWhileFiring=false,m_EvadeMode=Endgame,m_PredictClusters=true",
-			"mouvement-r8:m_StrafeWhileFiring=true,m_EvadeMode=None,m_PredictClusters=false",
-			"mouvement-r8-prediction:m_StrafeWhileFiring=true,m_EvadeMode=None,m_PredictClusters=true",
+			"esquive-tous:m_EvadeMode=All",
+			"esquive-chasseurs:m_EvadeMode=HuntersOnly",
+			"sans-esquive:m_EvadeMode=None",
+			"esquive-tous-8-chasseurs:m_EvadeMode=All,m_HunterCount=8",
 		};
 
 		[MenuItem("RedVsGreen/Série comparative (10 batailles par variante, vitesse x3)", priority = 10)]

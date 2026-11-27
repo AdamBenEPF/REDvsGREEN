@@ -14,3 +14,8 @@
 *.user
 *.tmp
 .DS_Store
+
+# Simulateur : fichiers générés
+Simulator/map.npz
+Simulator/units.json
+Simulator/__pycache__/
