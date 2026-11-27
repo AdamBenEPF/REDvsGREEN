@@ -13,8 +13,6 @@ using UnityEngine.AI;
 public partial class ArmyManagerRed
 {
 	[Header("Prédiction des groupes pour nos tourelles")]
-	[Tooltip("Nos tourelles visent la position prévue des groupes de drones verts à l'arrivée de la grenade")]
-	[SerializeField] bool m_PredictClusters = true;
 	[Tooltip("Temps moyen de rotation de nos tourelles avant le tir (s), ajouté aux 4 s de vol au moment du choix du groupe")]
 	[SerializeField] float m_TurretRotationEstimate = 1f;
 	[Tooltip("Écart latéral maximal entre la trajectoire d'un drone vert et une de nos unités pour la considérer comme sa cible (m)")]
@@ -120,7 +118,6 @@ public partial class ArmyManagerRed
 	// Point visé : centre prévu du groupe à l'arrivée de la grenade (mis à jour à chaque image jusqu'au tir)
 	Vector3 PredictedClusterCenter(List<ArmyElement> members)
 	{
-		if (!m_PredictClusters) return Centroid(members.Select(member => member.transform.position));
 		return Centroid(members.Select(member => PredictGreenDrone(member, m_GrenadeTravelDuration, out _)));
 	}
 }

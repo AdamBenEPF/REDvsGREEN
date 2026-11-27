@@ -4,25 +4,20 @@ using UnityEngine;
 using UnityEngine.AI;
 
 // État-major rouge
-//  - 4 drones d'assaut en 2 escouades de 2, chacune sur une tourelle verte jusqu'à sa destruction :
-//      escouade A dans l'ordre TurretGreen (1) à (8) puis (0), escouade B dans l'ordre inverse.
-//  - 9 drones chasseurs : ils attaquent les drones verts. Chaque chasseur garde sa cible jusqu'à ce qu'elle meure.
+//  - 9 drones chasseurs sur les drones verts, environ 2 par cible, en privilégiant les plus proches et les immobiles.
+//    Chaque chasseur garde sa cible jusqu'à ce qu'elle meure.
+//  - 4 drones d'assaut en 2 escouades de 2, chacune sur une tourelle verte jusqu'à sa destruction, collées dans son
+//    angle mort (moins de 5 m) : escouade A dans l'ordre TurretGreen (1) à (8) puis (0), escouade B dans l'ordre inverse.
 //  - Quand un groupe n'a plus de cible (plus de tourelle ou plus de drone vert), il rejoint l'autre tâche.
-//  - Esquive « juste à temps » des grenades vertes par tous les drones (m_EvadeMode, voir ArmyManagerRed.Grenades.cs) :
-//    un drone continue de tirer et ne part qu'au dernier moment ; l'esquive interrompt l'attaque comme le Wait.
+//  - Esquive « juste à temps » des grenades vertes par tous les drones (voir ArmyManagerRed.Grenades.cs).
 //  - Fin de bataille (plus de drone vert) : tir d'élite sur les tourelles vertes depuis un point hors de portée de
 //    toute l'artillerie verte (voir ArmyManagerRed.Sniper.cs).
-//  - Options testées puis désactivées par défaut (moins efficaces, voir ReleaseNotes) : tir en mouvement
-//    (m_StrafeMode, ArmyManagerRed.Strafe.cs) et repositionnement à chaque salve (m_RepositionWhenExposed).
-//  - Nos tourelles : le plus gros groupe de drones verts à portée, sur leurs positions prévues à l'arrivée de la grenade
-//    (m_PredictClusters, voir ArmyManagerRed.Prediction.cs), sinon la tourelle verte la plus proche ;
-//    ou, avec m_TurretPriority = GreenTurrets, contre-batterie concentrée sur une tourelle verte.
-//    Les tourelles de m_TurretPriorityTargets passent avant tout : TurretGreen (6), perchée, que nos drones atteignent mal.
+//  - Nos tourelles : TurretGreen (6) d'abord (perchée, nos drones l'atteignent mal), puis le plus gros groupe de drones
+//    verts à l'endroit où il sera à l'arrivée de la grenade (voir ArmyManagerRed.Prediction.cs), sinon la tourelle
+//    verte la plus proche.
 public partial class ArmyManagerRed : ArmyManager
 {
 	enum DroneRole { SquadA, SquadB, Hunter }
-	public enum EvadeMode { None, HuntersOnly, All, Endgame }
-	public enum TurretPriority { DroneClusters, GreenTurrets }
 
 	class TurretAim
 	{
@@ -36,16 +31,11 @@ public partial class ArmyManagerRed : ArmyManager
 	[Tooltip("Ordre d'attaque des tourelles vertes par l'escouade A (noms dans la Hierarchy). L'escouade B le suit à l'envers")]
 	[SerializeField] string[] m_AssaultOrder = { "TurretGreen (1)", "TurretGreen (2)", "TurretGreen (3)", "TurretGreen (4)", "TurretGreen (5)", "TurretGreen (6)", "TurretGreen (7)", "TurretGreen (8)", "TurretGreen (0)" };
 
-	[Tooltip("Drones qui esquivent les grenades vertes. Endgame : les chasseurs, plus tous les drones quand il reste peu de drones verts")]
-	[SerializeField] EvadeMode m_EvadeMode = EvadeMode.All;
-	[Tooltip("Mode Endgame : tous nos drones esquivent quand il reste au plus ce nombre de drones verts")]
-	[SerializeField] int m_EndgameGreenDrones = 6;
-
 	[Header("Chasseurs")]
-	[Tooltip("Dégâts attendus d'une salve de drone : 2 missiles x 5 pts, moins les ratés")]
-	[SerializeField] float m_ExpectedDamagePerDrone = 7f;
+	[Tooltip("Dégâts comptés pour chaque chasseur déjà sur une cible : 25 pts, soit 2 chasseurs par drone vert de 50 PV")]
+	[SerializeField] float m_ExpectedDamagePerDrone = 25f;
 	[Tooltip("Poids de la distance dans le choix de la cible (PV équivalents par mètre)")]
-	[SerializeField] float m_DistanceWeight = 1f;
+	[SerializeField] float m_DistanceWeight = 3f;
 	[Tooltip("En dessous de cette vitesse (m/s), une unité verte est considérée immobile")]
 	[SerializeField] float m_ParkedSpeed = 1f;
 	[Tooltip("Bonus de priorité d'un drone vert immobile, plus facile à toucher (PV équivalents)")]
@@ -56,12 +46,8 @@ public partial class ArmyManagerRed : ArmyManager
 	[SerializeField] float m_GrenadeRadius = 5f;
 	[Tooltip("Dégâts d'une grenade (Annexe A)")]
 	[SerializeField] float m_GrenadeDamage = 10f;
-	[Tooltip("Rayon d'un groupe de drones verts visé par une grenade (m)")]
-	[SerializeField] float m_ClusterRadius = 4f;
 	[Tooltip("Tourelles vertes que nos tourelles détruisent en priorité quand elles sont à portée (noms dans la Hierarchy)")]
 	[SerializeField] string[] m_TurretPriorityTargets = { "TurretGreen (6)" };
-	[Tooltip("Cible prioritaire de nos tourelles")]
-	[SerializeField] TurretPriority m_TurretPriority = TurretPriority.DroneClusters;
 	[Tooltip("Durée pendant laquelle un tir de grenade déjà commandé est compté sur sa cible (s) : rotation + vol")]
 	[SerializeField] float m_PendingShotDuration = 6f;
 
@@ -142,19 +128,6 @@ public partial class ArmyManagerRed : ArmyManager
 		return target != null ? target.transform : null;
 	}
 
-	public bool CanEvade(GameObject drone)
-	{
-		switch (m_EvadeMode)
-		{
-			case EvadeMode.All: return true;
-			case EvadeMode.HuntersOnly: return IsHunter(drone);
-			// En fin de bataille, l'artillerie verte est la principale menace et il n'y a presque plus de drones à abattre :
-			// le temps passé à esquiver ne coûte plus rien
-			case EvadeMode.Endgame: return IsHunter(drone) || GreenDroneCount() <= m_EndgameGreenDrones;
-			default: return false;
-		}
-	}
-
 	int m_GreenDroneCount, m_GreenDroneCountFrame = -1;
 	int GreenDroneCount()
 	{
@@ -217,7 +190,7 @@ public partial class ArmyManagerRed : ArmyManager
 	}
 
 	// Un chasseur garde sa cible jusqu'à sa mort. Sinon, nouvelle cible :
-	// d'abord un drone vert que les autres chasseurs n'ont pas encore de quoi tuer (focus fire),
+	// d'abord un drone vert qui n'a pas encore assez de chasseurs (environ 2 par cible),
 	// en privilégiant le plus proche, le plus entamé et les drones immobiles (plus faciles à toucher)
 	ArmyElement GetHunterTarget(GameObject hunter)
 	{
@@ -256,7 +229,7 @@ public partial class ArmyManagerRed : ArmyManager
 	}
 
 	// =====================================================================
-	// TOURELLES : le plus gros groupe de drones verts à portée, sinon la tourelle verte la plus proche
+	// TOURELLES : TurretGreen (6), puis le plus gros groupe de drones verts, sinon la tourelle verte la plus proche
 	// =====================================================================
 
 	public Transform GetTurretTarget(GameObject requester, float minRadius, float maxRadius)
@@ -267,21 +240,8 @@ public partial class ArmyManagerRed : ArmyManager
 			Turret priority = GetArtilleryFocus(from, minRadius, maxRadius, m_TurretPriorityTargets);
 			if (priority != null) return priority.transform;
 		}
-		if (m_TurretPriority == TurretPriority.GreenTurrets)
-		{
-			Turret focus = GetArtilleryFocus(from, minRadius, maxRadius, null);
-			if (focus != null) return focus.transform;
-		}
-		if (m_PredictClusters)
-		{
-			Transform predicted = GetPredictedClusterTarget(requester, minRadius, maxRadius);
-			if (predicted != null) return predicted;
-		}
-		else
-		{
-			Transform current = GetCurrentClusterTarget(requester, from, minRadius, maxRadius);
-			if (current != null) return current;
-		}
+		Transform cluster = GetPredictedClusterTarget(requester, minRadius, maxRadius);
+		if (cluster != null) return cluster;
 
 		// Aucun drone vert à portée : la tourelle verte la plus proche à portée
 		Turret nearest = GetAllEnemiesOfType<Turret>(false)
@@ -291,34 +251,8 @@ public partial class ArmyManagerRed : ArmyManager
 		return nearest != null ? nearest.transform : null;
 	}
 
-	// Groupe le plus gros autour de la position actuelle des drones verts (sans prédiction)
-	Transform GetCurrentClusterTarget(GameObject requester, Vector3 from, float minRadius, float maxRadius)
-	{
-		List<Drone> greenDrones = GetAllEnemiesOfType<Drone>(false).Where(d => d.Health > 0).ToList();
-
-		List<ArmyElement> bestCluster = null;
-		float bestScore = 0f;
-		foreach (Drone candidate in greenDrones)
-		{
-			if (!IsWithinRadius(from, candidate.transform.position, minRadius, maxRadius)) continue;
-
-			List<ArmyElement> cluster = greenDrones
-				.Where(other => Vector3.Distance(other.transform.position, candidate.transform.position) <= m_ClusterRadius)
-				.Cast<ArmyElement>()
-				.ToList();
-			// Taille du groupe d'abord ; à égalité, les drones immobiles (ils seront encore là à l'impact, 4 s plus tard)
-			float score = cluster.Count + 0.1f * cluster.Count(member => IsStationary(member));
-			if (score > bestScore)
-			{
-				bestScore = score;
-				bestCluster = cluster;
-			}
-		}
-		return bestCluster != null ? AimAtCluster(requester, bestCluster) : null;
-	}
-
-	// Contre-batterie : toutes nos tourelles sur la même tourelle verte, la plus entamée, sans gaspiller de tirs
-	// sur une tourelle que les grenades déjà commandées suffisent à détruire. names : limite le choix à ces tourelles
+	// Toutes nos tourelles à portée sur la même tourelle verte prioritaire, sans gaspiller de tirs sur une tourelle
+	// que les grenades déjà commandées suffisent à détruire. names : tourelles vertes autorisées
 	Turret GetArtilleryFocus(Vector3 from, float minRadius, float maxRadius, string[] names)
 	{
 		m_PendingTurretShots.RemoveAll(shot => shot.Key == null || Time.time - shot.Value > m_PendingShotDuration);
@@ -328,7 +262,7 @@ public partial class ArmyManagerRed : ArmyManager
 		foreach (Turret enemy in GetAllEnemiesOfType<Turret>(false))
 		{
 			if (enemy.Health <= 0 || !IsWithinRadius(from, enemy.transform.position, minRadius, maxRadius)) continue;
-			if (names != null && System.Array.IndexOf(names, enemy.name) < 0) continue;
+			if (System.Array.IndexOf(names, enemy.name) < 0) continue;
 			int pending = m_PendingTurretShots.Count(shot => shot.Key == enemy);
 			float remaining = enemy.Health - pending * m_GrenadeDamage;
 			if (remaining <= 0) continue;
@@ -377,6 +311,9 @@ public partial class ArmyManagerRed : ArmyManager
 	// OUTILS COMMUNS
 	// =====================================================================
 
+	const float TurretMinRadius = 5f;  // Select Enemy des tourelles, Annexe A (m)
+	const float TurretMaxRadius = 50f; // Select Enemy des tourelles, Annexe A (m)
+
 	// Une tourelle n'a pas de NavMeshAgent : elle est toujours immobile
 	bool IsStationary(ArmyElement element)
 	{
@@ -409,7 +346,6 @@ public partial class ArmyManagerRed : ArmyManager
 	public override void ArmyElementHasBeenKilled(GameObject go)
 	{
 		m_DroneLocks.Remove(go);
-		m_LastFiringPositions.Remove(go);
 		base.ArmyElementHasBeenKilled(go);
 		if (m_ArmyElements.Count == 0)
 		{

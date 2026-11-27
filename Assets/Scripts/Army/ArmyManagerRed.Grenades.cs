@@ -8,7 +8,6 @@ using UnityEngine.AI;
 // et son heure d'impact. Un drone n'esquive donc pas dès qu'une grenade est en l'air : il continue de viser et de tirer,
 // et ne part qu'au dernier moment, quand le temps restant avant l'impact devient à peine supérieur au temps qu'il lui
 // faut pour sortir de la zone (environ 1,3 s depuis l'arrêt, avec 8 m/s² et 10 m/s, Annexe A).
-// Réglages validés sur le simulateur Python (Tools/Simulator) puis en jeu.
 public partial class ArmyManagerRed
 {
 	[Header("Esquive des grenades")]
@@ -91,7 +90,6 @@ public partial class ArmyManagerRed
 	// Vrai s'il faut partir maintenant : une grenade menace le drone et il ne lui reste que le temps de sortir de la zone
 	public bool ShouldDodge(GameObject drone)
 	{
-		if (!CanEvade(drone)) return false;
 		if (!TryGetThreat(drone, out GrenadeImpact threat)) return false;
 		return threat.timeToImpact <= EscapeTime(drone, threat.position) + m_DodgeTimeMargin;
 	}

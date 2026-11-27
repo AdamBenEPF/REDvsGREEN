@@ -15,23 +15,14 @@ namespace RedVsGreen.EditorTools
 		[MenuItem("RedVsGreen/Série de 20 batailles (vitesse x3)", priority = 1)]
 		static void Run20x3() => StartSeries(20, 3f);
 
-		[MenuItem("RedVsGreen/Série de 5 batailles (vitesse x3)", priority = 2)]
+		[MenuItem("RedVsGreen/Série de 50 batailles (vitesse x3)", priority = 2)]
+		static void Run50x3() => StartSeries(50, 3f);
+
+		[MenuItem("RedVsGreen/Série de 5 batailles (vitesse x3)", priority = 3)]
 		static void Run5x3() => StartSeries(5, 3f);
 
-		[MenuItem("RedVsGreen/Série de 20 batailles (vitesse normale)", priority = 3)]
+		[MenuItem("RedVsGreen/Série de 20 batailles (vitesse normale)", priority = 4)]
 		static void Run20x1() => StartSeries(20, 1f);
-
-		// Variantes comparées par la série comparative : "nom:champ=valeur,champ=valeur" (champs de ArmyManagerRed)
-		static readonly string[] Variants =
-		{
-			"v16:m_StrafeMode=None",
-			"mouvement-contre-drones:m_StrafeMode=AgainstDrones",
-			"mouvement-tous:m_StrafeMode=All",
-			"focus-reparti:m_StrafeMode=None,m_ExpectedDamagePerDrone=25,m_DistanceWeight=3",
-		};
-
-		[MenuItem("RedVsGreen/Série comparative (10 batailles par variante, vitesse x3)", priority = 10)]
-		static void RunVariants() => StartSeries(10, 3f, string.Join("|", Variants));
 
 		[MenuItem("RedVsGreen/Arrêter la série", priority = 20)]
 		static void Stop()
@@ -40,7 +31,7 @@ namespace RedVsGreen.EditorTools
 			if (EditorApplication.isPlaying) EditorApplication.isPlaying = false;
 		}
 
-		static void StartSeries(int battles, float timeScale, string variants = "")
+		static void StartSeries(int battles, float timeScale)
 		{
 			if (EditorApplication.isPlaying) { Debug.LogWarning("Arrête d'abord le mode Play."); return; }
 			if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
@@ -49,8 +40,7 @@ namespace RedVsGreen.EditorTools
 			SessionState.SetBool(BattleSeriesKeys.Active, true);
 			SessionState.SetInt(BattleSeriesKeys.Battles, battles);
 			SessionState.SetFloat(BattleSeriesKeys.TimeScale, timeScale);
-			SessionState.SetString(BattleSeriesKeys.Label, GitLabel() + (variants.Length > 0 ? "_variantes" : ""));
-			SessionState.SetString(BattleSeriesKeys.Variants, variants);
+			SessionState.SetString(BattleSeriesKeys.Label, GitLabel());
 			EditorApplication.isPlaying = true;
 		}
 
