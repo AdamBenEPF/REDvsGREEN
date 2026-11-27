@@ -7,9 +7,9 @@ using UnityEngine.AI;
 // la zone d'impact d'une grenade tirée sur la position de départ, et évite les impacts déjà prévus.
 public partial class ArmyManagerRed
 {
-	[Header("Tir en mouvement")]
 	public enum StrafeMode { None, AgainstDrones, All }
 
+	[Header("Tir en mouvement")]
 	[Tooltip("Les drones continuent de se déplacer pendant la visée, le tir et le Wait. AgainstDrones : seulement quand la "
 		+ "cible est un drone vert (ses missiles visent notre position actuelle et ratent une cible qui bouge)")]
 	[SerializeField] StrafeMode m_StrafeMode = StrafeMode.None;
